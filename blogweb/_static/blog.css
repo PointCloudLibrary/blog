@@ -1,0 +1,78 @@
+div.blogbody {
+    
+    background-color: #f2f2f2;
+    padding: 5px;
+}
+
+div.blogpost {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+div.blogpost-header {
+    background-color: #ddd;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    height: 65px;
+    padding-top: 10px;
+    padding-left: -10px;
+    margin-left: -20px;
+    margin-right: -20px;
+    position: relative;
+}
+
+div.blogpost-title {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 150%;
+    color: #5f8138;
+    
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+div.blogpost-author {
+    font-style:bold;
+    padding-right: 10px;
+
+    float: right;
+}
+
+div.blogpost-project {
+    font-style:bold;
+    padding-right: 10px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+div.blogpost-date {
+    font-style:italic;
+    float: left;
+    padding-left: 10px;
+}
+
+div.blogpost-footer {
+    visibility:hidden;
+    margin-left: -10px;
+    margin-bottom: 0px;
+}
+
+
+/* TRCS-specific colors */
+div.blogpost-header.trcs { background-color: #ddf; }
+div.blogpost-title.trcs { color: #000066; }
+div.blogpost-author.trcs a:link { color: #000066; }
+div.blogpost-author.trcs a:visited { color: #000033; }
+
+/* TOCS-specific colors */
+div.blogpost-header.tocs { background-color: #fee; }
+div.blogpost-title.tocs { color: #660000; }
+div.blogpost.tocs a { color: #990000; }
+div.blogpost-author.tocs a { color: #330000; }
