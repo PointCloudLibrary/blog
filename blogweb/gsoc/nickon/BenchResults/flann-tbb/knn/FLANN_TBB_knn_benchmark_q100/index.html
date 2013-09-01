@@ -1,0 +1,684 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="en">
+<head>
+<link media="all" href="style.css" type="text/css" rel="stylesheet" />
+<title>FLANN TBB benchmark (100 query points)</title>
+</head>
+<body>
+<h1>FLANN TBB benchmark (100 query points)</h1>
+<hr />
+<h1>T-rex_high</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000399</td>
+<td>0.00000737</td>
+<td>0.00001144</td>
+<td>0.00001606</td>
+<td>0.00002847</td>
+<td>0.00004490</td>
+<td>0.00006549</td>
+<td>0.00009013</td>
+<td>0.00011847</td>
+<td>0.00015071</td>
+<td>0.00019005</td>
+<td>0.00022804</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000939</td>
+<td>0.00001193</td>
+<td>0.00001227</td>
+<td>0.00001443</td>
+<td>0.00002022</td>
+<td>0.00002823</td>
+<td>0.00003822</td>
+<td>0.00005487</td>
+<td>0.00006387</td>
+<td>0.00008060</td>
+<td>0.00009677</td>
+<td>0.00011735</td>
+</tr>
+</table>
+<img src="./all_search_times/T-rex_high.png" width="600" height="400" />
+<br />
+<hr />
+<h1>chicken_high</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000396</td>
+<td>0.00000799</td>
+<td>0.00001265</td>
+<td>0.00001705</td>
+<td>0.00003175</td>
+<td>0.00004916</td>
+<td>0.00006711</td>
+<td>0.00009113</td>
+<td>0.00011932</td>
+<td>0.00015123</td>
+<td>0.00018778</td>
+<td>0.00022823</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000972</td>
+<td>0.00001124</td>
+<td>0.00001326</td>
+<td>0.00001577</td>
+<td>0.00002199</td>
+<td>0.00003141</td>
+<td>0.00004043</td>
+<td>0.00005202</td>
+<td>0.00006564</td>
+<td>0.00008349</td>
+<td>0.00010079</td>
+<td>0.00012131</td>
+</tr>
+</table>
+<img src="./all_search_times/chicken_high.png" width="600" height="400" />
+<br />
+<hr />
+<h1>cheff</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000378</td>
+<td>0.00000720</td>
+<td>0.00001123</td>
+<td>0.00001622</td>
+<td>0.00002878</td>
+<td>0.00004554</td>
+<td>0.00006614</td>
+<td>0.00009066</td>
+<td>0.00011904</td>
+<td>0.00015115</td>
+<td>0.00018723</td>
+<td>0.00022692</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000970</td>
+<td>0.00001229</td>
+<td>0.00001300</td>
+<td>0.00001535</td>
+<td>0.00002115</td>
+<td>0.00002924</td>
+<td>0.00003915</td>
+<td>0.00005095</td>
+<td>0.00006480</td>
+<td>0.00008027</td>
+<td>0.00009921</td>
+<td>0.00011788</td>
+</tr>
+</table>
+<img src="./all_search_times/cheff.png" width="600" height="400" />
+<br />
+<hr />
+<h1>rhino</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000382</td>
+<td>0.00000714</td>
+<td>0.00001126</td>
+<td>0.00001625</td>
+<td>0.00002921</td>
+<td>0.00004623</td>
+<td>0.00006740</td>
+<td>0.00009393</td>
+<td>0.00012189</td>
+<td>0.00015531</td>
+<td>0.00019472</td>
+<td>0.00023626</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000973</td>
+<td>0.00001120</td>
+<td>0.00001317</td>
+<td>0.00001524</td>
+<td>0.00002131</td>
+<td>0.00002945</td>
+<td>0.00003990</td>
+<td>0.00005339</td>
+<td>0.00006691</td>
+<td>0.00008436</td>
+<td>0.00010145</td>
+<td>0.00012362</td>
+</tr>
+</table>
+<img src="./all_search_times/rhino.png" width="600" height="400" />
+<br />
+<hr />
+<h1>rs21</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000383</td>
+<td>0.00000710</td>
+<td>0.00001121</td>
+<td>0.00001623</td>
+<td>0.00002906</td>
+<td>0.00004541</td>
+<td>0.00006583</td>
+<td>0.00009035</td>
+<td>0.00011963</td>
+<td>0.00015294</td>
+<td>0.00019011</td>
+<td>0.00023086</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000973</td>
+<td>0.00001105</td>
+<td>0.00001301</td>
+<td>0.00001530</td>
+<td>0.00002246</td>
+<td>0.00002914</td>
+<td>0.00003898</td>
+<td>0.00005264</td>
+<td>0.00006503</td>
+<td>0.00008166</td>
+<td>0.00010268</td>
+<td>0.00012074</td>
+</tr>
+</table>
+<img src="./all_search_times/rs21.png" width="600" height="400" />
+<br />
+<hr />
+<h1>rs7</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000393</td>
+<td>0.00000724</td>
+<td>0.00001135</td>
+<td>0.00001607</td>
+<td>0.00002840</td>
+<td>0.00004420</td>
+<td>0.00006371</td>
+<td>0.00008844</td>
+<td>0.00011416</td>
+<td>0.00014534</td>
+<td>0.00018123</td>
+<td>0.00021973</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000981</td>
+<td>0.00001117</td>
+<td>0.00001313</td>
+<td>0.00001532</td>
+<td>0.00002140</td>
+<td>0.00002923</td>
+<td>0.00003895</td>
+<td>0.00005105</td>
+<td>0.00006594</td>
+<td>0.00007984</td>
+<td>0.00009623</td>
+<td>0.00011594</td>
+</tr>
+</table>
+<img src="./all_search_times/rs7.png" width="600" height="400" />
+<br />
+<hr />
+<h1>rs9</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000391</td>
+<td>0.00000718</td>
+<td>0.00001140</td>
+<td>0.00001608</td>
+<td>0.00002991</td>
+<td>0.00004555</td>
+<td>0.00006448</td>
+<td>0.00008755</td>
+<td>0.00011475</td>
+<td>0.00014523</td>
+<td>0.00017965</td>
+<td>0.00021734</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000969</td>
+<td>0.00001124</td>
+<td>0.00001304</td>
+<td>0.00001527</td>
+<td>0.00002195</td>
+<td>0.00002969</td>
+<td>0.00003922</td>
+<td>0.00005126</td>
+<td>0.00006579</td>
+<td>0.00007950</td>
+<td>0.00009790</td>
+<td>0.00011905</td>
+</tr>
+</table>
+<img src="./all_search_times/rs9.png" width="600" height="400" />
+<br />
+<hr />
+<h1>parasaurolophus_high</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000382</td>
+<td>0.00000729</td>
+<td>0.00001138</td>
+<td>0.00001660</td>
+<td>0.00002943</td>
+<td>0.00004583</td>
+<td>0.00006606</td>
+<td>0.00009066</td>
+<td>0.00011977</td>
+<td>0.00015266</td>
+<td>0.00018954</td>
+<td>0.00022926</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000965</td>
+<td>0.00001121</td>
+<td>0.00001315</td>
+<td>0.00001565</td>
+<td>0.00002296</td>
+<td>0.00002971</td>
+<td>0.00003974</td>
+<td>0.00005302</td>
+<td>0.00006603</td>
+<td>0.00008183</td>
+<td>0.00010093</td>
+<td>0.00011914</td>
+</tr>
+</table>
+<img src="./all_search_times/parasaurolophus_high.png" width="600" height="400" />
+<br />
+<hr />
+<h1>office1</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000357</td>
+<td>0.00000765</td>
+<td>0.00001082</td>
+<td>0.00001573</td>
+<td>0.00002927</td>
+<td>0.00004538</td>
+<td>0.00006728</td>
+<td>0.00009305</td>
+<td>0.00012220</td>
+<td>0.00015500</td>
+<td>0.00019251</td>
+<td>0.00023086</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000958</td>
+<td>0.00001103</td>
+<td>0.00001284</td>
+<td>0.00001517</td>
+<td>0.00002146</td>
+<td>0.00003006</td>
+<td>0.00004012</td>
+<td>0.00005410</td>
+<td>0.00006885</td>
+<td>0.00008444</td>
+<td>0.00010248</td>
+<td>0.00012159</td>
+</tr>
+</table>
+<img src="./all_search_times/office1.png" width="600" height="400" />
+<br />
+<hr />
+<h1>office2</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000390</td>
+<td>0.00000685</td>
+<td>0.00001064</td>
+<td>0.00001530</td>
+<td>0.00002718</td>
+<td>0.00004248</td>
+<td>0.00006325</td>
+<td>0.00008466</td>
+<td>0.00011078</td>
+<td>0.00014053</td>
+<td>0.00017312</td>
+<td>0.00021042</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000962</td>
+<td>0.00001099</td>
+<td>0.00001280</td>
+<td>0.00001507</td>
+<td>0.00002082</td>
+<td>0.00002851</td>
+<td>0.00003813</td>
+<td>0.00004944</td>
+<td>0.00006251</td>
+<td>0.00007662</td>
+<td>0.00009275</td>
+<td>0.00011017</td>
+</tr>
+</table>
+<img src="./all_search_times/office2.png" width="600" height="400" />
+<br />
+<hr />
+<h1>office3</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000379</td>
+<td>0.00000700</td>
+<td>0.00001086</td>
+<td>0.00001545</td>
+<td>0.00002702</td>
+<td>0.00004315</td>
+<td>0.00006008</td>
+<td>0.00008174</td>
+<td>0.00010645</td>
+<td>0.00013388</td>
+<td>0.00016412</td>
+<td>0.00019747</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000963</td>
+<td>0.00001100</td>
+<td>0.00001274</td>
+<td>0.00001499</td>
+<td>0.00002035</td>
+<td>0.00002757</td>
+<td>0.00003687</td>
+<td>0.00004769</td>
+<td>0.00005968</td>
+<td>0.00007315</td>
+<td>0.00008966</td>
+<td>0.00010616</td>
+</tr>
+</table>
+<img src="./all_search_times/office3.png" width="600" height="400" />
+<br />
+<hr />
+<h1>office4</h1>
+<h3>Search times</h3>
+<table border="1">
+<tr>
+<th> </th>
+<th>25</th>
+<th>50</th>
+<th>75</th>
+<th>100</th>
+<th>150</th>
+<th>200</th>
+<th>250</th>
+<th>300</th>
+<th>350</th>
+<th>400</th>
+<th>450</th>
+<th>500</th>
+</tr>
+<tr>
+<td>
+<b>FLANN</b>
+</td>
+<td>0.00000365</td>
+<td>0.00000685</td>
+<td>0.00001081</td>
+<td>0.00001576</td>
+<td>0.00002781</td>
+<td>0.00004376</td>
+<td>0.00006359</td>
+<td>0.00008796</td>
+<td>0.00011534</td>
+<td>0.00014641</td>
+<td>0.00018124</td>
+<td>0.00021967</td>
+</tr>
+<tr>
+<td>
+<b>FLANN TBB</b>
+</td>
+<td>0.00000959</td>
+<td>0.00001165</td>
+<td>0.00001295</td>
+<td>0.00001533</td>
+<td>0.00002277</td>
+<td>0.00002917</td>
+<td>0.00004022</td>
+<td>0.00005440</td>
+<td>0.00006549</td>
+<td>0.00008036</td>
+<td>0.00009780</td>
+<td>0.00011560</td>
+</tr>
+</table>
+<img src="./all_search_times/office4.png" width="600" height="400" />
+<br />
+<hr />
+Benchmarking figures and html page automatically generated with the automated benchmarking framework written in Python and C++, developed by Nick Vanbaelen.
+</body>
+</html>

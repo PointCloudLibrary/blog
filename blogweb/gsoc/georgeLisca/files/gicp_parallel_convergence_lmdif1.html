@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+<HEAD>
+	
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="gheorghe ">
+	<META NAME="CREATED" CONTENT="20110813;23090300">
+	<META NAME="CHANGED" CONTENT="0;0">
+	
+	<STYLE>
+		<!-- 
+		BODY,DIV,TABLE,THEAD,TBODY,TFOOT,TR,TH,TD,P { font-family:"Liberation Sans"; font-size:x-small }
+		 -->
+	</STYLE>
+	
+</HEAD>
+
+<BODY TEXT="#000000">
+<TABLE FRAME=VOID CELLSPACING=0 COLS=23 RULES=NONE BORDER=0>
+	<COLGROUP><COL WIDTH=60><COL WIDTH=58><COL WIDTH=59><COL WIDTH=63><COL WIDTH=73><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86><COL WIDTH=86></COLGROUP>
+	<TBODY>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ROWSPAN=2 WIDTH=60 HEIGHT=34 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Iteration</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ROWSPAN=2 WIDTH=58 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Nr matches</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ROWSPAN=2 WIDTH=59 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Delta GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ROWSPAN=2 WIDTH=63 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Delta LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ROWSPAN=2 WIDTH=73 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">LM info</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Tx</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Ty</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Tz</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Rx</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Ry</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" COLSPAN=3 WIDTH=258 ALIGN=CENTER VALIGN=MIDDLE><FONT FACE="Liberation Serif">Rz</FONT></TD>
+			</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">GSL</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">LM</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">|| GSL – LM ||</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3209" SDNUM="1033;"><FONT FACE="Liberation Serif">3209</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="420.362" SDNUM="1033;"><FONT FACE="Liberation Serif">420.362</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1653.73" SDNUM="1033;"><FONT FACE="Liberation Serif">1653.73</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.174494" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.174494</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.015889" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.015889</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.158605" SDNUM="1033;"><FONT FACE="Liberation Serif">0.158605</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.184946" SDNUM="1033;"><FONT FACE="Liberation Serif">0.184946</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.826865" SDNUM="1033;"><FONT FACE="Liberation Serif">0.826865</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.641919" SDNUM="1033;"><FONT FACE="Liberation Serif">0.641919</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.210181" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.210181</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.122204" SDNUM="1033;"><FONT FACE="Liberation Serif">0.122204</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.332385" SDNUM="1033;"><FONT FACE="Liberation Serif">0.332385</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.00328611" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.00328611</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0287009" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0287009</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.031987" SDNUM="1033;"><FONT FACE="Liberation Serif">0.031987</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0315112" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0315112</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.0018257" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.0018257</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0333369" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0333369</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0248215" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0248215</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.127421" SDNUM="1033;"><FONT FACE="Liberation Serif">0.127421</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.1026" SDNUM="1033;"><FONT FACE="Liberation Serif">0.1026</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="2" SDNUM="1033;"><FONT FACE="Liberation Serif">2</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3235" SDNUM="1033;"><FONT FACE="Liberation Serif">3235</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1409.91" SDNUM="1033;"><FONT FACE="Liberation Serif">1409.91</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3141.98" SDNUM="1033;"><FONT FACE="Liberation Serif">3141.98</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.879447" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.879447</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.58688" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.58688</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.707431" SDNUM="1033;"><FONT FACE="Liberation Serif">0.707431</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.559331" SDNUM="1033;"><FONT FACE="Liberation Serif">0.559331</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1.03748" SDNUM="1033;"><FONT FACE="Liberation Serif">1.03748</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.47815" SDNUM="1033;"><FONT FACE="Liberation Serif">0.47815</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.044495" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.044495</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.112672" SDNUM="1033;"><FONT FACE="Liberation Serif">0.112672</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.157167" SDNUM="1033;"><FONT FACE="Liberation Serif">0.157167</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00175484" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00175484</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0346627" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0346627</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0329079" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0329079</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0558399" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0558399</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0075483" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0075483</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0482916" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0482916</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0353166" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0353166</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0906293" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0906293</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0553127" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0553127</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="3" SDNUM="1033;"><FONT FACE="Liberation Serif">3</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3263" SDNUM="1033;"><FONT FACE="Liberation Serif">3263</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1045.38" SDNUM="1033;"><FONT FACE="Liberation Serif">1045.38</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3151.64" SDNUM="1033;"><FONT FACE="Liberation Serif">3151.64</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.40214" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.40214</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.93935" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.93935</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.537212" SDNUM="1033;"><FONT FACE="Liberation Serif">0.537212</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.59892" SDNUM="1033;"><FONT FACE="Liberation Serif">0.59892</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.538337" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.538337</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1.13726" SDNUM="1033;"><FONT FACE="Liberation Serif">1.13726</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.088882" SDNUM="1033;"><FONT FACE="Liberation Serif">0.088882</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.213563" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.213563</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.302445" SDNUM="1033;"><FONT FACE="Liberation Serif">0.302445</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0108628" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0108628</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0188998" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0188998</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00803709" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00803709</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0548235" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0548235</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00884019" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00884019</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0459833" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0459833</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.105781" SDNUM="1033;"><FONT FACE="Liberation Serif">0.105781</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.114137" SDNUM="1033;"><FONT FACE="Liberation Serif">0.114137</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00835633" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00835633</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="4" SDNUM="1033;"><FONT FACE="Liberation Serif">4</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3311" SDNUM="1033;"><FONT FACE="Liberation Serif">3311</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="598.311" SDNUM="1033;"><FONT FACE="Liberation Serif">598.311</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1625.41" SDNUM="1033;"><FONT FACE="Liberation Serif">1625.41</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.70129" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.70129</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-2.26046" SDNUM="1033;"><FONT FACE="Liberation Serif">-2.26046</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.55917" SDNUM="1033;"><FONT FACE="Liberation Serif">0.55917</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.515561" SDNUM="1033;"><FONT FACE="Liberation Serif">0.515561</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.35104" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.35104</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1.8666" SDNUM="1033;"><FONT FACE="Liberation Serif">1.8666</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.129853" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.129853</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.598771" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.598771</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.468918" SDNUM="1033;"><FONT FACE="Liberation Serif">0.468918</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.010681" SDNUM="1033;"><FONT FACE="Liberation Serif">0.010681</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.017696" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.017696</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.028377" SDNUM="1033;"><FONT FACE="Liberation Serif">0.028377</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.0015988" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.0015988</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.0301913" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.0301913</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0285925" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0285925</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.232159" SDNUM="1033;"><FONT FACE="Liberation Serif">0.232159</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.192502" SDNUM="1033;"><FONT FACE="Liberation Serif">0.192502</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0396566" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0396566</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="5" SDNUM="1033;"><FONT FACE="Liberation Serif">5</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="677.942" SDNUM="1033;"><FONT FACE="Liberation Serif">677.942</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1019.6" SDNUM="1033;"><FONT FACE="Liberation Serif">1019.6</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-2.04027" SDNUM="1033;"><FONT FACE="Liberation Serif">-2.04027</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.75067" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.75067</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.2896" SDNUM="1033;"><FONT FACE="Liberation Serif">0.2896</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.260395" SDNUM="1033;"><FONT FACE="Liberation Serif">0.260395</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.31936" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.31936</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1.57975" SDNUM="1033;"><FONT FACE="Liberation Serif">1.57975</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0211449" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0211449</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.509047" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.509047</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.530192" SDNUM="1033;"><FONT FACE="Liberation Serif">0.530192</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0186455" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0186455</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.0188759" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.0188759</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0375214" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0375214</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00290177" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00290177</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.00742612" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.00742612</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0103279" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0103279</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.357986" SDNUM="1033;"><FONT FACE="Liberation Serif">0.357986</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.354159" SDNUM="1033;"><FONT FACE="Liberation Serif">0.354159</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00382729" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00382729</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="6" SDNUM="1033;"><FONT FACE="Liberation Serif">6</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1843.08" SDNUM="1033;"><FONT FACE="Liberation Serif">1843.08</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="883.22" SDNUM="1033;"><FONT FACE="Liberation Serif">883.22</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.76385" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.76385</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.62811" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.62811</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.135746" SDNUM="1033;"><FONT FACE="Liberation Serif">0.135746</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.661146" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.661146</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.877745" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.877745</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.216599" SDNUM="1033;"><FONT FACE="Liberation Serif">0.216599</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.201394" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.201394</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.361443" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.361443</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.160049" SDNUM="1033;"><FONT FACE="Liberation Serif">0.160049</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00580803" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00580803</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.00296271" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.00296271</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00877074" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00877074</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0052413" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0052413</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.00204592" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.00204592</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00728721" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00728721</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.382077" SDNUM="1033;"><FONT FACE="Liberation Serif">0.382077</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.384503" SDNUM="1033;"><FONT FACE="Liberation Serif">0.384503</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00242641" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00242641</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="7" SDNUM="1033;"><FONT FACE="Liberation Serif">7</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="179.06" SDNUM="1033;"><FONT FACE="Liberation Serif">179.06</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="140.302" SDNUM="1033;"><FONT FACE="Liberation Serif">140.302</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.67432" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.67432</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.6595" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.6595</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0148174" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0148174</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.708313" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.708313</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.807594" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.807594</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0992815" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0992815</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.262087" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.262087</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.318497" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.318497</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0564107" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0564107</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00260993" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00260993</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000947484" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000947484</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00355741" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00355741</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000845681" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000845681</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000375667" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000375667</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000470014" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000470014</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.382521" SDNUM="1033;"><FONT FACE="Liberation Serif">0.382521</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.383468" SDNUM="1033;"><FONT FACE="Liberation Serif">0.383468</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000946951" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000946951</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="8" SDNUM="1033;"><FONT FACE="Liberation Serif">8</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="139.442" SDNUM="1033;"><FONT FACE="Liberation Serif">139.442</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="53.3132" SDNUM="1033;"><FONT FACE="Liberation Serif">53.3132</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.67079" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.67079</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.6667" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.6667</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00409151" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00409151</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.778034" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.778034</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.780938" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.780938</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00290375" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00290375</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.283567" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.283567</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.315018" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.315018</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0314508" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0314508</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000863314" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000863314</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000448733" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000448733</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00131205" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00131205</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000884114" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000884114</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000928427" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000928427</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00181254" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00181254</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.383483" SDNUM="1033;"><FONT FACE="Liberation Serif">0.383483</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.38363" SDNUM="1033;"><FONT FACE="Liberation Serif">0.38363</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000147258" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000147258</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="9" SDNUM="1033;"><FONT FACE="Liberation Serif">9</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="47.1057" SDNUM="1033;"><FONT FACE="Liberation Serif">47.1057</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="14.5595" SDNUM="1033;"><FONT FACE="Liberation Serif">14.5595</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.65014" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.65014</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.67264" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.67264</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0224952" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0224952</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.801587" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.801587</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.773658" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.773658</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0279288" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0279288</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.297955" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.297955</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.309612" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.309612</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.011657" SDNUM="1033;"><FONT FACE="Liberation Serif">0.011657</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">-5.27486e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">3.30034e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">8.5752e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">-2.02462e-06</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000793444" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000793444</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000791419" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000791419</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.384032" SDNUM="1033;"><FONT FACE="Liberation Serif">0.384032</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.38383" SDNUM="1033;"><FONT FACE="Liberation Serif">0.38383</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000201747" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000201747</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="10" SDNUM="1033;"><FONT FACE="Liberation Serif">10</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="10.557" SDNUM="1033;"><FONT FACE="Liberation Serif">10.557</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3.13424" SDNUM="1033;"><FONT FACE="Liberation Serif">3.13424</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.64776" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.64776</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.6737" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.6737</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0259435" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0259435</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.806865" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.806865</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.772091" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.772091</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0347745" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0347745</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.299575" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.299575</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.3096" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.3096</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0100251" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0100251</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000149415" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000149415</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">1.63728e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000165788" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000165788</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">1.4846e-06</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000747213" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000747213</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000748698" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000748698</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.384024" SDNUM="1033;"><FONT FACE="Liberation Serif">0.384024</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.383784" SDNUM="1033;"><FONT FACE="Liberation Serif">0.383784</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000239263" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000239263</FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER SDVAL="11" SDNUM="1033;"><FONT FACE="Liberation Serif">11</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.725739" SDNUM="1033;"><FONT FACE="Liberation Serif">0.725739</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0314325" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0314325</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><A HREF="http://www.math.utah.edu/software/minpack/minpack/lmdif1.html">1</A></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.64766" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.64766</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.67369" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.67369</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0260232" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0260232</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.807228" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.807228</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.772077" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.772077</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.0351512" SDNUM="1033;"><FONT FACE="Liberation Serif">0.0351512</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.299645" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.299645</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.309599" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.309599</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.00995359" SDNUM="1033;"><FONT FACE="Liberation Serif">0.00995359</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000165186" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000165186</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">1.54845e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000180671" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000180671</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">-4.65755e-07</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000750056" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000750056</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000749591" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000749591</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.38402" SDNUM="1033;"><FONT FACE="Liberation Serif">0.38402</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.383784" SDNUM="1033;"><FONT FACE="Liberation Serif">0.383784</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000235815" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000235815</FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER><FONT FACE="Liberation Serif">p1 size</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3312" SDNUM="1033;"><FONT FACE="Liberation Serif">3312</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif">finalTrans</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" HEIGHT=17 ALIGN=CENTER><FONT FACE="Liberation Serif">p2 size</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="3875" SDNUM="1033;"><FONT FACE="Liberation Serif">3875</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.927254" SDNUM="1033;"><FONT FACE="Liberation Serif">0.927254</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.374432" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.374432</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000689695" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000689695</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-1.67369" SDNUM="1033;"><FONT FACE="Liberation Serif">-1.67369</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.374432" SDNUM="1033;"><FONT FACE="Liberation Serif">0.374432</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.927254" SDNUM="1033;"><FONT FACE="Liberation Serif">0.927254</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.000295203" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.000295203</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.772077" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.772077</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+		<TR>
+			<TD HEIGHT=17 ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="0.000750056" SDNUM="1033;"><FONT FACE="Liberation Serif">0.000750056</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDNUM="1033;0;@"><FONT FACE="Liberation Serif">1.54845e-05</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="1" SDNUM="1033;"><FONT FACE="Liberation Serif">1</FONT></TD>
+			<TD STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" ALIGN=CENTER SDVAL="-0.309599" SDNUM="1033;"><FONT FACE="Liberation Serif">-0.309599</FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=CENTER><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+			<TD ALIGN=LEFT><FONT FACE="Liberation Serif"><BR></FONT></TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<!-- ************************************************************************** -->
+</BODY>
+
+</HTML>

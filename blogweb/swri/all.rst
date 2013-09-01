@@ -1,0 +1,5 @@
+All blog posts
+--------------
+
+.. blogbody::
+

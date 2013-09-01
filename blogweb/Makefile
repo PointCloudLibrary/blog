@@ -37,20 +37,20 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 
 html:
-	svn co http://svn.pointclouds.org/leica/source leica
-	svn co http://svn.pointclouds.org/swri/source swri
-	svn co http://svn.pointclouds.org/spectrolab/source spectrolab
-	svn co http://svn.pointclouds.org/vlcsweb/source vlcs
-	svn co http://svn.pointclouds.org/orcsweb/source orcs
-	svn co http://svn.pointclouds.org/dincsweb/source dincs
-	svn co http://svn.pointclouds.org/gsocweb/source gsoc
-	svn co http://svn.pointclouds.org/tocsweb/source tocs
-	svn co http://svn.pointclouds.org/trcsweb/source trcs
-	svn co http://svn.pointclouds.org/urcsweb/source urcs
-	svn co http://svn.pointclouds.org/hrcsweb/source hrcs
-	svn co http://svn.pointclouds.org/srcsweb/source srcs
-	svn co http://svn.pointclouds.org/nvcsweb/source nvcs
-	svn co http://svn.pointclouds.org/gsoc12web/source gsoc12
+#	svn co http://svn.pointclouds.org/leica/source leica
+#	svn co http://svn.pointclouds.org/swri/source swri
+#	svn co http://svn.pointclouds.org/spectrolab/source spectrolab
+#	svn co http://svn.pointclouds.org/vlcsweb/source vlcs
+#	svn co http://svn.pointclouds.org/orcsweb/source orcs
+#	svn co http://svn.pointclouds.org/dincsweb/source dincs
+#	svn co http://svn.pointclouds.org/gsocweb/source gsoc
+#	svn co http://svn.pointclouds.org/tocsweb/source tocs
+#	svn co http://svn.pointclouds.org/trcsweb/source trcs
+#	svn co http://svn.pointclouds.org/urcsweb/source urcs
+#	svn co http://svn.pointclouds.org/hrcsweb/source hrcs
+#	svn co http://svn.pointclouds.org/srcsweb/source srcs
+#	svn co http://svn.pointclouds.org/nvcsweb/source nvcs
+#	svn co http://svn.pointclouds.org/gsoc12web/source gsoc12
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."

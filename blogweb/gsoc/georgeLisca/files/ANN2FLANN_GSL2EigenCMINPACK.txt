@@ -1,0 +1,129 @@
+==============================================================================================================
+============    SUMMARY OF EQUIVALENT FUNCTIONS: ANN -> FLANN, GSL -> EIGEN and GSL -> CMIPACK    ============
+==============================================================================================================
+
+============================================== Data Structures ===============================================
+=================================== ANN ============================= FLANN ==================================
+==============================================================================================================
+1. ANNpoint points_ANN;         -> a row in a Matrix<ElementType> points_FLANN; //ElementType is the type of 
+                                   the coordinates of point. 
+                                   FLANN stores points / features inside matrix rows
+--------------------------------------------------------------------------------------------------------------
+2. ANNpointArray array_ANN;     -> Matrix<ElementType> array_FLANN;
+--------------------------------------------------------------------------------------------------------------                                
+3. ANNkd_tree	tree_ANN;       -> flann::Index< flann::L2_Simple<ElementType> > tree_FLANN(
+                                             const Matrix<ElementType>& features, const IndexParams& params );
+==============================================================================================================
+
+
+================================================= Functions ==================================================
+=================================== ANN ============================= FLANN ==================================
+==============================================================================================================
+1. Building trees
+tree_ANN = ANNkd_tree ( ANNpointArray pa, // data point array
+                        int n, // number of points
+                        int d); // dimension
+
+                                -> tree_FLANN.buildIndex();
+--------------------------------------------------------------------------------------------------------------
+2. Searching inside trees
+tree_ANN.annkFRSearch(  ANNpoint q, // query point
+                        int k = 0, // number of near neighbors to return
+                        ANNidxArray nn_idx = NULL, // nearest neighbor array (modified)
+                        ANNdistArray dd = NULL, // dist to near neighbors (modified)
+                        double eps = 0.0); // error bound
+
+                                -> KDTreeSingleIndexParams params;
+                                
+                                   tree_FLANN.knnSearch(
+                                        const Matrix<ElementType>& queries, // query point ( q )
+                                        Matrix<int>& indices, // nearest neighbor array (modified) ( nn_idx )
+                                        Matrix<DistanceType>& dists, // dist to near neighbors (modified) ( dd )
+                                        int knn, // number of near neighbors to return ( k )
+                                        const SearchParams& params);
+--------------------------------------------------------------------------------------------------------------				
+OBS. So far so good ... pcl already has KdTreeFLANN class which wraps FLANN searching. Therefore I would go one
+     step forward and propose to use this class.
+==============================================================================================================
+
+============================================== Data Structures ===============================================
+=================================== GSL ============================= Eigen ==================================
+==============================================================================================================
+1.
+gsl_vector* gslVector = gsl_vector_alloc(3);
+					->	Vector3f eigenVector; // implicit vector dimension 
+--------------------------------------------------------------------------------------------------------------
+2.
+gsl_matrix* gslMatrix = gsl_matrix_alloc(3, 3);
+					->	Matrix3f eigenMatrix;// implicit matrix dimensions
+--------------------------------------------------------------------------------------------------------------
+3.
+double gslDoubleMatrix[3][3]; // p = 3; q = 3;
+					-> // Eigen is able to deal with array of data
+					   Array33f eigenDoubleMatrix; // implicit array dimensions 
+--------------------------------------------------------------------------------------------------------------
+4.
+gsl_matrix_view gslMatrix = gsl_matrix_view_array (double * doubleMatrix, size_t p, size_t q);
+gsl_vector_view gslVector = gsl_matrix_column (gsl_matrix * m, size_t j);
+
+                                        -> // gsl views are equivalent to matrix extracted as blocks, wise rows
+                                           // wise columns form eigen
+                                           MatrixXf eigenMatrix;
+                                           MatrixXf eigenBlock = eigenMatrix(i,j,p,q);
+==============================================================================================================
+
+================================================= Functions ==================================================
+=================================== GSL ============================= Eigen ==================================
+==============================================================================================================
+1.
+int gsl_linalg_SV_decomp (gsl_matrix * gslA, gsl_matrix * gslV, gsl_vector * gslS, gsl_vector * gslWork);
+gsl_matrix * gslU;// instead of gslA
+                                        -> JacobiSVD<MatrixXf> svd(eigenA, ComputeThinU | ComputeThinV);
+                                           MatrixXf eigenU = svd.matrixU();
+                                           MatrixXf eigenV = svd.matrixV();
+--------------------------------------------------------------------------------------------------------------
+2. rank-1 update A = alpha * x * y^T + A;
+int gsl_blas_dger (double alpha, const gsl_vector * x, const gsl_vector * y, gsl_matrix * A)
+
+                                        -> double alpha;
+                                           MatrixXf x, y, A;// matrix dimensions are needed
+                                           A = alpha * x * y.transpose() + A;
+--------------------------------------------------------------------------------------------------------------
+3. FAST Matrix / scalar multiplications: C = alfa*A*B + beta*C 
+int gsl_blas_dgemm (CBLAS_TRANSPOSE_t TransA, CBLAS_TRANSPOSE_t TransB, double alpha, const gsl_matrix * A,
+                    const gsl_matrix * B, double beta, gsl_matrix * C)
+
+                                        -> double alpha, beta;
+                                           MatrixXf A, B, C;// matrix dimensions are needed
+                                           A = alpha*A*B + beta*C;
+--------------------------------------------------------------------------------------------------------------
+4. Matrix addition
+int gsl_matrix_add (gsl_matrix * gslA, const gsl_matrix * gslB);
+
+                                        -> addition operator +
+                                           MatrixXf eigenA;
+                                           MatrixXf eigenB;
+                                           eigenA + eigenB;
+--------------------------------------------------------------------------------------------------------------
+6. Solving the system A*x=b;
+int gsl_linalg_cholesky_decomp (gsl_matrix * gslA);
+int gsl_linalg_complex_cholesky_svx (const gsl_matrix_complex * gslA, gsl_vector_complex * gslb);
+
+                                        -> MatrixXf eigenA;
+                                           MatrixXf eigenb;
+
+                                           eigenA.llt()solve(eigenb);
+==============================================================================================================
+
+
+======================================== Multidimensional Minimization =======================================
+============================= GSL ============================================== cminpack ====================
+==============================================================================================================
+It looks like GICP implementation extensively use the GSL multidimensional minimizer. I am thinking to restate
+the minimization problem so that we can replace GSL minimizer with Levenberg Marquadt minimization. I want to 
+go deeply with this idea but before I want to ask your opinion. I am curious which is more fast GSL minimizer 
+or LM minimizer. Anyhow, if you agree with this idea I will investigate more.
+==============================================================================================================
+
+This list is open.
+
