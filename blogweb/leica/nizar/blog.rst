@@ -63,7 +63,7 @@
    :author: nizar
    :date: 08-29-2013
 
-  * The compression ratio is now of 0.27 using lzf + JP2K hybrid compression
-  * The reading rate of ascii data is 0.021 ms/point 
-  * Writing using a hybrid compression lzf/JP2K speed is 0.001 ms/point
+    * The compression ratio is now of 0.27 using lzf + JP2K hybrid compression
+    * The reading rate of ascii data is 0.021 ms/point 
+    * Writing using a hybrid compression lzf/JP2K speed is 0.001 ms/point
 
