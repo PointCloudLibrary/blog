@@ -29,7 +29,6 @@ In what follows, I show an outline of my GSoC roadmap. The boldface writings rep
   * Extend the framework in order to perform tests on complete datasets.
   * Porting of the ISS detector in PCL.
   * Test the performances of the ISS detector.
-.. * **Porting of the 3DGSS detector in PCL.** 
 
 * Tools:
   
