@@ -4,4 +4,4 @@ python:
 before_install:
   - sudo easy_install -U Sphinx dateutils
 script: 
-  - cd blogweb && make clean && make html
+  - cd blogweb && sudo make html
