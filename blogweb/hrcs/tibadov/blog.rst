@@ -39,7 +39,7 @@
 
     <center><iframe src="http://pointclouds.org/assets/viewer/pcl_viewer.html?load=http://svn.pointclouds.org/hrcsweb/source/tibadov/files/DEM.pcd" width="770" height="480" marginwidth="0" marginheight="0" frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen style="max-width: 100%;"></iframe></center>
 
-   As a starting point we are going to implement an algorithm: J. Siegemund, U. Franke, and W. Forstner, “A temporal filter approach for detection and reconstruction of curbs and road surfaces based on conditional random fields,” in Proc. IEEE Intelligent Vehicles Symp., 2011, pp. 637–642.
+   As a starting point we are going to implement an algorithm: J. Siegemund, U. Franke, and W. Forstner, "A temporal filter approach for detection and reconstruction of curbs and road surfaces based on conditional random fields," in Proc. IEEE Intelligent Vehicles Symp., 2011, pp. 637-642.
 
    All source code related to the project can be found `here <https://github.com/TIbadov/pcl>`_.
 

@@ -1,5 +1,5 @@
 Sergey Ushakov
-===========
+==============
 
 :email: sergey.s.ushakov@mail.ru
 :project: Fast 3D cluster recognition of pedestrians and cars in uncluttered scenes

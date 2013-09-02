@@ -1,5 +1,5 @@
 Nicolas Thorstensen
-============
+===================
 
 :email:   
 :website: http://mat.univie.ac.at/~nicolas/

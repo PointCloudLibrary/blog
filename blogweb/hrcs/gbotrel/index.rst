@@ -1,5 +1,5 @@
 Gautam Botrel
-===========
+=============
 
 :email: gautam.botrel@gmail.com
 :project: Part-based 3D recognition of pedestrians and cars in cluttered scenes

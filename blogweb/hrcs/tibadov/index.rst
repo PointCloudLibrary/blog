@@ -1,5 +1,5 @@
 Timur Ibadov
-===========
+============
 
 :email: ibadov.timur@gmail.com
 :project: stereo-based road area detection
