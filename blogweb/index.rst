@@ -31,12 +31,6 @@ the logos below to go to the respective sprint blog page.
 .. image:: _static/toyota_logo.png
   :target: http://www.pointclouds.org/blog/tocs
   :class: foo
-.. image:: _static/swri_logo.png
-  :target: http://www.pointclouds.org/blog/swri
-  :class: foo
-.. image:: _static/spectrolab_logo.png
-  :target: http://www.pointclouds.org/blog/spectrolab
-  :class: foo
 .. image:: _static/leica_logo.png
   :target: http://www.pointclouds.org/blog/leica
   :class: foo
@@ -49,6 +43,12 @@ Completed Sprints
 
 The list of code sprints which have been completed is:
 
+.. image:: _static/swri_logo.png
+  :target: http://www.pointclouds.org/blog/swri
+  :class: foo
+.. image:: _static/spectrolab_logo.png
+  :target: http://www.pointclouds.org/blog/spectrolab
+  :class: foo
 .. image:: _static/velodyne_logo.png
   :target: http://www.pointclouds.org/blog/vlcs
   :class: foo
