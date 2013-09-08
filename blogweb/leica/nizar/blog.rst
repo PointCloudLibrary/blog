@@ -110,14 +110,31 @@
    File         ASCII  binary  LZF   LZF + JP2K
    ===========  =====  ======  ====  ==========
    indoor.ptx   480M   210M    169M  134M
-   outdoor.ptx  212M   124M    124M  X                
+   outdoor.ptx  212M   124M    57M  X                
    ===========  =====  ======  ====  ==========
 
    For PTX files with RGB data the joint LZF + JP2K compression is the
-   most efficient, else I would recommend the simple binary format
-   since LZF doesn't seem to do much compression on this data type.
+   most efficient.
 
    Main issue though is that the JP2K compression is not fast : it
    takes almost 10s on my laptop to perform for the indoor.ptx dataset
    but I believe it is acceptable given the gain in file size.
 
+   ..
+      The table below lists writing speed for the given dataset. Times
+      indicated are the average writing speed for 10 runs.
+
+      Tests were run by invoking command line tool leica_ascii2binary
+      each time with the appropriate flag:
+
+	#. 0 binary conversion
+	#. 1 binary LZF compression
+	#. 2 binary LZF + JP2k compression	
+
+      +-----+--------+--------+-----+-----------+
+      |File |ASCII   |  binary| LZF | LZF + JP2K|
+      +-----+--------+--------+-----+-----------+
+      |     |134010.5|726.1   |648.4|X          |
+      +-----+--------+--------+-----+-----------+
+      |     |        |        |     |           |
+      +-----+--------+--------+-----+-----------+
