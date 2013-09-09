@@ -117,6 +117,11 @@
    For PTX files with RGB data the joint LZF + JP2K compression is the
    most efficient.
 
+   The image below summarizes graphically files size with reference to
+   encoding used.
+
+   .. image:: images/leica_file_size.png
+
    Main issue though is that the JP2K compression is not fast: it
    takes almost 12s on my laptop to perform for the indoor.ptx dataset
    but I believe it is acceptable given the gain in file size. I
@@ -140,8 +145,11 @@
    +----------------+--------------+----------+--------+--------+-----------+
    |      File      | Nb of points |  ASCII   | binary |  LZF   |LZF + JP2K |
    +================+==============+==========+========+========+===========+
-   |   indoor.ptx   |   8062080    | 134010.5 | 726.1  | 2765.3 |     X     |
+   |  indoor.ptx    |   10997760   | 293994.1 | 1371.2 | 7123.7 |  19347.5  |
    +----------------+--------------+----------+--------+--------+-----------+
-   |  outdoor.ptx   |   10997760   | 293994.1 | 1371.2 | 7123.7 |  19347.5  |
+   |  outdoor.ptx   |   8062080    | 134010.5 | 726.1  | 2765.3 |     X     |
    +----------------+--------------+----------+--------+--------+-----------+
    
+   Encoding times are reported to the graph below for a better visualization.
+
+   .. image:: images/leica_file_time.png
