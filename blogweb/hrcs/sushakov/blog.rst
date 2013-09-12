@@ -51,3 +51,12 @@
       :height: 360px
 
    Implemented class also provides methods for getting AABB and OBB. Oriented bounding box is computed as AABB along eigen vectors.
+
+.. blogpost::
+   :title: ROPS Progress
+   :author: sushakov
+   :date: 09-12-2013
+
+   Hello everybody. I have finished implenting the ROPS feature. Next step I am going to do is to write to the authors and ask them about some
+   samples of data and precomputed features, so that I could compare the result. After that I am planning to test ROPS feature for object recognition.
+   For this purpose I am going to use Implicit Shape Model algorithm from PCL.
