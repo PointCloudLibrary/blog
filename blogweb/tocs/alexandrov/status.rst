@@ -838,3 +838,85 @@ My status updates
   obtained using manual selection of labels. This code sprint is aimed at an
   automatic segmentation, so next I plan to consider different strategies of
   turning this into a fully autonomous method.
+
+
+.. blogpost::
+  :title: Distance Measures on 3D Surfaces
+  :author: alexandrov
+  :date: 09-17-2013
+
+  In the recent weeks I have been developing an approach which would allow
+  automatic selection of seed points. I decided to proceed with the methods
+  which use graph-based representation of point clouds and, as the matter of
+  fact, are closely related with random walks on those graphs. I still do not
+  have any solid results, though there are some interesting outputs that I would
+  like to share in this blog post.
+
+  In the domain of mesh segmentation, or more generally 3D shape analysis, there
+  is a fundamental problem of measuring distances between points on a surface.
+  The most trivial and intuitive is *geodesic distance*, which encodes the
+  length of the shortest path along the surface between two points. It has a
+  number of drawbacks, the most important being its sensitivity to perturbations
+  of the surface. For example, introducing a hole along the shortest path
+  between two points, or a small topological shortcut between them may induce
+  arbitrary large change in the distance. This is an undesired property,
+  especially considering the noisy Kinect data that we work with.
+
+  A more sophisticated distance measure, *diffusion distance*, is based on the
+  mathematical study of heat conduction and diffusion. Suppose we have a graph
+  that represents a shape (it may be constructed exactly the same way as for the
+  Random Walker segmentation). Imagine that a unit amount of heat is applied at
+  some vertex. The heat will flow across the edges and the speed of its
+  diffusion will depend on the edge weights. After time :math:`t` has passed,
+  the initial unit of heat will be somehow distributed among the other vertices.
+  The *Heat Kernel* (:math:`H_t`) encodes this distribution. More specifically,
+  :math:`H_t(i, j)` is the amount of heat accumulated after time :math:`t` at
+  vertex :math:`j` if the heat was applied at vertex :math:`i`. Based on this
+  kernel the diffusion distance between each pair of points is defined.
+  Importantly, the distance depends on the time parameter and captures either
+  local or global shape properties.
+
+  Another distance measure, *commute-time distance*, is the average time it
+  takes a random walker to go from one vertex to the other and come back.
+  Finally, *biharmonic distance* was proposed most recently in:
+
+  * Y. Lipman, R. Rustamov, T. Funkhouser
+    `"Biharmonic Distance" <http://www.cs.princeton.edu/~funk/biharmonic.pdf>`__
+    ACM Transactions on Graphics, 2010
+
+  This distance measure is non-parametric (does not depend on e.g. time) and is
+  claimed to capture both local and global properties of the shape.
+
+  The figure below demonstrates biharmonic, commute-time, and heat diffusion
+  distance maps computed with respect to the point marked with a red circle:
+
+  +------------------------------------------+----------------------------------------+
+  | .. image:: img/09/test56-crop-voxels.png | .. image:: img/09/test56-crop-hd01.png |
+  |   :width: 320 px                         |   :width: 320 px                       |
+  +------------------------------------------+----------------------------------------+
+  | .. image:: img/09/test56-crop-bd.png     | .. image:: img/09/test56-crop-hd05.png |
+  |   :width: 320 px                         |   :width: 320 px                       |
+  +------------------------------------------+----------------------------------------+
+  | .. image:: img/09/test56-crop-ctd.png    | .. image:: img/09/test56-crop-hd10.png |
+  |   :width: 320 px                         |   :width: 320 px                       |
+  +------------------------------------------+----------------------------------------+
+  | | Left column: voxelized point cloud (top), biharmonic distance                   |
+  | | (middle), commute-time distance (bottom).                                       |
+  | | Right column: heat diffusion distance for several choices of                    |
+  | | the time parameter.                                                             |
+  +-----------------------------------------------------------------------------------+
+
+  In each image the points with smallest distance are painted in dark blue, and
+  the points with largest distances are dark red. The absolute values of
+  distances are very different in all cases.
+
+  I think these distance maps could be used to infer the number of distinct
+  objects in the scene. Indeed, the points that belong to the same object tend
+  to be equidistant from the source point, so different objects correspond to
+  different blobs of homogeneous points. Finding objects thus is the same as
+  finding modes of the distribution of distances, which could be accomplished
+  with Mean-Shift algorithm.
+
+  Speaking about particular choice of distance measure, biharmonic distance and
+  heat diffusion distance with large time parameter intuitively seem to be
+  better than others, however this is a subject for a more careful examination.
