@@ -60,3 +60,13 @@
    Hello everybody. I have finished implenting the ROPS feature. Next step I am going to do is to write to the authors and ask them about some
    samples of data and precomputed features, so that I could compare the result. After that I am planning to test ROPS feature for object recognition.
    For this purpose I am going to use Implicit Shape Model algorithm from PCL.
+
+.. blogpost::
+   :title: ROPS code and tutorial
+   :author: sushakov
+   :date: 09-19-2013
+
+   Hello everybody. I'd like to thank Yulan Guo, one of the authors of the RoPS feature, for his help.
+   I've tested my implementation against his and got the same results. I have also tested my implementation for memory leaks with the VLD and
+   it works fine, no memory leaks were detected. Right now the code is ready for commit. And as always I have wrote a tutorial about using the code.
+   Right now all is left is to discuss where to place the implemented code.
