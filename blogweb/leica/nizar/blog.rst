@@ -179,14 +179,15 @@
    +----------------+--------------+----------+-----------+
 
    Compared ASCII reading times with and without OpenMP for both files
-   are shown on the figure below.
+   are shown on the figure below. You can notice the 10 seconds gap
+   achieved through usage of OpenMP.
 
    .. image:: images/leica_ascii_reading.png
 
-   Compared LZF + J2K encoding times with and without OpenMP are shown next.
+
+   Compared LZF + J2K encoding times with and without OpenMP are shown
+   next. From the graphics you can notice the gain of almost 3 seconds
+   during the encoding.
 	      
    .. image:: images/leica_lzf_j2k_encoding.png
-
-
-		
 
