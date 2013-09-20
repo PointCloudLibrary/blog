@@ -153,3 +153,40 @@
    Encoding times are reported to the graph below for a better visualization.
 
    .. image:: images/leica_file_time.png
+
+
+.. blogpost::
+   :title: Enhencing LZF + JP2K reading/writing time
+   :author: nizar
+   :date: 09-20-2013
+
+
+   Through the usage of OpenMP parallelism instructions I achieved
+   better results for ASCII reading and LZF + J2K PTX file
+   encoding. Here I show the improved results.
+   
+   Experimental protocol is very similar to the one used earlier : 10
+   runs in a row of leica_ascii2binary tool with LZF + JP2K encoding
+   option. Each time we measure the ASCII file reading time and the
+   writing.
+
+   +----------------+--------------+----------+-----------+
+   |      File      | Nb of points |  ASCII   |LZF + JP2K |
+   +================+==============+==========+===========+
+   |  indoor.ptx    |   10997760   | 208685.6 |  16995.2  |
+   +----------------+--------------+----------+-----------+
+   |  outdoor.ptx   |   8062080    | 134010.5 |     X     |
+   +----------------+--------------+----------+-----------+
+
+   Compared ASCII reading times with and without OpenMP for both files
+   are shown on the figure below.
+
+   .. image:: images/leica_ascii_reading.png
+
+   Compared LZF + J2K encoding times with and without OpenMP are shown next.
+	      
+   .. image:: images/leica_lzf_j2k_encoding.png
+
+
+		
+
