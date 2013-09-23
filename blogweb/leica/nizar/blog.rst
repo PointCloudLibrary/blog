@@ -179,14 +179,91 @@
    +----------------+--------------+----------+-----------+
 
    Compared ASCII reading times with and without OpenMP for both files
-   are shown on the figure below.
+   are shown on the figure below. You can notice the 10 seconds gap
+   achieved through usage of OpenMP.
 
    .. image:: images/leica_ascii_reading.png
 
-   Compared LZF + J2K encoding times with and without OpenMP are shown next.
+
+   Compared LZF + J2K encoding times with and without OpenMP are shown
+   next. From the graphics you can notice the gain of almost 3 seconds
+   during the encoding.
 	      
    .. image:: images/leica_lzf_j2k_encoding.png
 
+.. blogpost::
+   :title: Experimenting with half
+   :author: nizar
+   :date: 09-21-2013
 
-		
+   Today I started experimenting with half
+   (http://half.sourceforge.net/) a C++ header-only library to provide
+   an IEEE 754 conformant 16-bit half-precision.
 
+   The mixed results are that I ended up with fairly lighter binary
+   files (50% lighter as expected) but there is a loss of precision
+   when I convert it back to ASSCII.
+
+   The file outdoor.ptx when encoded to binary is just 62M vs 124M.
+   
+   The conversion back to ASCII is not so great though (because of
+   rounding probably). I am exposing 10 lines from the orginal ASCII
+   file and the one generated after converting back the binary file.
+
+   Original ASCII file:
+
+   +----------+----------+-----------+----------+
+   |    X     |    Y     |       Z   |intensity |
+   +==========+==========+===========+==========+
+   | 0.004745 | 1.044357 | -2.114578 | 0.006226 |
+   +----------+----------+-----------+----------+
+   | 0.004745 | 1.046707 | -2.112625 | 0.006714 |
+   +----------+----------+-----------+----------+
+   | 0.004745 | 1.049637 | -2.111862 | 0.006409 |
+   +----------+----------+-----------+----------+
+   |    0     |    0     |    0      | 0.500000 |
+   +----------+----------+-----------+----------+
+   | 0.004776 | 1.057053 | -2.113419 | 0.006088 |
+   +----------+----------+-----------+----------+
+   | 0.004776 | 1.060349 | -2.113327 | 0.006683 |
+   +----------+----------+-----------+----------+
+   | 0.004807 | 1.064133 | -2.114212 | 0.007370 |
+   +----------+----------+-----------+----------+
+   | 0.004807 | 1.068130 | -2.115555 | 0.007156 |
+   +----------+----------+-----------+----------+
+   | 0.004807 | 1.072067 | -2.116714 | 0.006760 |
+   +----------+----------+-----------+----------+
+   | 0.004837 | 1.075150 | -2.116165 | 0.006790 |
+   +----------+----------+-----------+----------+
+
+
+   Using half precision float:
+
+   +------------+---------+----------+------------+
+   |     X      |    Y    |    Z     | intensity  |
+   +============+=========+==========+============+
+   | 0.00474167 | 1.04395 | -2.11328 | 0.00622559 |
+   +------------+---------+----------+------------+
+   | 0.00474167 | 1.0459  | -2.11133 | 0.00671387 |
+   +------------+---------+----------+------------+
+   | 0.00474167 | 1.04883 | -2.11133 | 0.00640869 |
+   +------------+---------+----------+------------+
+   |     0      |    0    |    0     |    0.5     |
+   +------------+---------+----------+------------+     
+   | 0.00477219 | 1.05664 | -2.11328 | 0.00608444 |
+   +------------+---------+----------+------------+
+   | 0.00477219 | 1.05957 | -2.11328 | 0.00667953 |
+   +------------+---------+----------+------------+
+   | 0.00480652 | 1.06348 | -2.11328 | 0.00737    |
+   +------------+---------+----------+------------+
+   | 0.00480652 | 1.06738 | -2.11523 | 0.00715256 |
+   +------------+---------+----------+------------+
+   | 0.00480652 | 1.07129 | -2.11523 | 0.00675964 |
+   +------------+---------+----------+------------+
+   | 0.00483322 | 1.07422 | -2.11523 | 0.00678635 |
+   +------------+---------+----------+------------+
+
+
+   As you can notice there are differences starting at 6th decimal
+   position. It could be worth trying to use different rounding
+   options to see if it helps.
