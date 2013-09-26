@@ -920,3 +920,84 @@ My status updates
   Speaking about particular choice of distance measure, biharmonic distance and
   heat diffusion distance with large time parameter intuitively seem to be
   better than others, however this is a subject for a more careful examination.
+
+
+.. blogpost::
+  :title: Computation of Distance Measures
+  :author: alexandrov
+  :date: 09-26-2013
+
+  Last time I wrote about distance measures on 3D surfaces, though I did not
+  give any details about how they are computed. In this blog post I will give a
+  formal definition, followed by two important properties that simplify the
+  computation and provide insights that might help to solve the ultimate goal:
+  identification of distinct objects in a scene.
+
+  Given a mesh (or a point cloud) that represents a surface, a discretization
+  of the `Laplace-Beltrami operator (LBO) <http://en.wikipedia.org/wiki/Laplace-Beltrami_operator>`_
+  is constructed. This discretization is a sparse symmetric matrix of size
+  :math:`n \times n`, where :math:`n` is the number of vertices (points) in the
+  surface. The non-zero entries of this matrix are the negated weights of the
+  edges between adjacent vertices (points) and also vertex degrees. This matrix
+  is often referred to as Laplacian. Eigendecomposition of Laplacian consists
+  of pairs :math:`\left\{\lambda_{k},\phi_{k}\right\}`, where
+  :math:`0=\lambda_{0}<\lambda_{1}\leq\dotso` are eigenvalues, and
+  :math:`\phi_{0},\phi_{1},\dotsc` are corresponding eigenvectors.
+
+  The *diffusion distance* is defined in terms of the eigenvalues and
+  eigenvectors of Laplacian as follows:
+
+  :math:`\mathcal{D}_t(x,y)^2 = \sum_{k=1}^{\infty}e^{-2\lambda_{k}t}\left(\phi_{k}(x)-\phi_{k}(y)\right)^2`
+
+  The *biharmonic distance* bears a strong resemblance to it:
+
+  :math:`\mathcal{B}(x,y)^2 = \sum_{k=1}^{\infty}\frac{\left(\phi_{k}(x)-\phi_{k}(y)\right)^2}{\lambda_{k}^2}`
+
+  Here :math:`\phi_{k}(x)` means :math:`x`-th element of eigenvector
+  :math:`\phi_{k}`. Both distances have a similar structure: a sum over all
+  eigenpairs, where summands are differences between corresponding elements of
+  eigenvectors scaled by some function of eigenvalues. There are two properties
+  of these distances that I would like to stress.
+
+  Firstly, the summands form a decreasing sequence. The figure below illustrates
+  this point with eigenvalues of Laplacian of a typical point cloud:
+
+  +-----------------------------------+
+  +-----------------------------------+
+  | .. image:: img/10/eigenvalues.png |
+  +-----------------------------------+
+
+  In the left image the first hundred of eigenvalues (except to
+  :math:`\lambda_0` which is always zero) are plotted. Note that the values are
+  normalized (i.e. divided) by :math:`\lambda_1`. The magnitudes of eigenvalues
+  increase rapidly. On the right the multipliers of both diffusion and
+  biharmonic distances are plotted (also computed with normalized eigenvalues).
+  The biharmonic distance multiplier is plotted for several choices of the
+  parameter :math:`t`. Clearly, only a few first terms in the summation are
+  needed to approximate either of the distances. This has an important
+  consequence that there is no need to solve the eigenproblem completely, but
+  rather is suffices to find a limited number of eigenpairs with small
+  eigenvalues.
+
+  Secondly, the distance between two points :math:`x` and :math:`y` depends on
+  the difference between their corresponding elements in eigenvectors
+  :math:`\phi_{k}(x)` and :math:`\phi_{k}(y)`. The figure below demonstrates
+  the (sorted) elements of a typical eigenvector:
+
+  +------------------------------------+
+  +------------------------------------+
+  | .. image:: img/10/eigenvectors.png |
+  +------------------------------------+
+
+  One may see that there are groups of elements with the same value. For
+  example, there are about one hundred elements with value close to
+  :math:`0.05`. The pair-wise distances between the points that correspond to
+  these elements will therefore be close to zero. In other words, plateaus in
+  eigenvector graphs correspond to sets of incident points, and such sets may be
+  interpreted as objects.
+
+  Summing up, it seems like it should be possible to identify distinct
+  objects in a point cloud by analyzing the eigenvectors of Laplacian (even
+  without explicitly computing any of the distance measures). Moreover, only a
+  few first eigenvectors are relevant, so it is not necessary to solve the
+  eigenproblem entirely.
