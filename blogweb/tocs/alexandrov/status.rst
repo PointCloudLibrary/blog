@@ -951,7 +951,7 @@ My status updates
 
   The *biharmonic distance* bears a strong resemblance to it:
 
-  :math:`\mathcal{B}(x,y)^2 = \sum_{k=1}^{\infty}\frac{\left(\phi_{k}(x)-\phi_{k}(y)\right)^2}{\lambda_{k}^2}`
+  :math:`\mathcal{B}(x,y)^2 = \sum_{k=1}^{\infty}\lambda_{k}^{-2}\left(\phi_{k}(x)-\phi_{k}(y)\right)^2`
 
   Here :math:`\phi_{k}(x)` means :math:`x`-th element of eigenvector
   :math:`\phi_{k}`. Both distances have a similar structure: a sum over all
@@ -965,6 +965,7 @@ My status updates
   +-----------------------------------+
   +-----------------------------------+
   | .. image:: img/10/eigenvalues.png |
+  |   :width: 710 px                  |
   +-----------------------------------+
 
   In the left image the first hundred of eigenvalues (except to
@@ -987,6 +988,7 @@ My status updates
   +------------------------------------+
   +------------------------------------+
   | .. image:: img/10/eigenvectors.png |
+  |   :width: 600 px                   |
   +------------------------------------+
 
   One may see that there are groups of elements with the same value. For
