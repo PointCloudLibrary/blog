@@ -1003,3 +1003,97 @@ My status updates
   without explicitly computing any of the distance measures). Moreover, only a
   few first eigenvectors are relevant, so it is not necessary to solve the
   eigenproblem entirely.
+
+
+.. blogpost::
+  :title: Eigenvectors and Spectral Clustering
+  :author: alexandrov
+  :date: 10-03-2013
+
+  I concluded the last blog post by noting that it seems to be possible to
+  segment objects based on analysis of the eigenvectors of Laplacian constructed
+  from the point cloud. This time I will provide a visual interpretation of
+  eigenvectors and then describe the problem of their analysis.
+
+  Let me start with a quick note on eigenvector computation. As mentioned
+  before, they are obtained through eigendecomposition of Laplacian that
+  represents the surface. In the beginning I used `SelfAdjointEigenSolver
+  <http://eigen.tuxfamily.org/dox/classEigen_1_1SelfAdjointEigenSolver.html>`_
+  of ``Eigen`` library. It runs in :math:`\operatorname{O}\left(n^3\right)` time
+  (where :math:`n` is the number of points), which obviously does not scale
+  well. Later I switched to `SLEPc <http://www.grycap.upv.es/slepc/>`_. It can
+  limit computation only to a desired number of first eigenpairs and therefore
+  does the job much faster, but still seems to have polynomial time. Therefore I
+  decided to execute supervoxel clustering as a pre-processing step and then
+  compute the distances over the supervoxel adjacency graph, which has a
+  dramatically smaller size than the original point cloud.
+
+  Now let's turn to the eigenvalues themselves. The figure below demonstrates
+  the voxelized point cloud of a simple scene (left) and supervoxel adjacency
+  graph (right), where the adjacency edges are colored according to their
+  weights (from dark blue for small weights to dark red for large weights):
+
+  +-------------------------------------+----------------------------------------------------+
+  | .. image:: img/11/test13-voxels.png | .. image:: img/11/test13-supervoxels-adjacency.png |
+  |   :width: 320 px                    |   :width: 320 px                                   |
+  +-------------------------------------+----------------------------------------------------+
+  | | Voxelized point cloud (voxel      | | Supervoxel adjacency graph                       |
+  | | size 0.006 m)                     | | (seed size 0.025 m), colored                     |
+  | |                                   | | according to edge weight                         |
+  +-------------------------------------+----------------------------------------------------+
+
+  Eigendecomposition of Laplacian of this weighted adjacency graph yields a set
+  of pairs :math:`\left\{\lambda_{k},\phi_{k}\right\}`. Each eigenvector
+  :math:`\phi_{k}` has as many elements as there are vertices in the
+  graph. Therefore it is possible to visualize an eigenvector by painting each
+  supervoxel according to its corresponding element in the vector. The figure
+  below shows the first 9 eigenvectors which correspond to the smallest
+  eigenvalues:
+
+  +-----------------------------------------------+
+  | .. image:: img/11/eigenvectors.gif            |
+  |   :width: 512 px                              |
+  +-----------------------------------------------+
+  | | First 9 eigenvectors of the graph Laplacian |
+  +-----------------------------------------------+
+
+  The first eigenvector clearly separates the scene into two parts: the third
+  box and everything else. In the second eigenvector the table is covered with
+  gradient, but the first and third boxes have (different) uniform colors and,
+  therefore, stand out. The third eigenvector highlights the second box, and so
+  on.
+
+  I have examined quite a number of eigenvectors of different scenes, and I
+  think the following common pattern exists. First few eigenvectors tend to
+  break scene in several regions with uniform colors and sharp edges. In the
+  next eigenvectors gradients begin to emerge. Typically, a large part of the
+  scene would be covered with gradient, and a smaller part (corresponding to a
+  distinct component of the graph) would be have some uniform color.
+
+  The overall goal is to figure out the number of distinct components of the
+  graph (that is, objects in the scene) and segment them out. As I admitted
+  before, it is clear that the eigenvectors capture all the information needed
+  to do this, so the question is how to extract it. In fact, this problem has
+  already received a lot of attention from researchers under the name of
+  "Spectral Clustering". (Yeah, I made quite a detour through all these distance
+  measures on 3D surfaces before I came to know it). The standard approach is
+  described in the following paper:
+
+  * A. Ng, M. Jordan, Y. Weiss
+    `"On Spectral Clustering: Analysis and an Algorithm" <http://ai.stanford.edu/~ang/papers/nips01-spectral.pdf>`__
+    In Proc. of Advances in Neural Information Processing Systems, 2002
+
+  In a nutshell, the original problem space typically has many dimensions (in
+  our case the dimensions are Euclidean coordinates, normal orientations, point
+  colors, etc.). The clusters may have arbitrary irregular shapes, so they could
+  neither be separated linearly, nor with hyper-spheres, which renders standard
+  techniques like K-means inapplicable. The good news are, in the subspace
+  spanned by the first few eigenvectors of Laplacian of the graph (constructed
+  form the original data) the data points form tight clusters, and thus K-means
+  could be used. This effect is evident in the eigenvectors that I demonstrated
+  earlier. Unfortunately, the number of clusters still needs to be known. There
+  exist literature that addresses automatic selection of the number of clusters,
+  however I have not seen any simple and reliable method so far.
+
+  In the next blog post I will describe a simple algorithm that I have developed
+  to analyze the eigenvectors and demonstrate the results.
