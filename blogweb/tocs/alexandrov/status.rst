@@ -1097,3 +1097,90 @@ My status updates
 
   In the next blog post I will describe a simple algorithm that I have developed
   to analyze the eigenvectors and demonstrate the results.
+
+
+.. blogpost::
+  :title: Analyzing Eigenvectors "By Hand"
+  :author: alexandrov
+  :date: 10-05-2013
+
+  Before exposing the clustering algorithm as promised in the last blog post, I
+  decided to motivate it by showing how the eigenvectors may be analyzed "by
+  hand". Hopefully, this will also provide more intuition about what these
+  eigenvectors actually are and how they are related with the data.
+
+  Just to remind, the problem I am trying to solve is about segmenting a set of
+  supervoxels into meaningful components. Here a meaningful component means a
+  subset of supervoxels that are close to each other in Euclidean sense, and are
+  separated from the rest by a sharp change in orientation. If we view each
+  cluster as a point then the problem is about clustering points in a
+  :math:`d`-dimensional space.  (Currently :math:`d=6` since supervoxels have 3
+  Euclidean coordinates plus 3 coordinates of the normal vector, however
+  additional dimensions, e.g.  color, may be added later.) The difficulty of the
+  problem comes from the fact that the components may have arbitrary irregular
+  shape in these dimensions.  Therefore I want to map these points so some other
+  space where the components will correspond to tight clusters, perhaps even
+  linearly separable. The current idea is to use a subspace spanned by the first
+  few eigenvectors of graph Laplacian of the original data.
+
+  In the last blog post I provided a visualization of the eigenvectors in the
+  original problem space. For convenience, here are the first four eigenvectors
+  again:
+
+  +----------------------------------------------------------+
+  | .. image:: img/12/eigenvectors.png                       |
+  |   :width: 640 px                                         |
+  +----------------------------------------------------------+
+  | | The first 4 eigenvectors in the original problem space |
+  +----------------------------------------------------------+
+
+  I want to perform clustering in a subspace though, so it is helpful to develop
+  an intuition about how the data look like in it. The figure below demonstrates
+  the data points (that is, supervoxels), projected on each of the first four
+  eigenvectors. (Here and in what follows the data is whitened, i.e. de-meaned
+  and scaled to have unit variance. Additionally, the values are sorted in
+  increasing order.)
+
+  +----------------------------------------------------------------+
+  | .. image:: img/12/eigenvectors-1d.png                          |
+  |   :width: 640 px                                               |
+  +----------------------------------------------------------------+
+  | | Data points in subspaces spanned by the first 4 eigenvectors |
+  +----------------------------------------------------------------+
+
+  Obviously, in each of these subspaces (except for the second) the data is
+  linearly separable in two clusters. What is not obvious, however, is how many
+  clusters there will be in the combined subspace. The next figure shows data
+  points in subspaces spanned by two different pairs of eigenvectors:
+
+  +--------------------------------------------------------------+
+  | .. image:: img/12/eigenvectors-2d.png                        |
+  |   :width: 640 px                                             |
+  +--------------------------------------------------------------+
+  | | Data points in subspaces spanned by first and third (left) |
+  | | and fourth and third eigenvectors (right)                  |
+  +--------------------------------------------------------------+
+
+  Now it becomes evident that there are at least three clusters. Will there be
+  more if we consider the subspace spanned by all these three eigenvectors? It
+  turns out there will, see the point cloud below:
+
+  .. raw:: html
+
+    <iframe
+    src="http://pointclouds.org/assets/viewer/pcl_viewer.html?load=https://raw.github.com/PointCloudLibrary/blog/master/blogweb/tocs/alexandrov/img/12/eigenvectors.pcd"
+     align="center" width="640" height="315" marginwidth="0" marginheight="0"
+     frameborder='no' allowfullscreen mozallowfullscreen webkitallowfullscreen
+     style="max-width: 100%;">
+    </iframe>
+
+  Unfortunately, we have just approached the limit in terms of how many
+  dimensions could be conveniently visualized. Though for this particular data
+  set it is enough, there won't appear more clusters if we consider additional
+  eigenvectors. Summarizing, in the subspace spanned by the first four
+  eigenvectors the data points form four tight and well-separated (linearly)
+  clusters. And these clusters actually correspond to the three boxes and the
+  table in the original problem space.
+
+  Now the only thing left is to develop an algorithm which would do this kind
+  of analysis automatically!
