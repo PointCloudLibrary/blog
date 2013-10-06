@@ -1,5 +1,32 @@
 My status updates
 =================
+
+.. blogpost::
+  :title: Correspondence Rejection: A Quick Reference Guide
+  :author: adambr
+  :date: 10-04-2013
+
+  Correspondence rejection classes implement methods that help eliminate correspondences based on specific criteria such as distance, median distance, normal similarity measure or RanSac to name a few. Couple of additional filters I've experimented with include a uniqueness measure, and Lowe's ratio measure as in "Distinctive image features from scale invariant keypoints", D.G. Lowe, 2004. I've also explored the tradeoffs in implementing the filters within CorresondenceEstimation itself, or as external CorrespondenceRejection classes. The former is computationally more efficient if the rejection process is done in one pass, while the latter allows for scene-specific squential filter banks.
+
+  Follows is a quick reference guide of the available correspondence rejection classes with remarks extracted from the source code.
+
+  .. image:: images/QG_CorrRej.png
+    :width: 600 px
+ 
+
+.. blogpost::
+  :title: Correspondence Estimation: A Quick Reference Guide
+  :author: adambr
+  :date: 09-28-2013
+
+  With my current work on optimizing correspondence estimation across the uv/xyz domains, it is worth providing a topology of the available correspondence estimation classes in PCL.  For a highlevel treatment of the registration API, please refere to the registration tutorial.
+
+  Correspondence estimation attempts to match keypoints in a source cloud to keypoints in a target cloud, based on some similarity measure, feature descriptors in our case. Although applying scene relevant descriptor parameters and correspondence thresholds may reduce erronous matches, outliers persist with impact on pose estimation. This is due to the implied assumption that for each source keypoint, a corresponding target keypoint exists. The difficulty in estimating model or scene-specific descriptor parameters is another factor.
+
+  Follows is a quick reference guide of the available correspondence estimation classes with remarks extracted from the source code. 
+
+  .. image:: images/QG_CorrEst.png
+    :width: 600 px
  
 	   
 .. blogpost::
@@ -15,16 +42,16 @@ My status updates
   
 	
   .. image:: images/fpfh01deg30.png
-    :width: 1000 px
+    :width: 800 px
 
   .. image:: images/fpfh07deg30.png
-    :width: 1000 px
+    :width: 800 px
 
   The extended output for other 3D descriptors follows:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=http://svn.pointclouds.org/tocsweb/source/adambr/files/MD3DDescriptorsExtendedOutput.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https://docs.google.com/file/d/0ByU7lj1rOUWOWmx1S0JuelB5OHM/edit?usp=sharing&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
 		
 
 My status updates
