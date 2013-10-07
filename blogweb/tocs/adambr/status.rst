@@ -47,11 +47,20 @@ My status updates
   .. image:: images/fpfh07deg30.png
     :width: 800 px
 
-  The extended output for other 3D descriptors follows:	
+  The extended output for the other 3D descriptors follows:	
 	
-  .. raw:: html
+  .. image:: images/shot01deg30.png
+    :width: 800 px
 
-    <iframe src="http://docs.google.com/viewer?url=https://docs.google.com/file/d/0ByU7lj1rOUWOWmx1S0JuelB5OHM/edit?usp=sharing&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+  .. image:: images/shot07deg30.png
+    :width: 800 px
+
+  .. image:: images/cshot01deg30.png
+    :width: 800 px
+
+  .. image:: images/cshot07deg30.png
+    :width: 800 px
+
 		
 
 My status updates
