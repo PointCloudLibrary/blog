@@ -1113,7 +1113,7 @@ My status updates
   supervoxels into meaningful components. Here a meaningful component means a
   subset of supervoxels that are close to each other in Euclidean sense, and are
   separated from the rest by a sharp change in orientation. If we view each
-  cluster as a point then the problem is about clustering points in a
+  supervoxel as a point then the problem is about clustering points in a
   :math:`d`-dimensional space.  (Currently :math:`d=6` since supervoxels have 3
   Euclidean coordinates plus 3 coordinates of the normal vector, however
   additional dimensions, e.g.  color, may be added later.) The difficulty of the
@@ -1184,3 +1184,111 @@ My status updates
 
   Now the only thing left is to develop an algorithm which would do this kind
   of analysis automatically!
+
+
+.. blogpost::
+  :title: An Algorithm for Spectral Clustering of Supervoxel Graphs
+  :author: alexandrov
+  :date: 10-12-2013
+
+  In the several previous posts I tried to provide some insight in how the
+  spectral clustering technique may be applied to the point cloud processing
+  domain. In particular, I have demonstrated different visualizations of
+  eigenvectors and also did a manual analysis of one particular scene. In this
+  blog post I will (finally) describe my algorithm that does automatic analysis
+  of eigenvectors, which leads to unsupervised supervoxel clustering.
+
+  The input of the clustering algorithm is :math:`\Phi`, a set of first :math:`k`
+  eigenvectors of the graph Laplacian. Each eigenvector :math:`\phi_k` has
+  :math:`n` elements that correspond to the supervoxels is the original problem
+  space. The task of the algorithm is to determine the number of clusters that
+  the data points form in the subspace spanned by the eigenvectors and, of
+  course, assign points to these clusters.
+
+  The key insight drawn from previous examinations and discussions of the
+  eigenvectors is that the clusters are linearly separable in one-dimensional
+  subspaces spanned by the eigenvectors. In other words, for every pair of
+  clusters there exists at least one eigenvector so that in its subspace these
+  clusters are linearly separable. Based on this premise I built an algorithm
+  which is a pretty straightforward instance of divisive hierarchical clustering
+  approach.  It starts with a single cluster that contains all the data points
+  and recursively splits it in a greedy manner. The following pseudo-code
+  summarizes the algorithm:
+
+  .. image:: img/13/perform-clustering-algorithm.png
+
+  The interesting part are, of course, ``FindBestSplit`` and ``SplitQuality``
+  functions. But to get this straight, let me first define what a "split" is. A
+  split is a tuple :math:`(\phi_k, t)`, where :math:`\phi_k` is the eigenvector
+  along whose subspace the split occurs, and :math:`t` is a threshold value. The
+  points that have their corresponding elements in the eigenvector less than
+  :math:`t` go to the first cluster, and the remaining go to the second. For
+  example, the figure below shows with a red line a split :math:`(\phi_1, 0.41)`
+  on the left and a split :math:`(\phi_2, 0.93)` on the right:
+
+  +--------------------------------------------------+
+  | .. image:: img/13/eigenvectors-split.png         |
+  |   :width: 640 px                                 |
+  +--------------------------------------------------+
+  | | Example splits in the subspaces spanned by the |
+  | | eigenvectors :math:`\phi_1` and :math:`\phi_2` |
+  +--------------------------------------------------+
+
+  Which of these two splits is better? Intuitively, the one on the left is more
+  promising than the one on the right. But how to define the split quality?
+  My initial approach was to use the difference between the points immediately
+  above and below the splitting line as the measure. This worked to some extent,
+  but was not good enough. Then I switched to a measure based on the relative
+  densities of the bands above and below the splitting line. Consider the figure
+  below:
+
+  +----------------------------------------------------------+
+  | .. image:: img/13/eigenvectors-bands.png                 |
+  |   :width: 640 px                                         |
+  +----------------------------------------------------------+
+  | | Example splits with three bands highlighted. The       |
+  | | "split" band is shown in red, the "top" and "bottom"   |
+  | | bands are shown in yellow                              |
+  +----------------------------------------------------------+
+
+  The "split" band is the region of low density around the splitting line. The
+  "top" and "bottom" bands are the high density regions immediately above and
+  below the "split" band. I will omit the details of how these bands are
+  computed, because it is likely that I modify the implementation in future.
+  The quality of the split is defined as :math:`\frac{min(D(top),
+  D(bottom))}{D(split)}`, where :math:`D(\cdot)` is the density of the
+  corresponding band.
+
+  With this quality measure at hand, the ``FindBestSplit`` function simply
+  iterates over all available one-dimensional subspaces (i.e. over all
+  eigenvectors) and finds the split with the highest quality.
+
+  The performance of the algorithm is excellent on simple scenes:
+
+  +-------------------------------------------+-------------------------------------------+
+  | .. image:: img/osd/test13.png             | .. image:: img/osd/test47.png             |
+  |   :width: 320 px                          |   :width: 320 px                          |
+  +-------------------------------------------+-------------------------------------------+
+  | .. image:: img/13/test13-ssc-clusters.png | .. image:: img/13/test47-ssc-clusters.png |
+  |   :width: 320 px                          |   :width: 320 px                          |
+  +-------------------------------------------+-------------------------------------------+
+  | | Spectral supervoxel clustering of simple table-top scenes                           |
+  +-------------------------------------------+-------------------------------------------+
+
+  And is rather good (though definitely not perfect) on more cluttered ones:
+
+  +-------------------------------------------+-------------------------------------------+
+  | .. image:: img/osd/test55.png             | .. image:: img/osd/test60.png             |
+  |   :width: 320 px                          |   :width: 320 px                          |
+  +-------------------------------------------+-------------------------------------------+
+  | .. image:: img/13/test55-ssc-clusters.png | .. image:: img/13/test60-ssc-clusters.png |
+  |   :width: 320 px                          |   :width: 320 px                          |
+  +-------------------------------------------+-------------------------------------------+
+  | | Spectral supervoxel clustering of cluttered table-top scenes                        |
+  +-------------------------------------------+-------------------------------------------+
+
+  For example, the green book in the first scene is split into two clusters. In
+  the second scene two small boxes in the center of the image are erroneously
+  merged into one cluster. I think these issues are closely related with the
+  split quality measure and the threshold associated with it. Definitely, there
+  are ways to improve these and I plan to work on it the future.
