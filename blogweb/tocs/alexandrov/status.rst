@@ -1113,7 +1113,7 @@ My status updates
   supervoxels into meaningful components. Here a meaningful component means a
   subset of supervoxels that are close to each other in Euclidean sense, and are
   separated from the rest by a sharp change in orientation. If we view each
-  cluster as a point then the problem is about clustering points in a
+  supervoxel as a point then the problem is about clustering points in a
   :math:`d`-dimensional space.  (Currently :math:`d=6` since supervoxels have 3
   Euclidean coordinates plus 3 coordinates of the normal vector, however
   additional dimensions, e.g.  color, may be added later.) The difficulty of the
