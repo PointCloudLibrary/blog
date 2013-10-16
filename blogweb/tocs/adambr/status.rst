@@ -4,7 +4,7 @@ My status updates
 .. blogpost::
   :title: Milestone 2, Part 1: Introducing the Evaluation Dataset
   :author: adambr
-  :date: 10-04-2013
+  :date: 10-16-2013
 
   In this entry, I'll go over the evaluation dataset, the reasons I decided to create my own as opposed to using existing ones, and the needed criteria to evaluate multi-descriptor performance.   
 
