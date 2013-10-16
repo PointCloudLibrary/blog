@@ -2,6 +2,24 @@ My status updates
 =================
 
 .. blogpost::
+  :title: Milestone 2, Part 1: Introducing the Evaluation Dataset
+  :author: adambr
+  :date: 10-04-2013
+
+  In this entry, I'll go over the evaluation dataset, the reasons I decided to create my own as opposed to using existing ones, and the needed criteria to evaluate multi-descriptor performance.   
+
+  The first requirement is a real-world challenging dataset, to help quantify the limiting factors of each given descriptor as a function of the associated sensor.  The result is a ground truth confidence interval of each descriptor's performance.  The dataset in this case contains (2) subsets,  subset (A)  with no scene difference, and subset (B) differs only in photometric properties and sensor noise.
+
+  The second requirement is a dataset where a percentage of any given scene is invalid or not suitable for a subset  of the descriptors in the multi-descriptor set. This requirement is expressed in subset (C) which contains a large percentage of out of range depth data.
+
+  The third requirement is a minimal dataset for efficient and tractable computational performance, as expressed in subsets A, B, and C.
+
+  To evaluate each descriptor's performance, pose estimation, as expressed by a single-angle drift around one axis, vs a known ground truth is used as a comparative measurement unit.  Additionally, the inlier rate is considered in evaluating the quality of correspondence selection.
+
+  .. image:: images/dataset.png
+    :width: 600 px
+
+.. blogpost::
   :title: Correspondence Rejection: A Quick Reference Guide
   :author: adambr
   :date: 10-04-2013
@@ -47,11 +65,11 @@ My status updates
   .. image:: images/fpfh07deg30.png
     :width: 800 px
 
-  The extended output for the other 3D descriptors follows:	
+  The extended output for other 3D descriptors follows, [click to enlarge]:
 	
   .. image:: images/shot01deg30.png
     :width: 800 px
-
+		
   .. image:: images/shot07deg30.png
     :width: 800 px
 
@@ -61,7 +79,6 @@ My status updates
   .. image:: images/cshot07deg30.png
     :width: 800 px
 
-		
 
 My status updates
 =================
