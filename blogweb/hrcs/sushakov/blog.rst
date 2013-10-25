@@ -70,3 +70,19 @@
    I've tested my implementation against his and got the same results. I have also tested my implementation for memory leaks with the VLD and
    it works fine, no memory leaks were detected. Right now the code is ready for commit. And as always I have wrote a tutorial about using the code.
    Right now all is left is to discuss where to place the implemented code.
+
+.. blogpost::
+   :title: Recognition results
+   :author: sushakov
+   :date: 10-25-2013
+
+   Hello everybody. Last few weeks I was trying to train an SVM for car recognition. For this purpose I was using some clouds that I had. These were the clouds of the city of Enschede, Netherlands, that I had manually labeled earlier. Training set consists of 401 clouds of cars and 401 cloud of the other objects (people, trees, signs etc.). As for the classifier, I was using Support Vector Machine from the libSVM library.
+
+   During the training I was using 5-fold cross validation and the grid search in order to get the best values of gamma and soft margin C (parameters of the Gaussian kernel). The best accuracy achived during cross validation was 91.2718% with Gamma and C equal :math:`2^{-5}` and :math:`2^{13}` respectively.
+
+   The model obtained after training was then used for recognition. The set for recognition consists of the 401 cars and 401 other objects. Training and testing sets were taken randomly from different scanned streets. The best accuracy achived this far when trying to reconize test set is 90.7731% (728 correctly recognized objects of 802).
+
+   As for descriptors, I was using combination of RoPS feature and some global features such as height and width of the oriented bounding box. RoPS feature was calculated for the center of mass of the cloud with the support radius big enough to include all the points of the given cloud.
+
+   Since RoPS is better fits for the purpose of local feature extraction, I believe that using it with ISM and Hough Transform voting will result in higher accuracy.
+
