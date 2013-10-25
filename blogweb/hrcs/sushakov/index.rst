@@ -18,7 +18,7 @@ Recent status updates
 
 .. blogbody::
   :author: sushakov
-  :nr_posts: 5
+  :nr_posts: 6
 
 
 
