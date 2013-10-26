@@ -1,6 +1,7 @@
 My status updates
 =================
- 
+
+  
 	   
 .. blogpost::
   :title: Started implementing 3DGSS Features
@@ -745,17 +746,17 @@ My status updates
 
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=http://svn.pointclouds.org/tocsweb/source/aichim/files/tocs_final_ichim.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/tocs_final_ichim.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
 	
 	
   The presentation slides associated with the report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=http://svn.pointclouds.org/tocsweb/source/aichim/files/TOCS_final_presentation.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/TOCS_final_presentation.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
 	
   And the midterm report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=http://svn.pointclouds.org/tocsweb/source/aichim/files/tocs_midterm_aichim_v2.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/tocs_midterm_aichim_v2.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
