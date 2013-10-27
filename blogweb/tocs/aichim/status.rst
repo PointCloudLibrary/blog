@@ -1,8 +1,7 @@
 My status updates
 =================
 
-  
-	   
+
 .. blogpost::
   :title: Started implementing 3DGSS Features
   :author: aichim
@@ -746,17 +745,47 @@ My status updates
 
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/tocs_final_ichim.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_final_ichim.pdf%3Fraw%3Dtrue&embedded=true" width="400" height="800" style="border: none;"></iframe>
 	
 	
   The presentation slides associated with the report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/TOCS_final_presentation.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
-	
+    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtruehttps%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtrue&embedded=true" width="400" height="800" style="border: none;"></iframe>
+    
   And the midterm report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https://github.com/PointCloudLibrary/blog/blob/master/blogweb/tocs/aichim/files/tocs_midterm_aichim_v2.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe>
+    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_midterm_aichim_v2.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="780" style="border: none;"></iframe>
+    
+
+.. blogpost::
+  :title: TOCS 2.0 - Superquadrics
+  :author: aichim
+  :date: 10-25-2013
+
+
+  I am pleased to announce that I just finished the second Toyota Code Sprint. The topic we tackled this time was superquadrics applied for Computer Vision tasks such as object modeling and object detection.
+
+  The code we developed was not yet integrated into PCL (it does use PCL for all the processing), but lies in a separate repository which you can find here: https://github.com/aichim/superquadrics .
+
+  An extensive report that presents some of the theory behind the concepts and algorithms we used in the project, as well as implementation details and results can be found at the end of this post.
+
+  At the end of this work, we present a set of ideas that can be used to extend the project in subsequent code sprints:
+
+  * performance evaluation of the superquadric-based algorithms compared to other state-of-the-art object modeling and object detection approaches and integrating my code into PCL if the results are satisfactory
+
+  * explore further possibilities of object modeling inside point clouds. This includes techniques different from superquadrics (see the report for refecences), or improving superquadric-based techniques (see supertoroids, deformable superquadrics)
+
+  * in this code sprint we explored one approach for multipart object segmentation using superquadrics. This technique is valuable for point cloud compression, but not very efficient nor robust. More work in this direction can bring interesting results.
+
+  * more robust and efficient object fitting using superquadrics - right now we use only the 3d location of the points, but the quality of the fitting can be improved by using normal and/or curvature information.
+
+  * considering that most of the scans of objects will not cover the complete sphere of possible views, we should think about how to fit only partial superquadrics
+
+
+    .. raw:: html
+
+    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FAlex_Ichim_TOCS2_superquadrics_report.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="780" style="border: none;"></iframe>
