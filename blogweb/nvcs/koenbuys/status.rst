@@ -16,7 +16,7 @@ My status updates
 
    .. raw:: html 
 
-      <center><iframe src="http://docs.google.com/viewer?url=http://svn.pointclouds.org/nvcsweb/source/koenbuys/files/final_report.pdf&amp;embedded=true" style="border: none;" height="400" width="800"></iframe></center>
+      <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Fnvcs%2Fkoenbuys%2Ffiles%2Ffinal_report.pdf%3Fraw%3Dtrue&embedded=true" width="400" height="800" style="border: none;"></iframe></center>
 
 
 .. blogpost::

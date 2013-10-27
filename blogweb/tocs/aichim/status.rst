@@ -745,20 +745,20 @@ My status updates
 
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_final_ichim.pdf%3Fraw%3Dtrue&embedded=true" width="400" height="800" style="border: none;"></iframe>
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_final_ichim.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
 	
 	
   The presentation slides associated with the report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtruehttps%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtrue&embedded=true" width="400" height="800" style="border: none;"></iframe>
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtruehttps%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FTOCS_final_presentation.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
     
   And the midterm report:	
 	
   .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_midterm_aichim_v2.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="780" style="border: none;"></iframe>
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2Ftocs_midterm_aichim_v2.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
     
 
 .. blogpost::
@@ -786,6 +786,6 @@ My status updates
   * considering that most of the scans of objects will not cover the complete sphere of possible views, we should think about how to fit only partial superquadrics
 
 
-    .. raw:: html
+  .. raw:: html
 
-    <iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FAlex_Ichim_TOCS2_superquadrics_report.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="780" style="border: none;"></iframe>
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Faichim%2Ffiles%2FAlex_Ichim_TOCS2_superquadrics_report.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
