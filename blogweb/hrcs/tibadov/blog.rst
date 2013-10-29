@@ -89,3 +89,27 @@
 
    .. image:: img/castro_results_hrcs1_total.png
       :align: center
+
+.. blogpost::
+   :title: First results.
+   :author: tibadov
+   :date: 10-28-2013
+
+   We have implemented an algorithm which processes frames independently (i.e. without the connection to the previous frame). Also, now we make an assumption that both of the curbs (left and right) are presented in the scene.
+
+   Below you can see a projection of the labeled DEM to the left image. Green points correspond to the left sidewalk, blue - to the right one. Red points mark the road surface. The algorithm couldn't find the right curb on this image, so right side of the road was labeled uncorrectly. The good news is that the left curb was detected correctly.
+
+   .. image:: img/DEM_labeled.png
+      :align: center
+
+   However our goal is to label a road on the image, not on the DEM. So, if we mark each pixel with label corresponding to the DEM's cell we get the following labeling of the road surface:
+
+   .. image:: img/image_labeled.png
+      :align: center
+
+   You can see a lot of holes in the road area. They caused by holes in the disparity map. We decided not to fill them, because someone/something can be situated there (we have no information).
+
+   A disparity map of this frame is shown below. Points without disparity are marked with red.
+
+   .. image:: img/disparity_map.png
+      :align: center
