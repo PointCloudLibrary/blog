@@ -1292,3 +1292,100 @@ My status updates
   merged into one cluster. I think these issues are closely related with the
   split quality measure and the threshold associated with it. Definitely, there
   are ways to improve these and I plan to work on it the future.
+
+
+.. blogpost::
+  :title: Refactoring and Speeding Up Random Walker Segmentation
+  :author: alexandrov
+  :date: 11-10-2013
+
+  In the past weeks I decided to put the "spectral thing" on hold and turned
+  back to the random walker segmentation. In this blog post I will talk about
+  refactoring of the random walker algorithm and my experiments with different
+  linear solvers. In the follow-up post I will explore how the segmentation
+  results depend on seed placement, as well as discuss edge weighting functions
+  and the choice of parameters for them.
+
+  First of all, I refactored and cleaned up my implementation. Recall that the
+  random walker algorithm could be applied to cluster any kind of data as long
+  as there is a way to model it using a weighted graph. I decided that it makes
+  sense to have a generic templated implementation of the algorithm which would
+  work with any weighted graph. An obvious choice to represent graphs in C++
+  is to use the primitives available in the `Boost Graph Library (BGL) <http://www.boost.org/doc/libs/1_54_0/libs/graph/doc/index.html>`_.
+  This library is very generic, feature-rich, and flexible, though at the
+  expense of a rather steep learning curve. I took their implementation of the
+  `Boykov-Kolmogorov max-flow algorithm <http://www.boost.org/doc/libs/1_54_0/libs/graph/doc/boykov_kolmogorov_max_flow.html>`_ as an example of how to design the interface
+  for a generic graph-based algorithm. In my case the public interface is just
+  one templated function:
+
+  .. code-block:: c++
+
+      template<class Graph,
+               class EdgeWeightMap,
+               class VertexColorMap>
+      bool
+      randomWalkerSegmentation(Graph& g,
+                               EdgeWeightMap weights,
+                               VertexColorMap colors);
+
+  The user has to provide a graph, a property map that associates a weight to
+  each edge of the graph, and a property map that contains initial vertex
+  colors. (I adopted the term "colors" instead of "labels" because BGL has a
+  pre-defined vertex property type with this name.) The output of the algorithm
+  (i.e. label assignment) is written back to the color map. Internally the
+  function instantiates a class, which does all the boring work of constructing
+  and solving a system of linear equations, as well as interpreting its solution
+  as a label assignment.
+
+  While this generic graph segmentation function might be useful for someone,
+  the general audience will be interested in a class that implements a complete
+  point cloud segmentation pipeline. This class should take care of converting
+  an input cloud into a weighted graph, segmenting it, and turning the random
+  walker output into a labeled point cloud. At the moment it is not clear for me
+  how the first step should be designed. Indeed, there are multiple ways to
+  represent a point cloud as a weighted graph, both in terms of topology and
+  edge weights. Currently I voxelize the input cloud and use 26-neighborhood to
+  establish edges between nodes. Alternatively, one may work with a full point
+  cloud and use some fixed-radius neighborhood. One more option might be to
+  generate a mesh and work with it. Exploration of these possibilities remains as
+  a future work.
+
+  The second issue that I addressed recently was the performance of the
+  algorithm. The main computational effort is spent on solving a sparse system
+  of linear equations, where the number of equations is determined by the number
+  of unlabeled vertices (i.e. basically the size of the whole point cloud). For
+  example, the typical size of voxelized scenes from the `OSD dataset <http://users.acin.tuwien.ac.at/arichtsfeld/?site=4>`__
+  that I use in my experiments is about 30000 vertices. Originally, I used the
+  ``ConjugateGradient`` solver of ``Eigen``, because it is "recommended for
+  large symmetric problems". The time needed to segment a typical point cloud
+  with this solver is about 1 second on my three years old i5 laptop. I decided
+  to try `other options <http://eigen.tuxfamily.org/dox/group__TopicSparseSystems.html>`_
+  available in ``Eigen``. In particular, I tested ``BiCGSTAB`` with ``Diagonal``
+  and ``IncompleteLUT`` preconditioner, ``SimplicialLLT``, ``SimplicialLDLT``,
+  and ``SimplicialCholesky`` solvers. The figure below shows the runtime of
+  these solvers with respect to the problem size. (Only one of the
+  ``Simplicial***`` solvers is plotted as they demonstrated very similar
+  performance.)
+
+  +----------------------------------+
+  +----------------------------------+
+  | .. image:: img/14/slss-times.png |
+  |   :width: 640 px                 |
+  +----------------------------------+
+
+  The computation time depends linearly on the problem size for all solvers,
+  however ``SimplicialLDLT`` has a much smaller growth rate. For a typical 30
+  thousand vertices problem it needs about 200 ms. What's more, it can solve for
+  multiple right-hand sides at the same time, whereas ``ConjugateGradient`` and
+  ``BiCGSTAB`` can not. This means that as the number of labels (i.e. desired
+  segments) grows, the computational time does not increase.
+
+  In fact, ``Eigen`` offers some more options such as ``CholmodSupernodalLLT``,
+  which is a wrapper for ``SuiteSparse`` package, and ``SparseLU``, which uses
+  the techniques from the ``SuperLU`` package. Unfortunately, the former
+  complained that the matrices that I provide are not positive definite (though
+  they actually are), and the latter is a very recent addition that is only
+  available in ``Eigen 3.2`` (which I do not have at the moment).
+
+  Taking into account the evaluation results I switched to the ``SimplicailLDLT``
+  solver in my random walker implementation.
