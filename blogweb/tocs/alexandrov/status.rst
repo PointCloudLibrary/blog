@@ -1389,3 +1389,157 @@ My status updates
 
   Taking into account the evaluation results I switched to the ``SimplicailLDLT``
   solver in my random walker implementation.
+
+
+.. blogpost::
+  :title: Edge Weights for Random Walker Segmentation
+  :author: alexandrov
+  :date: 11-19-2013
+
+  The random walker segmentation algorithm requires that the data are modeled as
+  a weighted graph, and the choice of edge weighting function has a great impact
+  on the performance of the algorithm. In this blog post I will describe the
+  weighting function and parameters that I ended up using.
+
+  Before talking about the weights of the edges between vertices, let's discuss
+  the vertices themselves. As mentioned in the previous blog posts, I have a
+  pre-processing step where the input cloud is voxelized using
+  ``OctreePointCloudAdjacency``. Voxelization serves three purposes:
+
+  * Data down-sampling. The number of voxels is smaller than the number of
+    points in the original cloud.
+
+  * Data smoothing. The normal orientation and color of a voxel are averaged
+    over the points of the original cloud that belong to it.
+
+  * Establishing of adjacency relations. The regular grid structure of the
+    octree naturally defines a 26-neighborhood for each voxel.
+
+  The voxels consequently become vertices of the graph, and each of them is
+  connected with its neighbors by an edge. Each voxel has several properties: 3D
+  position, normal orientation, and color, which may be used in edge weight
+  computation.
+
+  As mentioned in the very first blog post on random walker segmentation,
+  originally I used the edge weighting function from the following paper:
+
+  * Y. Lai, S. Hu, R. Martin, P. Rosin
+    `"Rapid and Effective Segmentation of 3D Models using Random Walks" <http://users.cs.cf.ac.uk/Yukun.Lai/papers/cagd09.pdf>`__
+    Computer Aided Geometric Design, 2009
+
+  Later on I introduced several modifications. Now for a pair of vertices
+  :math:`v_i` and :math:`v_j` the weight is defined as:
+
+  :math:`w_{ij} = \exp{\left\{-\frac{d_1(v_i,v_j)}{\sigma_1}\right\}}\cdot\exp{\left\{-\frac{d_2(v_i,v_j)}{\sigma_2}\right\}}\cdot\exp{\left\{-\frac{d_3(v_i,v_j)}{\sigma_3}\right\}}`,
+
+  where :math:`d_1(\cdot)`, :math:`d_2(\cdot)`, and :math:`d_3(\cdot)` are the
+  Euclidean, angular, and color differences between voxels, and the sigmas are
+  used to balance their contributions. Compared to the weighting function of
+  Lai *et al.*, the color term was added, and scaling by mean values was
+  removed.
+
+  I devised the following procedure in order to find appropriate values for the
+  sigmas. I took a scene with known ground truth segmentation and generated 50
+  random proper seedings. Here by a "proper seeding" I mean a set of seeds where
+  each seed belongs to a distinct ground truth segment, and each ground truth
+  segment has a single seed (see example in the figure below on the left). For
+  each of these seedings I ran random walker and computed the under-segmentation
+  error (that was defined in one of the earlier blog posts, see example in the
+  figure below on the right). Then I analyzed the distributions of errors
+  resulted from different sigma values.
+
+  +---------------------------------------------+------------------------------------------------------+
+  | .. image:: img/15/test47-proper-seeding.png | .. image:: img/15/test47-undersegmentation-error.png |
+  |   :width: 320 px                            |   :width: 320 px                                     |
+  +---------------------------------------------+------------------------------------------------------+
+  | | Voxelized point cloud with                | | Under-segmentation error of                        |
+  | | one of the randomly                       | | the segmentation produced by                       |
+  | | generated proper seeding                  | | random walker from the                             |
+  | | used in the experiments                   | | given seeds (erroneous voxels                      |
+  | |                                           | | pained red)                                        |
+  +---------------------------------------------+------------------------------------------------------+
+
+  Note that the ground truth itself is not perfect, because it is often
+  impossible to tell apart the points at the boundary of two objects.
+  Consequently, the ground truth segmentation is somewhat random at the
+  boundaries, and we should not expect (or strive) any segmentation algorithm to
+  produce exactly the same result. The under-segmentation error displayed above
+  has 1039 erroneous voxels, and this is pretty much the best performance we
+  could expect from a segmentation algorithm with this ground truth.
+
+  Let's begin by examining the influence of the angular term. In this experiment
+  I set Euclidean sigma to the value of voxel resolution and color sigma to 0.1.
+  Below is a plot of under-segmentation error distributions for different
+  choices of angular sigma (note that larger sigmas correspond to less
+  influence):
+
+  +-------------------------------------+
+  +-------------------------------------+
+  | .. image:: img/15/angular-sigma.png |
+  |   :width: 640 px                    |
+  +-------------------------------------+
+
+  Each distribution is visualized using a `boxplot <http://en.wikipedia.org/wiki/Box_plot>`_.
+  The three main features are the position of the red bar (median of the
+  distribution), size of the box (50% of the values fall inside the
+  box), and the amount and positions of pluses (outliers). The first one gives
+  an idea of the average performance of the algorithm. The second one expresses
+  the segmentation stability with respect to the seed choice (with smaller box
+  meaning better stability). The third one indicates segmentation failures.
+  Indeed, a significant deviation of the under-segmentation error means that the
+  output segmentation has large mis-labeled regions, which may be deemed as a
+  failure.
+
+  Clearly, the median values of the distributions are almost the same. The
+  differences are very small and due to the discussed properties of the
+  under-segmentation error can not be used to draw conclusions of which sigmas
+  are better. The box sizes, however, vary significantly. The sigmas from 0.1 to
+  1.1 yield the most stable performance. Also the number of failures is less for
+  those sigmas. This evaluation does not provide enough information to chose
+  any particular sigma in this range, so for now I settled on 0.2 (it is the
+  second most stable, but yields less failures than 0.1).
+
+  In order to explore the influence of the color term, I set Euclidean sigma to
+  the value of voxel resolution again and angular sigma to 0.2:
+
+  +-----------------------------------+
+  +-----------------------------------+
+  | .. image:: img/15/color-sigma.png |
+  |   :width: 640 px                  |
+  +-----------------------------------+
+
+  Note the last column, which shows the error distribution when the color term
+  is removed completely. We see that sigmas from 0.1 to 0.15 provide slightly
+  more stable results. Unfortunately it is not visible in the plot, but the
+  number of pluses on the :math:`10^{4}` row is less for these sigmas. So I
+  chose 0.15 as a result of this evaluation.
+
+  Speaking about the distance sigma, it turned out to have very small influence
+  on the results. In most cases introduction of the distance term does not change
+  the output at all. Still, in few cases it helps to avoid complete segmentation
+  failure. It turned out that setting this sigma to the voxel resolution value
+  gives the best results.
+
+  Finally, let me demonstrate the segmentations produced with the chosen sigmas.
+  Among the 50 random seedings only 5 resulted in segmentation failure:
+
+  +----------------------------------------+
+  | .. image:: img/15/test47-failures.gif  |
+  |   :width: 640 px                       |
+  +----------------------------------------+
+  | | 5 failed segmentations               |
+  +----------------------------------------+
+
+  Clearly, failures happened when a seed was placed either exactly on the
+  boundary between two objects (#2), or on the outermost voxels of an object
+  (#1, #3, #4, #5).
+
+  The remaining 45 seedings yielded good segmentations. Below are 15 of them
+  (selected randomly):
+
+  +----------------------------------------+
+  | .. image:: img/15/test47-successes.gif |
+  |   :width: 640 px                       |
+  +----------------------------------------+
+  | | 15 succeeded segmentations           |
+  +----------------------------------------+
