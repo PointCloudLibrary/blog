@@ -1543,3 +1543,138 @@ My status updates
   +----------------------------------------+
   | | 15 succeeded segmentations           |
   +----------------------------------------+
+
+
+.. blogpost::
+  :title: Edge Weights Revisited: Introducing the Curvature Term
+  :author: alexandrov
+  :date: 11-27-2013
+
+  In the previous blog post I described my attempts to find a good balance
+  between the contributions of the three terms (distance, normal, and color) to
+  edge weight computation. As it often happens, as soon as I was done with the
+  evaluation and the blog post, I realized that there is another type of
+  information that could be considered: curvature. And indeed, it proved to have
+  a very positive effect on the performance of the random walker segmentation.
+
+  Let me begin by exposing a problem associated with edge weights computed using
+  the normal term alone (i.e. depending only on the angular distance between the
+  normals of the vertices). Consider the following scene (left):
+
+  +----------------------------------------------+---------------------------------------------+
+  | .. image:: img/osd/test47-voxels.png         | .. image:: img/16/test47-weights-zoomed.png |
+  |   :width: 320 px                             |   :width: 320 px                            |
+  +----------------------------------------------+---------------------------------------------+
+  | | Voxelized point cloud (left) and a close-up view of the graph                            |
+  | | edges in the region where the tall and round boxes touch                                 |
+  | | (right). The edges are colored according to their weights                                |
+  | | (from dark blue for small weights to dark red for large                                  |
+  | | weights).                                                                                |
+  +--------------------------------------------------------------------------------------------+
+
+  Most of the edges in the boundary region (right) are dark blue, however there
+  are a number of red edges with quite large weights. This sort of boundary is
+  often referred to as a "weak boundary" and, not surprisingly, has a negative
+  effect on the performance of many segmentation algorithms. You can imagine
+  that a boundary like this is a disaster for the flood-fill segmentation,
+  because the flood will happily propagate through it. Luckily, the random
+  walker algorithm is known for its robustness against weak boundaries:
+
+  +-----------------------------------+-----------------------------------+-----------------------------------+
+  | .. image:: img/16/test47-rws1.png | .. image:: img/16/test47-rws2.png | .. image:: img/16/test47-rws3.png |
+  |   :width: 210 px                  |   :width: 210 px                  |   :width: 210 px                  |
+  +-----------------------------------+-----------------------------------+-----------------------------------+
+  | | Segmentations produced by the random walker algorithm                                                   |
+  | | using three different choices of seeds (shown with red                                                  |
+  | | squares)                                                                                                |
+  +-----------------------------------------------------------------------------------------------------------+
+
+  In the first two cases one of the seeds is very close to the weak boundary,
+  whereas another one is far away. In the third case there are multiple green
+  seeds placed along the boundary, however a single purple seed is able to
+  "resist" them from its remote corner.
+
+  This robustness has limits, of course. In the figure below the "table seed" is
+  placed in the rear of the table, far from the boundaries with the boxes. The
+  box segments managed to "spill" on the table through the weak boundaries:
+
+  +-----------------------------------------------------------+
+  | .. image:: img/16/test47-rws-failure.png                  |
+  |   :width: 640 px                                          |
+  +-----------------------------------------------------------+
+  | | Segmentation failure when a seed is placed too far from |
+  | | a weak boundary                                         |
+  +-----------------------------------------------------------+
+
+  One way to address this problem is to make the sigma of the normal term
+  smaller, therefore penalizing differences in normals' orientations more.
+  Enabling the distance term might also help, because the edges that contribute
+  to the boundary weakness are often diagonal and therefore longer than the
+  average. The figure below (left) demonstrates the graph edges in the same
+  boundary region with new weights, computed using decreased normal term sigma
+  (10% of the original one), and with the distance term enabled. (The overall
+  edge color shift towards blue is due to it.)
+
+  +----------------------------------------------+---------------------------------------------+
+  | .. image:: img/16/test47-weights-zoomed2.png | .. image:: img/16/far-away-weights.png      |
+  |   :width: 320 px                             |   :width: 320 px                            |
+  +----------------------------------------------+---------------------------------------------+
+  | | Graph edges with weights computed with a smaller normal                                  |
+  | | term sigma and enabled distance term. Close-up view of                                   |
+  | | the region where the tall and round boxes touch (left)                                   |
+  | | and top-down view at the rear of the table (right).                                      |
+  +--------------------------------------------------------------------------------------------+
+
+  Still, there are several edges with relatively large weights in the boundary
+  region, but there are no large-weight paths connecting vertices on both sides
+  of the boundary anymore. We got rid of the weak boundary, but this came at a
+  price. Although the table itself is flat, the cloud that we get from the
+  Kinect is not, and the further from the camera the more wavy it is. The image
+  on the right shows a top-down view at the rear of the table, where the waves
+  are particularly large. The edges that belong to the cavities between the
+  "waves" were heavily penalized and virtually disappeared. Random walkers will
+  have a hard time traversing this part of the table on their way to the boxes!
+
+  Having considered all of these I came to a conclusion that some additional
+  geometrical feature is needed to improve the weighting function. Curvature was
+  the first candidate, especially in the light of the fact that we anyways get
+  it for free when estimating voxel normals (via PCA of the covariance matrix of
+  the voxel neighborhood). I added one more exponential term to the weighting
+  function:
+
+  :math:`\exp{\left\{-\frac{d_4(v_i,v_j)}{\sigma_4}\right\}}`
+
+  where :math:`d_4(\cdot)` is simply a product of the voxel curvatures.
+  Similarly to how it is done in the normal term, the product is additionally
+  multiplied by a small constant if the angle between the voxels is convex (in
+  order not to penalize convex boundaries).
+
+  The figure below demonstrates the edge weights computed using the new term
+  alone:
+
+  +----------------------------------------------+---------------------------------------------+
+  | .. image:: img/16/test47-weights-zoomed3.png | .. image:: img/16/far-away-weights2.png     |
+  |   :width: 320 px                             |   :width: 320 px                            |
+  +----------------------------------------------+---------------------------------------------+
+  | | Graph edges with weights computed using only the new                                     |
+  | | curvature term. Close-up view of the region where the                                    |
+  | | the rear of the table (right).                                                           |
+  +--------------------------------------------------------------------------------------------+
+
+  The boundary between the boxes is perfectly strong, whereas the weights in the
+  rear of the table are not penalized too much. The seeding that resulted in a
+  segmentation failure before no longer causes problems. I used the set of
+  random seedings described in the last post to find the best sigmas for the
+  extended weighting function. Then I generated 50 new seedings to test and
+  compare the performance of the old (without the curvature term) and the new
+  (with the curvature term) weighting functions. The figure below summarizes the
+  distributions of under-segmentation errors:
+
+  +----------------------------------------------+
+  +----------------------------------------------+
+  | .. image:: img/16/performance-comparison.png |
+  |   :width: 640 px                             |
+  +----------------------------------------------+
+
+  The performance significantly improved both in terms of stability, quality,
+  and number of failures (in fact, there are no failures at all).
