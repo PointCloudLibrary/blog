@@ -2,17 +2,22 @@ My status updates
 =================
 
 .. blogpost::
-  :title: Final Report
+  :title: Milestone 2, Part 1: Introducing the Evaluation Dataset
   :author: adambr
-  :date: 01-22-2014
+  :date: 10-16-2013
 
-  It is with pleasure to share the successful completion of this Toyota Code Sprint in this final blog post.  In this project, homography estimation based on multi-modal, multi-descriptor correspondence sets has been explored, and inspired the introduction of the multi-descriptor voting approach (MDv). The proposed MDv approach achieved a consistent accuracy in the 0.0X range, a level of consistency that is better than those based on single-type state of the art descriptors including SIFT. In the process, a framework for analyzing and evaluating single and multi-descriptor performance has been developed, and employed to validate the robustness of MDv, as compared with homography estimations based on a single descriptor type, as well as those based on RANSAC registration of best-K multi-descriptor correspondence sets.  The code and dataset for this project are hosted on https://www.github.com/mult-desc/md, with dependencies on both PCL and OpenCV.
+  In this entry, I'll go over the evaluation dataset, the reasons I decided to create my own as opposed to using existing ones, and the needed criteria to evaluate multi-descriptor performance.   
 
-  Follows is an in-depth report detailing the project's accomplishments, as well as design and validation considerations: 
+  The first requirement is a real-world challenging dataset, to help quantify the limiting factors of each given descriptor as a function of the associated sensor.  The result is a ground truth confidence interval of each descriptor's performance.  The dataset in this case contains (2) subsets,  subset (A)  with no scene difference, and subset (B) differs only in photometric properties and sensor noise.
 
-  .. raw:: html
+  The second requirement is a dataset where a percentage of any given scene is invalid or not suitable for a subset  of the descriptors in the multi-descriptor set. This requirement is expressed in subset (C) which contains a large percentage of out of range depth data.
 
-    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Fadambr%2Ffiles%2FAdamBr_TOCS_MultiDescReg_FinalReport.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
+  The third requirement is a minimal dataset for efficient and tractable computational performance, as expressed in subsets A, B, and C.
+
+  To evaluate each descriptor's performance, pose estimation, as expressed by a single-angle drift around one axis, vs a known ground truth is used as a comparative measurement unit.  Additionally, the inlier rate is considered in evaluating the quality of correspondence selection.
+
+  .. image:: images/dataset.png
+    :width: 600 px
 
 .. blogpost::
   :title: Correspondence Rejection: A Quick Reference Guide
