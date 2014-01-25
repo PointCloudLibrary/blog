@@ -4,15 +4,19 @@ My status updates
 .. blogpost::
   :title: Final Report
   :author: adambr
-  :date: 01-22-2014
+  :date: 01-24-2014
 
-  It is with pleasure to share the successful completion of this Toyota Code Sprint in this final blog post.  In this project, homography estimation based on multi-modal, multi-descriptor correspondence sets has been explored, and inspired the introduction of the multi-descriptor voting approach (MDv). The proposed MDv approach achieved a consistent accuracy in the 0.0X range, a level of consistency that is better than those based on single-type state of the art descriptors including SIFT. In the process, a framework for analyzing and evaluating single and multi-descriptor performance has been developed, and employed to validate the robustness of MDv, as compared with homography estimations based on a single descriptor type, as well as those based on RANSAC registration of best-K multi-descriptor correspondence sets.  The code and dataset for this project are hosted on https://www.github.com/mult-desc/md, with dependencies on both PCL and OpenCV.
+  It is with pleasure to share the successful completion of this Toyota Code Sprint in this final blog post.  In this project, homography estimation based on multi-modal, multi-descriptor correspondence sets has been explored, and inspired the introduction of the multi-descriptor voting approach (MDv). The proposed MDv approach achieved a consistent accuracy in the 0.0X range, a level of consistency that is better than those based on single-type state of the art descriptors including SIFT. In the process, a framework for analyzing and evaluating single and multi-descriptor performance has been developed, and employed to validate the robustness of MDv, as compared with homography estimations based on a single descriptor type, as well as those based on RANSAC registration of best-K multi-descriptor correspondence sets.  The code and dataset for this project are hosted on https://github.com/mult-desc/md, with dependencies on both PCL 1.7 and OpenCV 2.4.6.
 
-  Follows is an in-depth report detailing the project's accomplishments, as well as design and validation considerations: 
+  Follows is an in-depth report detailing the project's accomplishments, as well as design and validation considerations:
 
   .. raw:: html
 
-    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Fadambr%2Ffiles%2FAdamBr_TOCS_MultiDescReg_FinalReport.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
+    Click <a href="https://drive.google.com/file/d/0ByU7lj1rOUWOWkplTmRqakN3c00/edit?usp=sharing">here</a> for a high resolution version of the report.
+
+  .. raw:: html
+
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Ftocs%2Fadambr%2Ffiles%2FAdamBr_TOCS_FinalReport_LowRes.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
 
 .. blogpost::
   :title: Correspondence Rejection: A Quick Reference Guide
