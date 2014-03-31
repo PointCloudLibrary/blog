@@ -113,3 +113,28 @@
 
    .. image:: img/disparity_map.png
       :align: center
+
+.. blogpost::
+   :title: Results on the Castro dataset.
+   :author: tibadov
+   :date: 03-31-2014
+
+   We've implemented almost everything, what was planned, and now we want to present our results.
+
+   First of all please watch this video with results on the whole Castro dataset. Road is marked with red, left and right road borders are indicated by green and blue lines respectively.
+
+   .. raw:: html
+
+      <center><iframe width="640" height="480" src="http://www.youtube.com/embed/GS38zprOorg" frameborder="0" allowfullscreen></iframe></center>
+
+   The main problem is the presence of holes in the road surface. This is caused by the holes in the input disparity maps. We decided not to inpaint them, because we have no information about scene in those points. But we will compute the quality of the labeling only in points with known disparity. It allows to estimate the results of our method independently of the quality of the method for generating disparity maps.
+
+   Our method has a significant advantage in situations with one or both curbs are clearly visible (with corresponding sidewalks). You can compare  the result of the previous sprint's method (left) with the result of our method (right) on the same frame (which has two clearly visible sidewalks).
+
+   .. image:: img/castro_diff.png
+      :align: center
+
+   Next, I'm going to show you the numerical results. Precision is a ratio of right detected road's points to all detected pixels, recall is a percent of detected road's points. Only points with known disparity are taken into account.
+
+   .. image:: img/castro_results_disp.png
+      :align: center
