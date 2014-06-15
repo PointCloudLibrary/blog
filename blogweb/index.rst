@@ -37,6 +37,10 @@ the logos below to go to the respective sprint blog page.
 .. image:: _static/hri_logo.png
   :target: http://www.pointclouds.org/blog/hrcs
   :class: foo
+.. image:: _static/gsoc14.png
+  :target: http://www.pointclouds.org/blog/gsoc14
+  :class: foo
+
 
 Completed Sprints
 =================
