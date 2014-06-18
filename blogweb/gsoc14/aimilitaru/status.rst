@@ -1,12 +1,12 @@
 My status updates
 =================
 
-.. blogbody::
+
   :nr_days: 60
   :author: aimilitaru
 
 
-.. blogpost::
+
   :title: Face Shift ( First phase )
   :author: aimilitaru
   :date: 18-06-2014
