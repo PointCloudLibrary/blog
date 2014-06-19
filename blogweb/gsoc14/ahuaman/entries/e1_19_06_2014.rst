@@ -1,0 +1,8 @@
+.. blogpost::
+   :title: 0. Whetting your appetite: Why superquadrics?
+   :author: ahuaman
+   :date: 19-06-2014
+
+   Superquadrics allow you to represent a wide array of different shapes with a small number of parameters (5)
+
+
