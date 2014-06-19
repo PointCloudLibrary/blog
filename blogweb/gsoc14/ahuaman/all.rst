@@ -1,5 +1,6 @@
-All blog posts for My_Name
------------------------------
+All blog posts for A. Huaman Quispe
+-----------------------------------
 
 .. blogbody::
-   :author: my_username
+   :author: ahuaman
+  

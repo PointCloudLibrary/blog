@@ -1,0 +1,30 @@
+Theoretical Foundations
+=======================
+
+.. blogpost::
+   :title: Theoretical Foundations
+   :author: ahuaman
+   :date: 19-06-2014
+
+      
+   Superellipsoids can be expressed with the following equation:
+
+   .. math::
+
+      
+      \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
+
+      
+   where the 5 parameters :math:`(a,b,c,\epsilon_{1}, \epsilon_{2})` determine the 3D shape. A superquadric,
+   is in fact the result of the spherical product of two superellipses, which can be expressed by the
+   following 2D equation: 
+
+   
+
+   Superellipsoids:
+
+   .. math::
+
+      {\left(\dfrac{x}{a}\right) }^{\frac{2}{\epsilon}} + {\left(\dfrac{y}{b}\right)}^{\frac{2}{\epsilon}} = 1
+
+

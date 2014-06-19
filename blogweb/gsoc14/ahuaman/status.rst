@@ -3,12 +3,7 @@ My status updates
 
 .. blogbody::
   :nr_days: 60
-  :author: my_username
+  :author: ahuaman
 
-
-.. blogpost::
-  :title: Test post
-  :author: my_username
-  :date: 25-04-2010
-
-  Test post
+  e2_19_06_2014
+  e1_19_06_2014
