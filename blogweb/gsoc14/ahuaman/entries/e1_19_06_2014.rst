@@ -18,8 +18,7 @@
    an effective modelling tool to approximate objects shape. In general, superquadrics
    include superellipsoid and supertoroids, but for most practical uses, we
    care for only superellipsoids. This can be expressed with the following formula:
-   
-   
+      
    .. math:: \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
       :label: se_eq
       

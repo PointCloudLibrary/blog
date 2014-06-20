@@ -1,6 +1,3 @@
-Uniform Sampling for Superquadrics
-===================================
-
 .. blogpost::
    :title: 1. Uniform sampling for superquadrics
    :author: ahuaman
