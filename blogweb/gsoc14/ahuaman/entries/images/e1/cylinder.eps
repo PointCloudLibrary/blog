@@ -1,0 +1,4213 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: cylinder.eps
+%%Creator: gnuplot 4.6 patchlevel 0
+%%CreationDate: Fri Jun 20 14:02:32 2014
+%%DocumentFonts: (atend)
+%%BoundingBox: 50 50 626 482
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color false def
+/Blacktext false def
+/Solid false def
+/Dashlength 1 def
+/Landscape false def
+/Level1 true def
+/Rounded false def
+/ClipToBoundingBox false def
+/SuppressPDFMark false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+/BackgroundColor {-1.000 -1.000 -1.000} def
+%
+/vshift -66 def
+/dl1 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 626 50 lineto 626 482 lineto 50 482 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 4.4 (August 2010)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray show grestore} {show} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Default Line colors
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default Line Types
+/LTw {PL [] 1 setgray} def
+/LTb {BL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [4 dl1 2 dl2] LC1 DL} def
+/LT2 {PL [2 dl1 3 dl2] LC2 DL} def
+/LT3 {PL [1 dl1 1.5 dl2] LC3 DL} def
+/LT4 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC5 DL} def
+/LT6 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 2 dl2 2 dl1 4 dl2] LC8 DL} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  gsave 1 setgray fill grestore clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+ 2 lt
+	{/InterpretLevel1 true def}
+	{/InterpretLevel1 Level1 def}
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+/MFshow {
+   { dup 5 get 3 ge
+     { 5 get 3 eq {gsave} {grestore} ifelse }
+     {dup dup 0 get findfont exch 1 get scalefont setfont
+     [ currentpoint ] exch dup 2 get 0 exch R dup 5 get 2 ne {dup dup 6
+     get exch 4 get {Gshow} {stringwidth pop 0 R} ifelse }if dup 5 get 0 eq
+     {dup 3 get {2 get neg 0 exch R pop} {pop aload pop M} ifelse} {dup 5
+     get 1 eq {dup 2 get exch dup 3 get exch 6 get stringwidth pop -2 div
+     dup 0 R} {dup 6 get stringwidth pop -2 div 0 R 6 get
+     show 2 index {aload pop M neg 3 -1 roll neg R pop pop} {pop pop pop
+     pop aload pop M} ifelse }ifelse }ifelse }
+     ifelse }
+   forall} def
+/Gswidth {dup type /stringtype eq {stringwidth} {pop (n) stringwidth} ifelse} def
+/MFwidth {0 exch { dup 5 get 3 ge { 5 get 3 eq { 0 } { pop } ifelse }
+ {dup 3 get{dup dup 0 get findfont exch 1 get scalefont setfont
+     6 get Gswidth pop add} {pop} ifelse} ifelse} forall} def
+/MLshow { currentpoint stroke M
+  0 exch R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MRshow { currentpoint stroke M
+  exch dup MFwidth neg 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/MCshow { currentpoint stroke M
+  exch dup MFwidth -2 div 3 -1 roll R
+  Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
+/XYsave    { [( ) 1 2 true false 3 ()] } bind def
+/XYrestore { [( ) 1 2 true false 4 ()] } bind def
+Level1 SuppressPDFMark or 
+{} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (cylinder.eps)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 4.6 patchlevel 0)
+  /Author (ana)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Fri Jun 20 14:02:32 2014)
+  /DOCINFO pdfmark
+end
+} ifelse
+end
+%%EndProlog
+%%Page: 1 1
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+(Helvetica) findfont 200 scalefont setfont
+BackgroundColor 0 lt 3 1 roll 0 lt exch 0 lt or or not {BackgroundColor C 1.000 0 0 11520.00 8640.00 BoxColFill} if
+gsave % colour palette begin
+/maxcolors 64 def
+/HSV2RGB {  exch dup 0.0 eq {pop exch pop dup dup} % achromatic gray
+  { /HSVs exch def /HSVv exch def 6.0 mul dup floor dup 3 1 roll sub
+     /HSVf exch def /HSVi exch cvi def /HSVp HSVv 1.0 HSVs sub mul def
+	 /HSVq HSVv 1.0 HSVs HSVf mul sub mul def 
+	 /HSVt HSVv 1.0 HSVs 1.0 HSVf sub mul sub mul def
+	 /HSVi HSVi 6 mod def 0 HSVi eq {HSVv HSVt HSVp}
+	 {1 HSVi eq {HSVq HSVv HSVp}{2 HSVi eq {HSVp HSVv HSVt}
+	 {3 HSVi eq {HSVp HSVq HSVv}{4 HSVi eq {HSVt HSVp HSVv}
+	 {HSVv HSVp HSVq} ifelse} ifelse} ifelse} ifelse} ifelse
+  } ifelse} def
+/Constrain {
+  dup 0 lt {0 exch pop}{dup 1 gt {1 exch pop} if} ifelse} def
+/YIQ2RGB {
+  3 copy -1.702 mul exch -1.105 mul add add Constrain 4 1 roll
+  3 copy -0.647 mul exch -0.272 mul add add Constrain 5 1 roll
+  0.621 mul exch -0.956 mul add add Constrain 3 1 roll } def
+/CMY2RGB {  1 exch sub exch 1 exch sub 3 2 roll 1 exch sub 3 1 roll exch } def
+/XYZ2RGB {  3 copy -0.9017 mul exch -0.1187 mul add exch 0.0585 mul exch add
+  Constrain 4 1 roll 3 copy -0.0279 mul exch 1.999 mul add exch
+  -0.9844 mul add Constrain 5 1 roll -0.2891 mul exch -0.5338 mul add
+  exch 1.91 mul exch add Constrain 3 1 roll} def
+/SelectSpace {ColorSpace (HSV) eq {HSV2RGB}{ColorSpace (XYZ) eq {
+  XYZ2RGB}{ColorSpace (CMY) eq {CMY2RGB}{ColorSpace (YIQ) eq {YIQ2RGB}
+  if} ifelse} ifelse} ifelse} def
+/InterpolatedColor true def
+/grayindex {/gidx 0 def
+  {GrayA gidx get grayv ge {exit} if /gidx gidx 1 add def} loop} def
+/dgdx {grayv GrayA gidx get sub GrayA gidx 1 sub get
+  GrayA gidx get sub div} def 
+/redvalue {RedA gidx get RedA gidx 1 sub get
+  RedA gidx get sub dgdxval mul add} def
+/greenvalue {GreenA gidx get GreenA gidx 1 sub get
+  GreenA gidx get sub dgdxval mul add} def
+/bluevalue {BlueA gidx get BlueA gidx 1 sub get
+  BlueA gidx get sub dgdxval mul add} def
+/interpolate {
+  grayindex grayv GrayA gidx get sub abs 1e-5 le
+    {RedA gidx get GreenA gidx get BlueA gidx get}
+    {/dgdxval dgdx def redvalue greenvalue bluevalue} ifelse} def
+/GrayA [0 .0159 .0317 .0476 .0635 .0794 .0952 .1111 .127 .1429 .1587 .1746 
+  .1905 .2063 .2222 .2381 .254 .2698 .2857 .3016 .3175 .3333 .3492 .3651 
+  .381 .3968 .4127 .4286 .4444 .4603 .4762 .4921 .5079 .5238 .5397 .5556 
+  .5714 .5873 .6032 .619 .6349 .6508 .6667 .6825 .6984 .7143 .7302 .746 
+  .7619 .7778 .7937 .8095 .8254 .8413 .8571 .873 .8889 .9048 .9206 .9365 
+  .9524 .9683 .9841 1 ] def
+/RedA [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .0238 .0873 .1508 
+  .2143 .2778 .3413 .4048 .4683 .5317 .5952 .6587 .7222 .7857 .8492 .9127 
+  .9762 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 .9444 .881 .8175 .754 .6905 .627 
+  .5635 .5 ] def
+/GreenA [0 0 0 0 0 0 0 0 .0079 .0714 .1349 .1984 .2619 .3254 .3889 .4524 
+  .5159 .5794 .6429 .7063 .7698 .8333 .8968 .9603 1 1 1 1 1 1 1 1 1 1 1 1 1 
+  1 1 1 .9603 .8968 .8333 .7698 .7063 .6429 .5794 .5159 .4524 .3889 .3254 
+  .2619 .1984 .1349 .0714 .0079 0 0 0 0 0 0 0 0 ] def
+/BlueA [.5 .5635 .627 .6905 .754 .8175 .881 .9444 1 1 1 1 1 1 1 1 1 1 1 1 1 
+  1 1 1 .9762 .9127 .8492 .7857 .7222 .6587 .5952 .5317 .4683 .4048 .3413 
+  .2778 .2143 .1508 .0873 .0238 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+  0 0 ] def
+/pm3dround {maxcolors 0 gt {dup 1 ge
+	{pop 1} {maxcolors mul floor maxcolors 1 sub div} ifelse} if} def
+/pm3dGamma 1.0 1.5 Gamma mul div def
+/ColorSpace (RGB) def
+Color InterpolatedColor or { % COLOUR vs. GRAY map
+  InterpolatedColor { %% Interpolation vs. RGB-Formula
+    /g {stroke pm3dround /grayv exch def interpolate
+        SelectSpace setrgbcolor} bind def
+  }{
+  /g {stroke pm3dround dup cF7 Constrain exch dup cF5 Constrain exch cF15 Constrain 
+       SelectSpace setrgbcolor} bind def
+  } ifelse
+}{
+  /g {stroke pm3dround pm3dGamma exp setgray} bind def
+} ifelse
+0.500 UL
+LTb
+0.500 UL
+LTb
+4037 2100 M
+5446 3419 L
+7885 2658 M
+5446 3419 L
+4037 2100 M
+0 4184 V
+5446 3419 M
+0 4185 V
+7885 2658 M
+0 4184 V
+4037 6284 M
+5446 7604 L
+7885 6842 M
+5446 7604 L
+stroke
+LTa
+7885 2658 M
+5446 3419 L
+stroke
+LTb
+7885 2658 M
+-49 15 V
+stroke
+7950 2623 M
+[ [({}) 200.0 0.0 true true 0 (-0.4)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+5446 3419 M
+48 -15 V
+stroke
+LTa
+7708 2493 M
+5270 3254 L
+stroke
+LTb
+7708 2493 M
+-48 15 V
+stroke
+7774 2458 M
+[ [({}) 200.0 0.0 true true 0 (-0.3)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+5270 3254 M
+48 -15 V
+stroke
+LTa
+7532 2328 M
+5094 3089 L
+stroke
+LTb
+7532 2328 M
+-48 15 V
+stroke
+7598 2294 M
+[ [({}) 200.0 0.0 true true 0 (-0.2)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+5094 3089 M
+48 -15 V
+stroke
+LTa
+7356 2163 M
+4918 2925 L
+stroke
+LTb
+7356 2163 M
+-48 15 V
+stroke
+7422 2129 M
+[ [({}) 200.0 0.0 true true 0 (-0.1)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4918 2925 M
+48 -16 V
+stroke
+LTa
+7180 1998 M
+4742 2760 L
+stroke
+LTb
+7180 1998 M
+-48 15 V
+stroke
+7246 1964 M
+[ [({}) 200.0 0.0 true true 0 (0)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4742 2760 M
+48 -15 V
+stroke
+LTa
+7004 1833 M
+4566 2595 L
+stroke
+LTb
+7004 1833 M
+-48 15 V
+stroke
+7070 1799 M
+[ [({}) 200.0 0.0 true true 0 (0.1)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4566 2595 M
+48 -15 V
+stroke
+LTa
+6828 1668 M
+4390 2430 L
+stroke
+LTb
+6828 1668 M
+-48 15 V
+stroke
+6894 1634 M
+[ [({}) 200.0 0.0 true true 0 (0.2)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4390 2430 M
+48 -15 V
+stroke
+LTa
+6652 1503 M
+4214 2265 L
+stroke
+LTb
+6652 1503 M
+-48 15 V
+stroke
+6718 1469 M
+[ [({}) 200.0 0.0 true true 0 (0.3)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4214 2265 M
+48 -15 V
+stroke
+LTa
+6476 1338 M
+4037 2100 L
+stroke
+LTb
+6476 1338 M
+-48 15 V
+stroke
+6542 1304 M
+[ [({}) 200.0 0.0 true true 0 (0.4)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+4037 2100 M
+49 -15 V
+stroke
+LTa
+4037 2100 M
+5446 3419 L
+stroke
+LTb
+4037 2100 M
+45 41 V
+stroke
+3977 2006 M
+[ [({}) 200.0 0.0 true true 0 (-0.4)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+5446 3419 M
+-44 -41 V
+stroke
+LTa
+4342 2005 M
+5751 3324 L
+stroke
+LTb
+4342 2005 M
+45 41 V
+stroke
+4282 1911 M
+[ [({}) 200.0 0.0 true true 0 (-0.3)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+5751 3324 M
+-44 -41 V
+stroke
+LTa
+4647 1910 M
+6055 3229 L
+stroke
+LTb
+4647 1910 M
+44 41 V
+stroke
+4587 1816 M
+[ [({}) 200.0 0.0 true true 0 (-0.2)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+6055 3229 M
+-44 -41 V
+stroke
+LTa
+4952 1814 M
+6360 3134 L
+stroke
+LTb
+4952 1814 M
+44 42 V
+stroke
+4892 1721 M
+[ [({}) 200.0 0.0 true true 0 (-0.1)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+6360 3134 M
+-44 -42 V
+stroke
+LTa
+5257 1719 M
+6665 3038 L
+stroke
+LTb
+5257 1719 M
+44 41 V
+stroke
+5197 1626 M
+[ [({}) 200.0 0.0 true true 0 (0)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+6665 3038 M
+-44 -41 V
+stroke
+LTa
+5562 1624 M
+6970 2943 L
+stroke
+LTb
+5562 1624 M
+44 41 V
+stroke
+5502 1530 M
+[ [({}) 200.0 0.0 true true 0 (0.1)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+6970 2943 M
+-44 -41 V
+stroke
+LTa
+5867 1529 M
+7275 2848 L
+stroke
+LTb
+5867 1529 M
+44 41 V
+stroke
+5807 1435 M
+[ [({}) 200.0 0.0 true true 0 (0.2)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7275 2848 M
+-44 -41 V
+stroke
+LTa
+6171 1434 M
+7580 2753 L
+stroke
+LTb
+6171 1434 M
+44 41 V
+stroke
+6111 1340 M
+[ [({}) 200.0 0.0 true true 0 (0.3)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7580 2753 M
+-45 -41 V
+stroke
+LTa
+6476 1338 M
+7885 2658 L
+stroke
+LTb
+6476 1338 M
+44 42 V
+stroke
+6416 1245 M
+[ [({}) 200.0 0.0 true true 0 (0.4)]
+] -66.7 MCshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 2658 M
+-45 -42 V
+stroke
+LTa
+4037 2100 M
+5446 3419 L
+7885 2658 L
+stroke
+LTb
+4037 2100 M
+88 0 V
+stroke
+3911 2100 M
+[ [({}) 200.0 0.0 true true 0 (-1)]
+] -66.7 MRshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 2658 M
+-88 0 V
+stroke
+LTa
+4037 3146 M
+5446 4466 L
+7885 3704 L
+stroke
+LTb
+4037 3146 M
+88 0 V
+stroke
+3911 3146 M
+[ [({}) 200.0 0.0 true true 0 (-0.5)]
+] -66.7 MRshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 3704 M
+-88 0 V
+stroke
+LTa
+4037 4193 M
+5446 5511 L
+7885 4749 L
+stroke
+LTb
+4037 4193 M
+88 0 V
+stroke
+3911 4193 M
+[ [({}) 200.0 0.0 true true 0 (0)]
+] -66.7 MRshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 4749 M
+-88 0 V
+stroke
+LTa
+4037 5238 M
+5446 6557 L
+7885 5796 L
+stroke
+LTb
+4037 5238 M
+88 0 V
+stroke
+3911 5238 M
+[ [({}) 200.0 0.0 true true 0 (0.5)]
+] -66.7 MRshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 5796 M
+-88 0 V
+stroke
+LTa
+4037 6284 M
+5446 7604 L
+7885 6842 L
+stroke
+LTb
+4037 6284 M
+88 0 V
+stroke
+3911 6284 M
+[ [({}) 200.0 0.0 true true 0 (1)]
+] -66.7 MRshow
+0.500 UL
+LTb
+0.500 UL
+LTb
+7885 6842 M
+-88 0 V
+1.000 UP
+% Begin plot #1
+stroke
+1.500 UL
+LT0
+1.500 UL
+LT0
+% End plot #1
+.0259 g gsave 5835 3632 N 376 -11 V 3 45 V -380 10 V 0.60 PolyFill
+1.500 UL
+LT0
+5835 3632 M
+-1 44 V
+380 -10 V
+-3 -45 V
+-376 11 V
+.038 g gsave 5834 3676 N 380 -10 V 1 59 V -382 10 V 0.60 PolyFill
+stroke
+LT0
+5834 3676 M
+-1 59 V
+382 -10 V
+-1 -59 V
+-380 10 V
+.017 g gsave 5837 3596 N 371 -11 V 3 36 V -376 11 V 0.60 PolyFill
+stroke
+LT0
+5837 3596 M
+-2 36 V
+376 -11 V
+-3 -36 V
+-371 11 V
+.0554 g gsave 5833 3735 N 382 -10 V 1 94 V -383 11 V 0.60 PolyFill
+stroke
+LT0
+5833 3735 M
+0 95 V
+383 -11 V
+-1 -94 V
+-382 10 V
+.0105 g gsave 5839 3563 N 364 -10 V 5 32 V -371 11 V 0.60 PolyFill
+stroke
+LT0
+5839 3563 M
+-2 33 V
+371 -11 V
+-5 -32 V
+-364 10 V
+.0057 g gsave 5842 3532 N 355 -10 V 6 31 V -364 10 V 0.60 PolyFill
+stroke
+LT0
+5842 3532 M
+-3 31 V
+364 -10 V
+-6 -31 V
+-355 10 V
+.0259 g gsave 5471 3579 N 364 53 V -1 44 V -368 -53 V 0.60 PolyFill
+stroke
+LT0
+5471 3579 M
+-5 44 V
+368 53 V
+1 -44 V
+-364 -53 V
+.038 g gsave 5466 3623 N 368 53 V -1 59 V -370 -53 V 0.60 PolyFill
+stroke
+LT0
+5466 3623 M
+-3 59 V
+370 53 V
+1 -59 V
+-368 -53 V
+.017 g gsave 5477 3544 N 360 52 V -2 36 V -364 -53 V 0.60 PolyFill
+stroke
+LT0
+5477 3544 M
+-6 35 V
+364 53 V
+2 -36 V
+-360 -52 V
+.0025 g gsave 5847 3499 N 341 -9 V 9 32 V -355 10 V 0.60 PolyFill
+stroke
+LT0
+5847 3499 M
+-5 33 V
+355 -10 V
+-9 -32 V
+-341 9 V
+.0105 g gsave 5486 3512 N 353 51 V -2 33 V -360 -52 V 0.60 PolyFill
+stroke
+LT0
+5486 3512 M
+-9 32 V
+360 52 V
+2 -33 V
+-353 -51 V
+.0554 g gsave 5463 3682 N 370 53 V 0 95 V -372 -54 V 0.60 PolyFill
+stroke
+LT0
+5463 3682 M
+-2 94 V
+372 54 V
+0 -95 V
+-370 -53 V
+.0057 g gsave 5498 3483 N 344 49 V -3 31 V -353 -51 V 0.60 PolyFill
+stroke
+LT0
+5498 3483 M
+-12 29 V
+353 51 V
+3 -31 V
+-344 -49 V
+.0259 g gsave 6211 3621 N 353 -73 V 6 44 V -356 74 V 0.60 PolyFill
+stroke
+LT0
+6211 3621 M
+3 45 V
+356 -74 V
+-6 -44 V
+-353 73 V
+.038 g gsave 6214 3666 N 356 -74 V 4 58 V -359 75 V 0.60 PolyFill
+stroke
+LT0
+6214 3666 M
+1 59 V
+359 -75 V
+-4 -58 V
+-356 74 V
+.017 g gsave 6208 3585 N 348 -72 V 8 35 V -353 73 V 0.60 PolyFill
+stroke
+LT0
+6208 3585 M
+3 36 V
+353 -73 V
+-8 -35 V
+-348 72 V
+.0105 g gsave 6203 3553 N 342 -71 V 11 31 V -348 72 V 0.60 PolyFill
+stroke
+LT0
+6203 3553 M
+5 32 V
+348 -72 V
+-11 -31 V
+-342 71 V
+.0006 g gsave 5854 3455 N 319 -10 V 15 45 V -341 9 V 0.60 PolyFill
+stroke
+LT0
+5854 3455 M
+-7 44 V
+341 -9 V
+-15 -45 V
+-319 10 V
+.0554 g gsave 6215 3725 N 359 -75 V 2 94 V -360 75 V 0.60 PolyFill
+stroke
+LT0
+6215 3725 M
+1 94 V
+360 -75 V
+-2 -94 V
+-359 75 V
+.0025 g gsave 5516 3451 N 331 48 V -5 33 V -344 -49 V 0.60 PolyFill
+stroke
+LT0
+5516 3451 M
+-18 32 V
+344 49 V
+5 -33 V
+-331 -48 V
+.0057 g gsave 6197 3522 N 333 -69 V 15 29 V -342 71 V 0.60 PolyFill
+stroke
+LT0
+6197 3522 M
+6 31 V
+342 -71 V
+-15 -29 V
+-333 69 V
+.0025 g gsave 6188 3490 N 320 -67 V 22 30 V -333 69 V 0.60 PolyFill
+stroke
+LT0
+6188 3490 M
+9 32 V
+333 -69 V
+-22 -30 V
+-320 67 V
+.0006 g gsave 5545 3410 N 309 45 V -7 44 V -331 -48 V 0.60 PolyFill
+stroke
+LT0
+5545 3410 M
+-29 41 V
+331 48 V
+7 -44 V
+-309 -45 V
+.0006 g gsave 6173 3445 N 299 -62 V 36 40 V -320 67 V 0.60 PolyFill
+stroke
+LT0
+6173 3445 M
+15 45 V
+320 -67 V
+-36 -40 V
+-299 62 V
+.0259 g gsave 5154 3468 N 317 111 V -5 44 V -320 -112 V 0.60 PolyFill
+stroke
+LT0
+5154 3468 M
+-8 43 V
+320 112 V
+5 -44 V
+5154 3468 L
+.017 g gsave 5165 3434 N 312 110 V -6 35 V -317 -111 V 0.60 PolyFill
+stroke
+LT0
+5165 3434 M
+-11 34 V
+317 111 V
+6 -35 V
+5165 3434 L
+.038 g gsave 5146 3511 N 320 112 V -3 59 V -322 -113 V 0.60 PolyFill
+stroke
+LT0
+5146 3511 M
+-5 58 V
+322 113 V
+3 -59 V
+5146 3511 L
+.0105 g gsave 5180 3405 N 306 107 V -9 32 V -312 -110 V 0.60 PolyFill
+stroke
+LT0
+5180 3405 M
+-15 29 V
+312 110 V
+9 -32 V
+5180 3405 L
+.0554 g gsave 5141 3569 N 322 113 V -2 94 V -323 -114 V 0.60 PolyFill
+stroke
+LT0
+5141 3569 M
+-3 93 V
+323 114 V
+2 -94 V
+5141 3569 L
+.0057 g gsave 5199 3378 N 299 105 V -12 29 V -306 -107 V 0.60 PolyFill
+stroke
+LT0
+5199 3378 M
+-19 27 V
+306 107 V
+12 -29 V
+5199 3378 L
+.0847 g gsave 5833 3830 N 383 -11 V 1 1303 V -384 11 V 0.60 PolyFill
+stroke
+LT0
+5833 3830 M
+0 1303 V
+384 -11 V
+-1 -1303 V
+-383 11 V
+.0025 g gsave 5228 3350 N 288 101 V -18 32 V -299 -105 V 0.60 PolyFill
+stroke
+LT0
+5228 3350 M
+-29 28 V
+299 105 V
+18 -32 V
+5228 3350 L
+.0259 g gsave 6564 3548 N 293 -128 V 9 42 V -296 130 V 0.60 PolyFill
+stroke
+LT0
+6564 3548 M
+6 44 V
+296 -130 V
+-9 -42 V
+-293 128 V
+.017 g gsave 6556 3513 N 289 -127 V 12 34 V -293 128 V 0.60 PolyFill
+stroke
+LT0
+6556 3513 M
+8 35 V
+293 -128 V
+-12 -34 V
+-289 127 V
+.038 g gsave 6570 3592 N 296 -130 V 6 58 V -298 130 V 0.60 PolyFill
+stroke
+LT0
+6570 3592 M
+4 58 V
+298 -130 V
+-6 -58 V
+-296 130 V
+.0105 g gsave 6545 3482 N 284 -124 V 16 28 V -289 127 V 0.60 PolyFill
+stroke
+LT0
+6545 3482 M
+11 31 V
+289 -127 V
+-16 -28 V
+-284 124 V
+.0006 g gsave 5276 3315 N 269 95 V -29 41 V -288 -101 V 0.60 PolyFill
+stroke
+LT0
+5276 3315 M
+-48 35 V
+288 101 V
+29 -41 V
+-269 -95 V
+.0554 g gsave 6574 3650 N 298 -130 V 3 93 V -299 131 V 0.60 PolyFill
+stroke
+LT0
+6574 3650 M
+2 94 V
+299 -131 V
+-3 -93 V
+-298 130 V
+.0057 g gsave 6530 3453 N 277 -121 V 22 26 V -284 124 V 0.60 PolyFill
+stroke
+LT0
+6530 3453 M
+15 29 V
+284 -124 V
+-22 -26 V
+-277 121 V
+.0847 g gsave 5461 3776 N 372 54 V 0 1303 V -373 -54 V 0.60 PolyFill
+stroke
+LT0
+5461 3776 M
+-1 1303 V
+373 54 V
+0 -1303 V
+-372 -54 V
+.0025 g gsave 6508 3423 N 267 -117 V 32 26 V -277 121 V 0.60 PolyFill
+stroke
+LT0
+6508 3423 M
+22 30 V
+277 -121 V
+-32 -26 V
+-267 117 V
+.0006 g gsave 6472 3383 N 249 -109 V 54 32 V -267 117 V 0.60 PolyFill
+stroke
+LT0
+6472 3383 M
+36 40 V
+267 -117 V
+-54 -32 V
+-249 109 V
+.0847 g gsave 6216 3819 N 360 -75 V 1 1304 V -360 74 V 0.60 PolyFill
+stroke
+LT0
+6216 3819 M
+1 1303 V
+360 -74 V
+-1 -1304 V
+-360 75 V
+.017 g gsave 4931 3277 N 234 157 V -11 34 V -237 -159 V 0.60 PolyFill
+stroke
+LT0
+4931 3277 M
+-14 32 V
+237 159 V
+11 -34 V
+4931 3277 L
+.0259 g gsave 4917 3309 N 237 159 V -8 43 V -240 -160 V 0.60 PolyFill
+stroke
+LT0
+4917 3309 M
+-11 42 V
+240 160 V
+8 -43 V
+4917 3309 L
+.0105 g gsave 4949 3251 N 231 154 V -15 29 V -234 -157 V 0.60 PolyFill
+stroke
+LT0
+4949 3251 M
+-18 26 V
+234 157 V
+15 -29 V
+4949 3251 L
+.038 g gsave 4906 3351 N 240 160 V -5 58 V -241 -162 V 0.60 PolyFill
+stroke
+LT0
+4906 3351 M
+-6 56 V
+241 162 V
+5 -58 V
+4906 3351 L
+.0057 g gsave 4975 3228 N 224 150 V -19 27 V -231 -154 V 0.60 PolyFill
+stroke
+LT0
+4975 3228 M
+-26 23 V
+231 154 V
+19 -27 V
+4975 3228 L
+.0554 g gsave 4900 3407 N 241 162 V -3 93 V -243 -161 V 0.60 PolyFill
+stroke
+LT0
+4900 3407 M
+-5 94 V
+243 161 V
+3 -93 V
+4900 3407 L
+.0025 g gsave 5012 3206 N 216 144 V -29 28 V -224 -150 V 0.60 PolyFill
+stroke
+LT0
+5012 3206 M
+-37 22 V
+224 150 V
+29 -28 V
+5012 3206 L
+.0847 g gsave 5138 3662 N 323 114 V -1 1303 V -323 -113 V 0.60 PolyFill
+stroke
+LT0
+5138 3662 M
+-1 1304 V
+323 113 V
+1 -1303 V
+5138 3662 L
+.0006 g gsave 5075 3181 N 201 134 V -48 35 V -216 -144 V 0.60 PolyFill
+stroke
+LT0
+5075 3181 M
+-63 25 V
+216 144 V
+48 -35 V
+5075 3181 L
+.5 g gsave 5833 5133 N 384 -11 V -1 1303 V -383 11 V 0.60 PolyFill
+stroke
+LT0
+5833 5133 M
+0 1303 V
+383 -11 V
+1 -1303 V
+-384 11 V
+.9153 g gsave 5833 6436 N 383 -11 V -1 90 V -382 11 V 0.60 PolyFill
+stroke
+LT0
+5833 6436 M
+0 90 V
+382 -11 V
+1 -90 V
+-383 11 V
+.017 g gsave 6845 3386 N 203 -169 V 15 32 V -206 171 V 0.60 PolyFill
+stroke
+LT0
+6845 3386 M
+12 34 V
+206 -171 V
+-15 -32 V
+-203 169 V
+.0105 g gsave 6829 3358 N 199 -166 V 20 25 V -203 169 V 0.60 PolyFill
+stroke
+LT0
+6829 3358 M
+16 28 V
+203 -169 V
+-20 -25 V
+-199 166 V
+.0259 g gsave 6857 3420 N 206 -171 V 10 40 V -207 173 V 0.60 PolyFill
+stroke
+LT0
+6857 3420 M
+9 42 V
+207 -173 V
+-10 -40 V
+-206 171 V
+.0057 g gsave 6807 3332 N 194 -162 V 27 22 V -199 166 V 0.60 PolyFill
+stroke
+LT0
+6807 3332 M
+22 26 V
+199 -166 V
+-27 -22 V
+-194 162 V
+.038 g gsave 6866 3462 N 207 -173 V 8 57 V -209 174 V 0.60 PolyFill
+stroke
+LT0
+6866 3462 M
+6 58 V
+209 -174 V
+-8 -57 V
+-207 173 V
+.9446 g gsave 5833 6526 N 382 -11 V -1 50 V -380 11 V 0.60 PolyFill
+stroke
+LT0
+5833 6526 M
+1 50 V
+380 -11 V
+1 -50 V
+-382 11 V
+.0025 g gsave 6775 3306 N 187 -155 V 39 19 V -194 162 V 0.60 PolyFill
+stroke
+LT0
+6775 3306 M
+32 26 V
+194 -162 V
+-39 -19 V
+-187 155 V
+.0847 g gsave 6576 3744 N 299 -131 V 1 1303 V -299 132 V 0.60 PolyFill
+stroke
+LT0
+6576 3744 M
+1 1304 V
+299 -132 V
+-1 -1303 V
+-299 131 V
+.0554 g gsave 6872 3520 N 209 -174 V 4 92 V -210 175 V 0.60 PolyFill
+stroke
+LT0
+6872 3520 M
+3 93 V
+210 -175 V
+-4 -92 V
+-209 174 V
+.962 g gsave 5834 6576 N 380 -11 V -3 32 V -376 11 V 0.60 PolyFill
+stroke
+LT0
+5834 6576 M
+1 32 V
+376 -11 V
+3 -32 V
+-380 11 V
+.5 g gsave 5460 5079 N 373 54 V 0 1303 V -372 -54 V 0.60 PolyFill
+stroke
+LT0
+5460 5079 M
+1 1303 V
+372 54 V
+0 -1303 V
+-373 -54 V
+.0006 g gsave 6721 3274 N 175 -145 V 66 22 V -187 155 V 0.60 PolyFill
+stroke
+LT0
+6721 3274 M
+54 32 V
+187 -155 V
+-66 -22 V
+-175 145 V
+.9741 g gsave 5835 6608 N 376 -11 V -3 19 V -371 11 V 0.60 PolyFill
+stroke
+LT0
+5835 6608 M
+2 19 V
+371 -11 V
+3 -19 V
+-376 11 V
+.9153 g gsave 5461 6382 N 372 54 V 0 90 V -370 -54 V 0.60 PolyFill
+stroke
+LT0
+5461 6382 M
+2 90 V
+370 54 V
+0 -90 V
+-372 -54 V
+.983 g gsave 5837 6627 N 371 -11 V -5 9 V -364 11 V 0.60 PolyFill
+stroke
+LT0
+5837 6627 M
+2 9 V
+364 -11 V
+5 -9 V
+-371 11 V
+.9446 g gsave 5463 6472 N 370 54 V 1 50 V -368 -53 V 0.60 PolyFill
+stroke
+LT0
+5463 6472 M
+3 51 V
+368 53 V
+-1 -50 V
+-370 -54 V
+.5 g gsave 6217 5122 N 360 -74 V -1 1303 V -360 74 V 0.60 PolyFill
+stroke
+LT0
+6217 5122 M
+-1 1303 V
+360 -74 V
+1 -1303 V
+-360 74 V
+.962 g gsave 5466 6523 N 368 53 V 1 32 V -364 -53 V 0.60 PolyFill
+stroke
+LT0
+5466 6523 M
+5 32 V
+364 53 V
+-1 -32 V
+-368 -53 V
+.9895 g gsave 5839 6636 N 364 -11 V -6 -1 V -355 11 V 0.60 PolyFill
+stroke
+LT0
+5839 6636 M
+3 -1 V
+355 -11 V
+6 1 V
+-364 11 V
+.9153 g gsave 6216 6425 N 360 -74 V -2 89 V -359 75 V 0.60 PolyFill
+stroke
+LT0
+6216 6425 M
+-1 90 V
+359 -75 V
+2 -89 V
+-360 74 V
+.9741 g gsave 5471 6555 N 364 53 V 2 19 V -360 -52 V 0.60 PolyFill
+stroke
+LT0
+5471 6555 M
+6 20 V
+360 52 V
+-2 -19 V
+-364 -53 V
+.9446 g gsave 6215 6515 N 359 -75 V -4 51 V -356 74 V 0.60 PolyFill
+stroke
+LT0
+6215 6515 M
+-1 50 V
+356 -74 V
+4 -51 V
+-359 75 V
+.983 g gsave 5477 6575 N 360 52 V 2 9 V -353 -52 V 0.60 PolyFill
+stroke
+LT0
+5477 6575 M
+9 9 V
+353 52 V
+-2 -9 V
+-360 -52 V
+.9943 g gsave 5842 6635 N 355 -11 V -9 -12 V -341 10 V 0.60 PolyFill
+stroke
+LT0
+5842 6635 M
+5 -13 V
+341 -10 V
+9 12 V
+-355 11 V
+.962 g gsave 6214 6565 N 356 -74 V -6 33 V -353 73 V 0.60 PolyFill
+stroke
+LT0
+6214 6565 M
+-3 32 V
+353 -73 V
+6 -33 V
+-356 74 V
+.9895 g gsave 5486 6584 N 353 52 V 3 -1 V -344 -50 V 0.60 PolyFill
+stroke
+LT0
+5486 6584 M
+12 1 V
+344 50 V
+-3 1 V
+-353 -52 V
+.9741 g gsave 6211 6597 N 353 -73 V -8 20 V -348 72 V 0.60 PolyFill
+stroke
+LT0
+6211 6597 M
+-3 19 V
+348 -72 V
+8 -20 V
+-353 73 V
+.983 g gsave 6208 6616 N 348 -72 V -11 10 V -342 71 V 0.60 PolyFill
+stroke
+LT0
+6208 6616 M
+-5 9 V
+342 -71 V
+11 -10 V
+-348 72 V
+.0105 g gsave 4818 3066 N 131 185 V -18 26 V -134 -188 V 0.60 PolyFill
+stroke
+LT0
+4818 3066 M
+-21 23 V
+134 188 V
+18 -26 V
+4818 3066 L
+.9943 g gsave 5498 6585 N 344 50 V 5 -13 V -331 -48 V 0.60 PolyFill
+stroke
+LT0
+5498 6585 M
+18 -11 V
+331 48 V
+-5 13 V
+-344 -50 V
+.9975 g gsave 5847 6622 N 341 -10 V -15 -32 V -319 9 V 0.60 PolyFill
+stroke
+LT0
+5847 6622 M
+7 -33 V
+319 -9 V
+15 32 V
+-341 10 V
+.0057 g gsave 4848 3048 N 127 180 V -26 23 V -131 -185 V 0.60 PolyFill
+stroke
+LT0
+4848 3048 M
+-30 18 V
+131 185 V
+26 -23 V
+4848 3048 L
+.0847 g gsave 4895 3501 N 243 161 V -1 1304 V -243 -162 V 0.60 PolyFill
+stroke
+LT0
+4895 3501 M
+-1 1303 V
+243 162 V
+1 -1304 V
+4895 3501 L
+.017 g gsave 4797 3089 N 134 188 V -14 32 V -136 -190 V 0.60 PolyFill
+stroke
+LT0
+4797 3089 M
+-16 30 V
+136 190 V
+14 -32 V
+4797 3089 L
+.0025 g gsave 4890 3033 N 122 173 V -37 22 V -127 -180 V 0.60 PolyFill
+stroke
+LT0
+4890 3033 M
+-42 15 V
+127 180 V
+37 -22 V
+4890 3033 L
+.0259 g gsave 4781 3119 N 136 190 V -11 42 V -136 -193 V 0.60 PolyFill
+stroke
+LT0
+4781 3119 M
+-11 39 V
+136 193 V
+11 -42 V
+4781 3119 L
+.9895 g gsave 6203 6625 N 342 -71 V -15 1 V -333 69 V 0.60 PolyFill
+stroke
+LT0
+6203 6625 M
+-6 -1 V
+333 -69 V
+15 -1 V
+-342 71 V
+.0006 g gsave 4960 3019 N 115 162 V -63 25 V -122 -173 V 0.60 PolyFill
+stroke
+LT0
+4960 3019 M
+-70 14 V
+122 173 V
+63 -25 V
+4960 3019 L
+.038 g gsave 4770 3158 N 136 193 V -6 56 V -138 -193 V 0.60 PolyFill
+stroke
+LT0
+4770 3158 M
+-8 56 V
+138 193 V
+6 -56 V
+4770 3158 L
+.5 g gsave 5137 4966 N 323 113 V 1 1303 V -323 -113 V 0.60 PolyFill
+stroke
+LT0
+5137 4966 M
+1 1303 V
+323 113 V
+-1 -1303 V
+5137 4966 L
+.0554 g gsave 4762 3214 N 138 193 V -5 94 V -138 -195 V 0.60 PolyFill
+stroke
+LT0
+4762 3214 M
+-5 92 V
+138 195 V
+5 -94 V
+4762 3214 L
+.9153 g gsave 5138 6269 N 323 113 V 2 90 V -322 -113 V 0.60 PolyFill
+stroke
+LT0
+5138 6269 M
+3 90 V
+322 113 V
+-2 -90 V
+5138 6269 L
+.9943 g gsave 6197 6624 N 333 -69 V -22 -10 V -320 67 V 0.60 PolyFill
+stroke
+LT0
+6197 6624 M
+-9 -12 V
+320 -67 V
+22 10 V
+-333 69 V
+.9975 g gsave 5516 6574 N 331 48 V 7 -33 V -309 -45 V 0.60 PolyFill
+stroke
+LT0
+5516 6574 M
+29 -30 V
+309 45 V
+-7 33 V
+-331 -48 V
+.9446 g gsave 5141 6359 N 322 113 V 3 51 V -320 -113 V 0.60 PolyFill
+stroke
+LT0
+5141 6359 M
+5 51 V
+320 113 V
+-3 -51 V
+5141 6359 L
+.962 g gsave 5146 6410 N 320 113 V 5 32 V -317 -111 V 0.60 PolyFill
+stroke
+LT0
+5146 6410 M
+8 34 V
+317 111 V
+-5 -32 V
+5146 6410 L
+.9741 g gsave 5154 6444 N 317 111 V 6 20 V -312 -110 V 0.60 PolyFill
+stroke
+LT0
+5154 6444 M
+11 21 V
+312 110 V
+-6 -20 V
+5154 6444 L
+.5 g gsave 6577 5048 N 299 -132 V -1 1304 V -299 131 V 0.60 PolyFill
+stroke
+LT0
+6577 5048 M
+-1 1303 V
+299 -131 V
+1 -1304 V
+-299 132 V
+.9975 g gsave 6188 6612 N 320 -67 V -36 -27 V -299 62 V 0.60 PolyFill
+stroke
+LT0
+6188 6612 M
+-15 -32 V
+299 -62 V
+36 27 V
+-320 67 V
+.0847 g gsave 6875 3613 N 210 -175 V 1 1304 V -210 174 V 0.60 PolyFill
+stroke
+LT0
+6875 3613 M
+1 1303 V
+210 -174 V
+-1 -1304 V
+-210 175 V
+.0057 g gsave 7001 3170 N 92 -186 V 30 17 V -95 191 V 0.60 PolyFill
+stroke
+LT0
+7001 3170 M
+27 22 V
+95 -191 V
+-30 -17 V
+-92 186 V
+.0025 g gsave 6962 3151 N 88 -179 V 43 12 V -92 186 V 0.60 PolyFill
+stroke
+LT0
+6962 3151 M
+39 19 V
+92 -186 V
+-43 -12 V
+-88 179 V
+.0105 g gsave 7028 3192 N 95 -191 V 21 22 V -96 194 V 0.60 PolyFill
+stroke
+LT0
+7028 3192 M
+20 25 V
+96 -194 V
+-21 -22 V
+-95 191 V
+.983 g gsave 5165 6465 N 312 110 V 9 9 V -306 -107 V 0.60 PolyFill
+stroke
+LT0
+5165 6465 M
+15 12 V
+306 107 V
+-9 -9 V
+5165 6465 L
+.0006 g gsave 6896 3129 N 83 -167 V 71 10 V -88 179 V 0.60 PolyFill
+stroke
+LT0
+6896 3129 M
+66 22 V
+88 -179 V
+-71 -10 V
+-83 167 V
+.017 g gsave 7048 3217 N 96 -194 V 16 28 V -97 198 V 0.60 PolyFill
+stroke
+LT0
+7048 3217 M
+15 32 V
+97 -198 V
+-16 -28 V
+-96 194 V
+.0259 g gsave 7063 3249 N 97 -198 V 12 39 V -99 199 V 0.60 PolyFill
+stroke
+LT0
+7063 3249 M
+10 40 V
+99 -199 V
+-12 -39 V
+-97 198 V
+.9153 g gsave 6576 6351 N 299 -131 V -3 90 V -298 130 V 0.60 PolyFill
+stroke
+LT0
+6576 6351 M
+-2 89 V
+298 -130 V
+3 -90 V
+-299 131 V
+.038 g gsave 7073 3289 N 99 -199 V 8 55 V -99 201 V 0.60 PolyFill
+stroke
+LT0
+7073 3289 M
+8 57 V
+99 -201 V
+-8 -55 V
+-99 199 V
+.9895 g gsave 5180 6477 N 306 107 V 12 1 V -299 -105 V 0.60 PolyFill
+stroke
+LT0
+5180 6477 M
+19 3 V
+299 105 V
+-12 -1 V
+5180 6477 L
+.9446 g gsave 6574 6440 N 298 -130 V -6 52 V -296 129 V 0.60 PolyFill
+stroke
+LT0
+6574 6440 M
+-4 51 V
+296 -129 V
+6 -52 V
+-298 130 V
+.0554 g gsave 7081 3346 N 99 -201 V 5 92 V -100 201 V 0.60 PolyFill
+stroke
+LT0
+7081 3346 M
+4 92 V
+100 -201 V
+-5 -92 V
+-99 201 V
+.962 g gsave 6570 6491 N 296 -129 V -9 33 V -293 129 V 0.60 PolyFill
+stroke
+LT0
+6570 6491 M
+-6 33 V
+293 -129 V
+9 -33 V
+-296 129 V
+.9943 g gsave 5199 6480 N 299 105 V 18 -11 V -288 -101 V 0.60 PolyFill
+stroke
+LT0
+5199 6480 M
+29 -7 V
+288 101 V
+-18 11 V
+5199 6480 L
+.9741 g gsave 6564 6524 N 293 -129 V -12 22 V -289 127 V 0.60 PolyFill
+stroke
+LT0
+6564 6524 M
+-8 20 V
+289 -127 V
+12 -22 V
+-293 129 V
+0 g gsave 5958 2918 N 9 0 V 206 527 V -319 10 V 0.60 PolyFill
+stroke
+LT0
+5958 2918 M
+-104 537 V
+319 -10 V
+5967 2918 L
+-9 0 V
+0 g gsave 5950 2917 N 8 1 V -104 537 V -309 -45 V 0.60 PolyFill
+stroke
+LT0
+5950 2917 M
+-405 493 V
+309 45 V
+104 -537 V
+-8 -1 V
+0 g gsave 5967 2918 N 8 -2 V 497 467 V -299 62 V 0.60 PolyFill
+stroke
+LT0
+5967 2918 M
+206 527 V
+299 -62 V
+5975 2916 L
+-8 2 V
+0 g gsave 5942 2914 N 8 3 V -405 493 V -269 -95 V 0.60 PolyFill
+stroke
+LT0
+5942 2914 M
+-666 401 V
+269 95 V
+405 -493 V
+-8 -3 V
+.983 g gsave 6556 6544 N 289 -127 V -16 13 V -284 124 V 0.60 PolyFill
+stroke
+LT0
+6556 6544 M
+-11 10 V
+284 -124 V
+16 -13 V
+-289 127 V
+0 g gsave 5975 2916 N 7 -3 V 739 361 V -249 109 V 0.60 PolyFill
+stroke
+LT0
+5975 2916 M
+497 467 V
+249 -109 V
+5982 2913 L
+-7 3 V
+0 g gsave 5936 2910 N 6 4 V -666 401 V -201 -134 V 0.60 PolyFill
+stroke
+LT0
+5936 2910 M
+-861 271 V
+201 134 V
+666 -401 V
+-6 -4 V
+0 g gsave 5982 2913 N 5 -5 V 909 221 V -175 145 V 0.60 PolyFill
+stroke
+LT0
+5982 2913 M
+739 361 V
+175 -145 V
+5987 2908 L
+-5 5 V
+0 g gsave 5933 2905 N 3 5 V -861 271 V -115 -162 V 0.60 PolyFill
+stroke
+LT0
+5933 2905 M
+-973 114 V
+115 162 V
+861 -271 V
+-3 -5 V
+0 g gsave 5987 2908 N 3 -4 V 989 58 V -83 167 V 0.60 PolyFill
+stroke
+LT0
+5987 2908 M
+909 221 V
+83 -167 V
+-989 -58 V
+-3 4 V
+.9895 g gsave 6545 6554 N 284 -124 V -22 4 V -277 121 V 0.60 PolyFill
+stroke
+LT0
+6545 6554 M
+-15 1 V
+277 -121 V
+22 -4 V
+-284 124 V
+.9975 g gsave 5228 6473 N 288 101 V 29 -30 V -269 -95 V 0.60 PolyFill
+stroke
+LT0
+5228 6473 M
+48 -24 V
+269 95 V
+-29 30 V
+5228 6473 L
+.9943 g gsave 6530 6555 N 277 -121 V -32 -5 V -267 116 V 0.60 PolyFill
+stroke
+LT0
+6530 6555 M
+-22 -10 V
+267 -116 V
+32 5 V
+-277 121 V
+.9975 g gsave 6508 6545 N 267 -116 V -54 -20 V -249 109 V 0.60 PolyFill
+stroke
+LT0
+6508 6545 M
+-36 -27 V
+249 -109 V
+54 20 V
+-267 116 V
+.5 g gsave 4894 4804 N 243 162 V 1 1303 V -243 -162 V 0.60 PolyFill
+stroke
+LT0
+4894 4804 M
+1 1303 V
+243 162 V
+-1 -1303 V
+4894 4804 L
+0 g gsave 5932 2900 N 1 5 V -973 114 V -17 -173 V 0.60 PolyFill
+stroke
+LT0
+5932 2900 M
+-989 -54 V
+17 173 V
+973 -114 V
+-1 -5 V
+.9153 g gsave 4895 6107 N 243 162 V 3 90 V -241 -161 V 0.60 PolyFill
+stroke
+LT0
+4895 6107 M
+5 91 V
+241 161 V
+-3 -90 V
+4895 6107 L
+.0006 g gsave 4943 2846 N 17 173 V -70 14 V -18 -185 V 0.60 PolyFill
+stroke
+LT0
+4943 2846 M
+-71 2 V
+18 185 V
+70 -14 V
+-17 -173 V
+.0025 g gsave 4872 2848 N 18 185 V -42 15 V -19 -192 V 0.60 PolyFill
+stroke
+LT0
+4872 2848 M
+-43 8 V
+19 192 V
+42 -15 V
+-18 -185 V
+.0847 g gsave 4757 3306 N 138 195 V -1 1303 V -138 -195 V 0.60 PolyFill
+stroke
+LT0
+4757 3306 M
+-1 1303 V
+138 195 V
+1 -1303 V
+4757 3306 L
+.0057 g gsave 4829 2856 N 19 192 V -30 18 V -19 -197 V 0.60 PolyFill
+stroke
+LT0
+4829 2856 M
+-30 13 V
+19 197 V
+30 -18 V
+-19 -192 V
+.9446 g gsave 4900 6198 N 241 161 V 5 51 V -240 -160 V 0.60 PolyFill
+stroke
+LT0
+4900 6198 M
+6 52 V
+240 160 V
+-5 -51 V
+4900 6198 L
+.0105 g gsave 4799 2869 N 19 197 V -21 23 V -19 -201 V 0.60 PolyFill
+stroke
+LT0
+4799 2869 M
+-21 19 V
+19 201 V
+21 -23 V
+-19 -197 V
+.962 g gsave 4906 6250 N 240 160 V 8 34 V -237 -159 V 0.60 PolyFill
+stroke
+LT0
+4906 6250 M
+11 35 V
+237 159 V
+-8 -34 V
+4906 6250 L
+.017 g gsave 4778 2888 N 19 201 V -16 30 V -19 -204 V 0.60 PolyFill
+stroke
+LT0
+4778 2888 M
+-16 27 V
+19 204 V
+16 -30 V
+-19 -201 V
+.0259 g gsave 4762 2915 N 19 204 V -11 39 V -20 -206 V 0.60 PolyFill
+stroke
+LT0
+4762 2915 M
+-12 37 V
+20 206 V
+11 -39 V
+-19 -204 V
+.9741 g gsave 4917 6285 N 237 159 V 11 21 V -234 -157 V 0.60 PolyFill
+stroke
+LT0
+4917 6285 M
+14 23 V
+234 157 V
+-11 -21 V
+4917 6285 L
+.038 g gsave 4750 2952 N 20 206 V -8 56 V -20 -207 V 0.60 PolyFill
+stroke
+LT0
+4750 2952 M
+-8 55 V
+20 207 V
+8 -56 V
+-20 -206 V
+.983 g gsave 4931 6308 N 234 157 V 15 12 V -231 -154 V 0.60 PolyFill
+stroke
+LT0
+4931 6308 M
+18 15 V
+231 154 V
+-15 -12 V
+4931 6308 L
+.0554 g gsave 4742 3007 N 20 207 V -5 92 V -20 -208 V 0.60 PolyFill
+stroke
+LT0
+4742 3007 M
+-5 91 V
+20 208 V
+5 -92 V
+-20 -207 V
+.9895 g gsave 4949 6323 N 231 154 V 19 3 V -224 -150 V 0.60 PolyFill
+stroke
+LT0
+4949 6323 M
+26 7 V
+224 150 V
+-19 -3 V
+4949 6323 L
+.5 g gsave 6876 4916 N 210 -174 V -1 1303 V -210 175 V 0.60 PolyFill
+stroke
+LT0
+6876 4916 M
+-1 1304 V
+210 -175 V
+1 -1303 V
+-210 174 V
+0 g gsave 5990 2904 N -1 -5 V 973 -110 V 17 173 V 0.60 PolyFill
+stroke
+LT0
+5990 2904 M
+989 58 V
+-17 -173 V
+-973 110 V
+1 5 V
+.9943 g gsave 4975 6330 N 224 150 V 29 -7 V -216 -145 V 0.60 PolyFill
+stroke
+LT0
+4975 6330 M
+37 -2 V
+216 145 V
+-29 7 V
+4975 6330 L
+.9153 g gsave 6875 6220 N 210 -175 V -4 91 V -209 174 V 0.60 PolyFill
+stroke
+LT0
+6875 6220 M
+-3 90 V
+209 -174 V
+4 -91 V
+-210 175 V
+.0006 g gsave 6979 2962 N -17 -173 V 70 -2 V 18 185 V 0.60 PolyFill
+stroke
+LT0
+6979 2962 M
+71 10 V
+-18 -185 V
+-70 2 V
+17 173 V
+.0025 g gsave 7050 2972 N -18 -185 V 42 5 V 19 192 V 0.60 PolyFill
+stroke
+LT0
+7050 2972 M
+43 12 V
+-19 -192 V
+-42 -5 V
+18 185 V
+.9446 g gsave 6872 6310 N 209 -174 V -8 53 V -207 173 V 0.60 PolyFill
+stroke
+LT0
+6872 6310 M
+-6 52 V
+207 -173 V
+8 -53 V
+-209 174 V
+.0057 g gsave 7093 2984 N -19 -192 V 30 11 V 19 198 V 0.60 PolyFill
+stroke
+LT0
+7093 2984 M
+30 17 V
+-19 -198 V
+-30 -11 V
+19 192 V
+.0847 g gsave 7085 3438 N 100 -201 V 1 1303 V -100 202 V 0.60 PolyFill
+stroke
+LT0
+7085 3438 M
+1 1304 V
+100 -202 V
+-1 -1303 V
+-100 201 V
+.9975 g gsave 5012 6328 N 216 145 V 48 -24 V -201 -134 V 0.60 PolyFill
+stroke
+LT0
+5012 6328 M
+63 -13 V
+201 134 V
+-48 24 V
+5012 6328 L
+.962 g gsave 6866 6362 N 207 -173 V -10 35 V -206 171 V 0.60 PolyFill
+stroke
+LT0
+6866 6362 M
+-9 33 V
+206 -171 V
+10 -35 V
+-207 173 V
+.0105 g gsave 7123 3001 N -19 -198 V 21 19 V 19 201 V 0.60 PolyFill
+stroke
+LT0
+7123 3001 M
+21 22 V
+-19 -201 V
+-21 -19 V
+19 198 V
+.017 g gsave 7144 3023 N -19 -201 V 16 26 V 19 203 V 0.60 PolyFill
+stroke
+LT0
+7144 3023 M
+16 28 V
+-19 -203 V
+-16 -26 V
+19 201 V
+.9741 g gsave 6857 6395 N 206 -171 V -15 24 V -203 169 V 0.60 PolyFill
+stroke
+LT0
+6857 6395 M
+-12 22 V
+203 -169 V
+15 -24 V
+-206 171 V
+.0259 g gsave 7160 3051 N -19 -203 V 11 36 V 20 206 V 0.60 PolyFill
+stroke
+LT0
+7160 3051 M
+12 39 V
+-20 -206 V
+-11 -36 V
+19 203 V
+.983 g gsave 6845 6417 N 203 -169 V -20 16 V -199 166 V 0.60 PolyFill
+stroke
+LT0
+6845 6417 M
+-16 13 V
+199 -166 V
+20 -16 V
+-203 169 V
+.038 g gsave 7172 3090 N -20 -206 V 8 54 V 20 207 V 0.60 PolyFill
+stroke
+LT0
+7172 3090 M
+8 55 V
+-20 -207 V
+-8 -54 V
+20 206 V
+.9895 g gsave 6829 6430 N 199 -166 V -27 9 V -194 161 V 0.60 PolyFill
+stroke
+LT0
+6829 6430 M
+-22 4 V
+194 -161 V
+27 -9 V
+-199 166 V
+.0554 g gsave 7180 3145 N -20 -207 V 5 91 V 20 208 V 0.60 PolyFill
+stroke
+LT0
+7180 3145 M
+5 92 V
+-20 -208 V
+-5 -91 V
+20 207 V
+.9943 g gsave 6807 6434 N 194 -161 V -39 0 V -187 156 V 0.60 PolyFill
+stroke
+LT0
+6807 6434 M
+-32 -5 V
+187 -156 V
+39 0 V
+-194 161 V
+.9975 g gsave 6775 6429 N 187 -156 V -66 -10 V -175 146 V 0.60 PolyFill
+stroke
+LT0
+6775 6429 M
+-54 -20 V
+175 -146 V
+66 10 V
+-187 156 V
+0 g gsave 5935 2895 N -3 5 V -989 -54 V 83 -167 V 0.60 PolyFill
+stroke
+LT0
+5935 2895 M
+5026 2679 L
+-83 167 V
+989 54 V
+3 -5 V
+.0006 g gsave 5026 2679 N -83 167 V -71 2 V 88 -179 V 0.60 PolyFill
+stroke
+LT0
+5026 2679 M
+-66 -10 V
+-88 179 V
+71 -2 V
+83 -167 V
+.5 g gsave 4756 4609 N 138 195 V 1 1303 V -138 -194 V 0.60 PolyFill
+stroke
+LT0
+4756 4609 M
+1 1304 V
+138 194 V
+-1 -1303 V
+4756 4609 L
+.0025 g gsave 4960 2669 N -88 179 V -43 8 V 92 -187 V 0.60 PolyFill
+stroke
+LT0
+4960 2669 M
+-39 0 V
+-92 187 V
+43 -8 V
+88 -179 V
+.9153 g gsave 4757 5913 N 138 194 V 5 91 V -138 -194 V 0.60 PolyFill
+stroke
+LT0
+4757 5913 M
+5 91 V
+138 194 V
+-5 -91 V
+4757 5913 L
+.0057 g gsave 4921 2669 N -92 187 V -30 13 V 95 -191 V 0.60 PolyFill
+stroke
+LT0
+4921 2669 M
+-27 9 V
+-95 191 V
+30 -13 V
+92 -187 V
+.9446 g gsave 4762 6004 N 138 194 V 6 52 V -136 -192 V 0.60 PolyFill
+stroke
+LT0
+4762 6004 M
+8 54 V
+136 192 V
+-6 -52 V
+4762 6004 L
+.0105 g gsave 4894 2678 N -95 191 V -21 19 V 96 -194 V 0.60 PolyFill
+stroke
+LT0
+4894 2678 M
+-20 16 V
+-96 194 V
+21 -19 V
+95 -191 V
+.962 g gsave 4770 6058 N 136 192 V 11 35 V -136 -191 V 0.60 PolyFill
+stroke
+LT0
+4770 6058 M
+11 36 V
+136 191 V
+-11 -35 V
+4770 6058 L
+.9741 g gsave 4781 6094 N 136 191 V 14 23 V -134 -188 V 0.60 PolyFill
+stroke
+LT0
+4781 6094 M
+16 26 V
+134 188 V
+-14 -23 V
+4781 6094 L
+.017 g gsave 4874 2694 N -96 194 V -16 27 V 97 -197 V 0.60 PolyFill
+stroke
+LT0
+4874 2694 M
+-15 24 V
+-97 197 V
+16 -27 V
+96 -194 V
+0 g gsave 5989 2899 N -3 -5 V 861 -267 V 115 162 V 0.60 PolyFill
+stroke
+LT0
+5989 2899 M
+973 -110 V
+6847 2627 L
+-861 267 V
+3 5 V
+.0847 g gsave 4737 3098 N 20 208 V -1 1303 V -20 -207 V 0.60 PolyFill
+stroke
+LT0
+4737 3098 M
+-1 1304 V
+20 207 V
+1 -1303 V
+-20 -208 V
+.983 g gsave 4797 6120 N 134 188 V 18 15 V -131 -184 V 0.60 PolyFill
+stroke
+LT0
+4797 6120 M
+21 19 V
+131 184 V
+-18 -15 V
+4797 6120 L
+.0259 g gsave 4859 2718 N -97 197 V -12 37 V 99 -199 V 0.60 PolyFill
+stroke
+LT0
+4859 2718 M
+-10 35 V
+-99 199 V
+12 -37 V
+97 -197 V
+.9895 g gsave 4818 6139 N 131 184 V 26 7 V -127 -180 V 0.60 PolyFill
+stroke
+LT0
+4818 6139 M
+30 11 V
+127 180 V
+-26 -7 V
+4818 6139 L
+.9943 g gsave 4848 6150 N 127 180 V 37 -2 V -122 -173 V 0.60 PolyFill
+stroke
+LT0
+4848 6150 M
+42 5 V
+122 173 V
+-37 2 V
+4848 6150 L
+.038 g gsave 4849 2753 N -99 199 V -8 55 V 99 -201 V 0.60 PolyFill
+stroke
+LT0
+4849 2753 M
+-8 53 V
+-99 201 V
+8 -55 V
+99 -199 V
+.0006 g gsave 6962 2789 N -115 -162 V 63 -13 V 122 173 V 0.60 PolyFill
+stroke
+LT0
+6962 2789 M
+70 -2 V
+6910 2614 L
+-63 13 V
+115 162 V
+.9975 g gsave 4890 6155 N 122 173 V 63 -13 V -115 -162 V 0.60 PolyFill
+stroke
+LT0
+4890 6155 M
+70 -2 V
+115 162 V
+-63 13 V
+4890 6155 L
+.0554 g gsave 4841 2806 N -99 201 V -5 91 V 100 -201 V 0.60 PolyFill
+stroke
+LT0
+4841 2806 M
+-4 91 V
+-100 201 V
+5 -91 V
+99 -201 V
+.0025 g gsave 7032 2787 N -122 -173 V 37 -2 V 127 180 V 0.60 PolyFill
+stroke
+LT0
+7032 2787 M
+42 5 V
+6947 2612 L
+-37 2 V
+122 173 V
+.5 g gsave 7086 4742 N 100 -202 V -1 1304 V -100 201 V 0.60 PolyFill
+stroke
+LT0
+7086 4742 M
+-1 1303 V
+100 -201 V
+1 -1304 V
+-100 202 V
+.0057 g gsave 7074 2792 N -127 -180 V 26 7 V 131 184 V 0.60 PolyFill
+stroke
+LT0
+7074 2792 M
+30 11 V
+6973 2619 L
+-26 -7 V
+127 180 V
+.9153 g gsave 7085 6045 N 100 -201 V -5 91 V -99 201 V 0.60 PolyFill
+stroke
+LT0
+7085 6045 M
+-4 91 V
+99 -201 V
+5 -91 V
+-100 201 V
+.0105 g gsave 7104 2803 N -131 -184 V 18 15 V 134 188 V 0.60 PolyFill
+stroke
+LT0
+7104 2803 M
+21 19 V
+6991 2634 L
+-18 -15 V
+131 184 V
+.9446 g gsave 7081 6136 N 99 -201 V -8 55 V -99 199 V 0.60 PolyFill
+stroke
+LT0
+7081 6136 M
+-8 53 V
+99 -199 V
+8 -55 V
+-99 201 V
+.962 g gsave 7073 6189 N 99 -199 V -12 37 V -97 197 V 0.60 PolyFill
+stroke
+LT0
+7073 6189 M
+-10 35 V
+97 -197 V
+12 -37 V
+-99 199 V
+.017 g gsave 7125 2822 N -134 -188 V 14 23 V 136 191 V 0.60 PolyFill
+stroke
+LT0
+7125 2822 M
+16 26 V
+7005 2657 L
+-14 -23 V
+134 188 V
+.9741 g gsave 7063 6224 N 97 -197 V -16 27 V -96 194 V 0.60 PolyFill
+stroke
+LT0
+7063 6224 M
+-15 24 V
+96 -194 V
+16 -27 V
+-97 197 V
+.0259 g gsave 7141 2848 N -136 -191 V 11 35 V 136 192 V 0.60 PolyFill
+stroke
+LT0
+7141 2848 M
+11 36 V
+7016 2692 L
+-11 -35 V
+136 191 V
+.983 g gsave 7048 6248 N 96 -194 V -21 19 V -95 191 V 0.60 PolyFill
+stroke
+LT0
+7048 6248 M
+-20 16 V
+95 -191 V
+21 -19 V
+-96 194 V
+.0847 g gsave 7185 3237 N -20 -208 V 1 1304 V 20 207 V 0.60 PolyFill
+stroke
+LT0
+7185 3237 M
+1 1303 V
+-20 -207 V
+-1 -1304 V
+20 208 V
+.9895 g gsave 7028 6264 N 95 -191 V -30 13 V -92 187 V 0.60 PolyFill
+stroke
+LT0
+7028 6264 M
+-27 9 V
+92 -187 V
+30 -13 V
+-95 191 V
+.9943 g gsave 7001 6273 N 92 -187 V -43 8 V -88 179 V 0.60 PolyFill
+stroke
+LT0
+7001 6273 M
+-39 0 V
+88 -179 V
+43 -8 V
+-92 187 V
+.038 g gsave 7152 2884 N -136 -192 V 6 52 V 138 194 V 0.60 PolyFill
+stroke
+LT0
+7152 2884 M
+8 54 V
+7022 2744 L
+-6 -52 V
+136 192 V
+.9975 g gsave 6962 6273 N 88 -179 V -71 2 V -83 167 V 0.60 PolyFill
+stroke
+LT0
+6962 6273 M
+-66 -10 V
+83 -167 V
+71 -2 V
+-88 179 V
+.0554 g gsave 7160 2938 N -138 -194 V 5 91 V 138 194 V 0.60 PolyFill
+stroke
+LT0
+7160 2938 M
+5 91 V
+7027 2835 L
+-5 -91 V
+138 194 V
+0 g gsave 5940 2891 N -5 4 V -909 -216 V 175 -146 V 0.60 PolyFill
+stroke
+LT0
+5940 2891 M
+5201 2533 L
+-175 146 V
+909 216 V
+5 -4 V
+.0006 g gsave 5201 2533 N -175 146 V -66 -10 V 187 -156 V 0.60 PolyFill
+stroke
+LT0
+5201 2533 M
+-54 -20 V
+-187 156 V
+66 10 V
+175 -146 V
+.9994 g gsave 5854 6589 N 319 -9 V -206 -524 V -9 0 V 0.60 PolyFill
+stroke
+LT0
+5854 6589 M
+104 -533 V
+9 0 V
+206 524 V
+-319 9 V
+.9994 g gsave 5545 6544 N 309 45 V 104 -533 V -8 -1 V 0.60 PolyFill
+stroke
+LT0
+5545 6544 M
+405 -489 V
+8 1 V
+-104 533 V
+-309 -45 V
+.9994 g gsave 6173 6580 N 299 -62 V -497 -464 V -8 2 V 0.60 PolyFill
+stroke
+LT0
+6173 6580 M
+5967 6056 L
+8 -2 V
+497 464 V
+-299 62 V
+.9994 g gsave 5276 6449 N 269 95 V 405 -489 V -8 -3 V 0.60 PolyFill
+stroke
+LT0
+5276 6449 M
+666 -397 V
+8 3 V
+-405 489 V
+-269 -95 V
+.9994 g gsave 6472 6518 N 249 -109 V -739 -358 V -7 3 V 0.60 PolyFill
+stroke
+LT0
+6472 6518 M
+5975 6054 L
+7 -3 V
+739 358 V
+-249 109 V
+.9994 g gsave 5075 6315 N 201 134 V 666 -397 V -6 -4 V 0.60 PolyFill
+stroke
+LT0
+5075 6315 M
+861 -267 V
+6 4 V
+-666 397 V
+5075 6315 L
+.9994 g gsave 6721 6409 N 175 -146 V -909 -216 V -5 4 V 0.60 PolyFill
+stroke
+LT0
+6721 6409 M
+5982 6051 L
+5 -4 V
+909 216 V
+-175 146 V
+0 g gsave 5986 2894 N -6 -4 V 666 -397 V 201 134 V 0.60 PolyFill
+stroke
+LT0
+5986 2894 M
+861 -267 V
+6646 2493 L
+-666 397 V
+6 4 V
+.9994 g gsave 4960 6153 N 115 162 V 861 -267 V -3 -5 V 0.60 PolyFill
+stroke
+LT0
+4960 6153 M
+973 -110 V
+3 5 V
+-861 267 V
+4960 6153 L
+.9994 g gsave 6896 6263 N 83 -167 V -989 -54 V -3 5 V 0.60 PolyFill
+stroke
+LT0
+6896 6263 M
+5987 6047 L
+3 -5 V
+989 54 V
+-83 167 V
+.0025 g gsave 5147 2513 N -187 156 V -39 0 V 194 -161 V 0.60 PolyFill
+stroke
+LT0
+5147 2513 M
+-32 -5 V
+-194 161 V
+39 0 V
+187 -156 V
+.0057 g gsave 5115 2508 N -194 161 V -27 9 V 199 -166 V 0.60 PolyFill
+stroke
+LT0
+5115 2508 M
+-22 4 V
+-199 166 V
+27 -9 V
+194 -161 V
+.0105 g gsave 5093 2512 N -199 166 V -20 16 V 203 -169 V 0.60 PolyFill
+stroke
+LT0
+5093 2512 M
+-16 13 V
+-203 169 V
+20 -16 V
+199 -166 V
+.0006 g gsave 6847 2627 N -201 -134 V 48 -24 V 216 145 V 0.60 PolyFill
+stroke
+LT0
+6847 2627 M
+63 -13 V
+6694 2469 L
+-48 24 V
+201 134 V
+.017 g gsave 5077 2525 N -203 169 V -15 24 V 206 -171 V 0.60 PolyFill
+stroke
+LT0
+5077 2525 M
+-12 22 V
+-206 171 V
+15 -24 V
+203 -169 V
+.5 g gsave 4736 4402 N 20 207 V 1 1304 V -20 -208 V 0.60 PolyFill
+stroke
+LT0
+4736 4402 M
+1 1303 V
+20 208 V
+-1 -1304 V
+-20 -207 V
+.0259 g gsave 5065 2547 N -206 171 V -10 35 V 207 -173 V 0.60 PolyFill
+stroke
+LT0
+5065 2547 M
+-9 33 V
+-207 173 V
+10 -35 V
+206 -171 V
+.0025 g gsave 6910 2614 N -216 -145 V 29 -7 V 224 150 V 0.60 PolyFill
+stroke
+LT0
+6910 2614 M
+37 -2 V
+6723 2462 L
+-29 7 V
+216 145 V
+.9153 g gsave 4737 5705 N 20 208 V 5 91 V -20 -207 V 0.60 PolyFill
+stroke
+LT0
+4737 5705 M
+5 92 V
+20 207 V
+-5 -91 V
+-20 -208 V
+.038 g gsave 5056 2580 N -207 173 V -8 53 V 209 -174 V 0.60 PolyFill
+stroke
+LT0
+5056 2580 M
+-6 52 V
+-209 174 V
+8 -53 V
+207 -173 V
+.9446 g gsave 4742 5797 N 20 207 V 8 54 V -20 -206 V 0.60 PolyFill
+stroke
+LT0
+4742 5797 M
+8 55 V
+20 206 V
+-8 -54 V
+-20 -207 V
+.962 g gsave 4750 5852 N 20 206 V 11 36 V -19 -203 V 0.60 PolyFill
+stroke
+LT0
+4750 5852 M
+12 39 V
+19 203 V
+-11 -36 V
+-20 -206 V
+.9994 g gsave 4943 5980 N 17 173 V 973 -110 V -1 -5 V 0.60 PolyFill
+stroke
+LT0
+4943 5980 M
+989 58 V
+1 5 V
+-973 110 V
+-17 -173 V
+.0057 g gsave 6947 2612 N -224 -150 V 19 3 V 231 154 V 0.60 PolyFill
+stroke
+LT0
+6947 2612 M
+26 7 V
+6742 2465 L
+-19 -3 V
+224 150 V
+.9741 g gsave 4762 5891 N 19 203 V 16 26 V -19 -201 V 0.60 PolyFill
+stroke
+LT0
+4762 5891 M
+16 28 V
+19 201 V
+-16 -26 V
+-19 -203 V
+.9975 g gsave 4872 5970 N 18 185 V 70 -2 V -17 -173 V 0.60 PolyFill
+stroke
+LT0
+4872 5970 M
+71 10 V
+17 173 V
+-70 2 V
+-18 -185 V
+.983 g gsave 4778 5919 N 19 201 V 21 19 V -19 -198 V 0.60 PolyFill
+stroke
+LT0
+4778 5919 M
+21 22 V
+19 198 V
+-21 -19 V
+-19 -201 V
+.9895 g gsave 4799 5941 N 19 198 V 30 11 V -19 -192 V 0.60 PolyFill
+stroke
+LT0
+4799 5941 M
+30 17 V
+19 192 V
+-30 -11 V
+-19 -198 V
+.9943 g gsave 4829 5958 N 19 192 V 42 5 V -18 -185 V 0.60 PolyFill
+stroke
+LT0
+4829 5958 M
+43 12 V
+18 185 V
+-42 -5 V
+-19 -192 V
+.0847 g gsave 4837 2897 N -100 201 V -1 1304 V 100 -202 V 0.60 PolyFill
+stroke
+LT0
+4837 2897 M
+-1 1303 V
+-100 202 V
+1 -1304 V
+100 -201 V
+0 g gsave 5947 2888 N -7 3 V -739 -358 V 249 -109 V 0.60 PolyFill
+stroke
+LT0
+5947 2888 M
+5450 2424 L
+-249 109 V
+739 358 V
+7 -3 V
+.0554 g gsave 5050 2632 N -209 174 V -4 91 V 210 -175 V 0.60 PolyFill
+stroke
+LT0
+5050 2632 M
+-3 90 V
+-210 175 V
+4 -91 V
+209 -174 V
+.0105 g gsave 6973 2619 N -231 -154 V 15 12 V 234 157 V 0.60 PolyFill
+stroke
+LT0
+6973 2619 M
+18 15 V
+6757 2477 L
+-15 -12 V
+231 154 V
+.017 g gsave 6991 2634 N -234 -157 V 11 21 V 237 159 V 0.60 PolyFill
+stroke
+LT0
+6991 2634 M
+14 23 V
+6768 2498 L
+-11 -21 V
+234 157 V
+.0259 g gsave 7005 2657 N -237 -159 V 8 34 V 240 160 V 0.60 PolyFill
+stroke
+LT0
+7005 2657 M
+11 35 V
+6776 2532 L
+-8 -34 V
+237 159 V
+0 g gsave 5980 2890 N -8 -3 V 405 -489 V 269 95 V 0.60 PolyFill
+stroke
+LT0
+5980 2890 M
+666 -397 V
+-269 -95 V
+-405 489 V
+8 3 V
+.0006 g gsave 5450 2424 N -249 109 V -54 -20 V 267 -116 V 0.60 PolyFill
+stroke
+LT0
+5450 2424 M
+-36 -27 V
+-267 116 V
+54 20 V
+249 -109 V
+.038 g gsave 7016 2692 N -240 -160 V 5 51 V 241 161 V 0.60 PolyFill
+stroke
+LT0
+7016 2692 M
+6 52 V
+6781 2583 L
+-5 -51 V
+240 160 V
+.5 g gsave 7186 4540 N -20 -207 V -1 1303 V 20 208 V 0.60 PolyFill
+stroke
+LT0
+7186 4540 M
+-1 1304 V
+-20 -208 V
+1 -1303 V
+20 207 V
+.0554 g gsave 7022 2744 N -241 -161 V 3 90 V 243 162 V 0.60 PolyFill
+stroke
+LT0
+7022 2744 M
+5 91 V
+6784 2673 L
+-3 -90 V
+241 161 V
+.9153 g gsave 7185 5844 N -20 -208 V -5 92 V 20 207 V 0.60 PolyFill
+stroke
+LT0
+7185 5844 M
+-5 91 V
+-20 -207 V
+5 -92 V
+20 208 V
+.9994 g gsave 6979 6096 N -17 -173 V -973 114 V 1 5 V 0.60 PolyFill
+stroke
+LT0
+6979 6096 M
+-989 -54 V
+-1 -5 V
+973 -114 V
+17 173 V
+.0025 g gsave 5414 2397 N -267 116 V -32 -5 V 277 -121 V 0.60 PolyFill
+stroke
+LT0
+5414 2397 M
+-22 -10 V
+-277 121 V
+32 5 V
+267 -116 V
+.9446 g gsave 7180 5935 N -20 -207 V -8 56 V 20 206 V 0.60 PolyFill
+stroke
+LT0
+7180 5935 M
+-8 55 V
+-20 -206 V
+8 -56 V
+20 207 V
+.9975 g gsave 7050 6094 N -18 -185 V -70 14 V 17 173 V 0.60 PolyFill
+stroke
+LT0
+7050 6094 M
+-71 2 V
+-17 -173 V
+70 -14 V
+18 185 V
+.962 g gsave 7172 5990 N -20 -206 V -11 39 V 19 204 V 0.60 PolyFill
+stroke
+LT0
+7172 5990 M
+-12 37 V
+-19 -204 V
+11 -39 V
+20 206 V
+.0847 g gsave 7165 3029 N -138 -194 V 1 1303 V 138 195 V 0.60 PolyFill
+stroke
+LT0
+7165 3029 M
+1 1304 V
+7028 4138 L
+-1 -1303 V
+138 194 V
+.9943 g gsave 7093 6086 N -19 -192 V -42 15 V 18 185 V 0.60 PolyFill
+stroke
+LT0
+7093 6086 M
+-43 8 V
+-18 -185 V
+42 -15 V
+19 192 V
+0 g gsave 5955 2886 N -8 2 V -497 -464 V 299 -62 V 0.60 PolyFill
+stroke
+LT0
+5955 2886 M
+5749 2362 L
+-299 62 V
+497 464 V
+8 -2 V
+.0006 g gsave 6646 2493 N -269 -95 V 29 -30 V 288 101 V 0.60 PolyFill
+stroke
+LT0
+6646 2493 M
+48 -24 V
+6406 2368 L
+-29 30 V
+269 95 V
+.9741 g gsave 7160 6027 N -19 -204 V -16 30 V 19 201 V 0.60 PolyFill
+stroke
+LT0
+7160 6027 M
+-16 27 V
+-19 -201 V
+16 -30 V
+19 204 V
+.983 g gsave 7144 6054 N -19 -201 V -21 23 V 19 197 V 0.60 PolyFill
+stroke
+LT0
+7144 6054 M
+-21 19 V
+-19 -197 V
+21 -23 V
+19 201 V
+.9895 g gsave 7123 6073 N -19 -197 V -30 18 V 19 192 V 0.60 PolyFill
+stroke
+LT0
+7123 6073 M
+-30 13 V
+-19 -192 V
+30 -18 V
+19 197 V
+0 g gsave 5972 2887 N -8 -1 V 104 -533 V 309 45 V 0.60 PolyFill
+stroke
+LT0
+5972 2887 M
+405 -489 V
+-309 -45 V
+-104 533 V
+8 1 V
+0 g gsave 5964 2886 N -9 0 V -206 -524 V 319 -9 V 0.60 PolyFill
+stroke
+LT0
+5964 2886 M
+104 -533 V
+-319 9 V
+206 524 V
+9 0 V
+.0057 g gsave 5392 2387 N -277 121 V -22 4 V 284 -124 V 0.60 PolyFill
+stroke
+LT0
+5392 2387 M
+-15 1 V
+-284 124 V
+22 -4 V
+277 -121 V
+.0105 g gsave 5377 2388 N -284 124 V -16 13 V 289 -127 V 0.60 PolyFill
+stroke
+LT0
+5377 2388 M
+-11 10 V
+-289 127 V
+16 -13 V
+284 -124 V
+.0025 g gsave 6694 2469 N -288 -101 V 18 -11 V 299 105 V 0.60 PolyFill
+stroke
+LT0
+6694 2469 M
+29 -7 V
+6424 2357 L
+-18 11 V
+288 101 V
+.017 g gsave 5366 2398 N -289 127 V -12 22 V 293 -129 V 0.60 PolyFill
+stroke
+LT0
+5366 2398 M
+-8 20 V
+-293 129 V
+12 -22 V
+289 -127 V
+.0006 g gsave 5749 2362 N -299 62 V -36 -27 V 320 -67 V 0.60 PolyFill
+stroke
+LT0
+5749 2362 M
+-15 -32 V
+-320 67 V
+36 27 V
+299 -62 V
+.0057 g gsave 6723 2462 N -299 -105 V 12 1 V 306 107 V 0.60 PolyFill
+stroke
+LT0
+6723 2462 M
+19 3 V
+6436 2358 L
+-12 -1 V
+299 105 V
+.0259 g gsave 5358 2418 N -293 129 V -9 33 V 296 -129 V 0.60 PolyFill
+stroke
+LT0
+5358 2418 M
+-6 33 V
+-296 129 V
+9 -33 V
+293 -129 V
+.0006 g gsave 6377 2398 N -309 -45 V 7 -33 V 331 48 V 0.60 PolyFill
+stroke
+LT0
+6377 2398 M
+29 -30 V
+-331 -48 V
+-7 33 V
+309 45 V
+.0006 g gsave 6068 2353 N -319 9 V -15 -32 V 341 -10 V 0.60 PolyFill
+stroke
+LT0
+6068 2353 M
+7 -33 V
+-341 10 V
+15 32 V
+319 -9 V
+.0105 g gsave 6742 2465 N -306 -107 V 9 9 V 312 110 V 0.60 PolyFill
+stroke
+LT0
+6742 2465 M
+15 12 V
+6445 2367 L
+-9 -9 V
+306 107 V
+.038 g gsave 5352 2451 N -296 129 V -6 52 V 298 -130 V 0.60 PolyFill
+stroke
+LT0
+5352 2451 M
+-4 51 V
+-298 130 V
+6 -52 V
+296 -129 V
+.0025 g gsave 5734 2330 N -320 67 V -22 -10 V 333 -69 V 0.60 PolyFill
+stroke
+LT0
+5734 2330 M
+-9 -12 V
+-333 69 V
+22 10 V
+320 -67 V
+.017 g gsave 6757 2477 N -312 -110 V 6 20 V 317 111 V 0.60 PolyFill
+stroke
+LT0
+6757 2477 M
+11 21 V
+6451 2387 L
+-6 -20 V
+312 110 V
+.0554 g gsave 5348 2502 N -298 130 V -3 90 V 299 -131 V 0.60 PolyFill
+stroke
+LT0
+5348 2502 M
+-2 89 V
+-299 131 V
+3 -90 V
+298 -130 V
+.0025 g gsave 6406 2368 N -331 -48 V 5 -13 V 344 50 V 0.60 PolyFill
+stroke
+LT0
+6406 2368 M
+18 -11 V
+-344 -50 V
+-5 13 V
+331 48 V
+.0025 g gsave 6075 2320 N -341 10 V -9 -12 V 355 -11 V 0.60 PolyFill
+stroke
+LT0
+6075 2320 M
+5 -13 V
+-355 11 V
+9 12 V
+341 -10 V
+.0259 g gsave 6768 2498 N -317 -111 V 5 32 V 320 113 V 0.60 PolyFill
+stroke
+LT0
+6768 2498 M
+8 34 V
+6456 2419 L
+-5 -32 V
+317 111 V
+.0057 g gsave 5725 2318 N -333 69 V -15 1 V 342 -71 V 0.60 PolyFill
+stroke
+LT0
+5725 2318 M
+-6 -1 V
+-342 71 V
+15 -1 V
+333 -69 V
+.038 g gsave 6776 2532 N -320 -113 V 3 51 V 322 113 V 0.60 PolyFill
+stroke
+LT0
+6776 2532 M
+5 51 V
+6459 2470 L
+-3 -51 V
+320 113 V
+.0057 g gsave 6424 2357 N -344 -50 V 3 -1 V 353 52 V 0.60 PolyFill
+stroke
+LT0
+6424 2357 M
+12 1 V
+-353 -52 V
+-3 1 V
+344 50 V
+.0057 g gsave 6080 2307 N -355 11 V -6 -1 V 364 -11 V 0.60 PolyFill
+stroke
+LT0
+6080 2307 M
+3 -1 V
+-364 11 V
+6 1 V
+355 -11 V
+.0105 g gsave 5719 2317 N -342 71 V -11 10 V 348 -72 V 0.60 PolyFill
+stroke
+LT0
+5719 2317 M
+-5 9 V
+-348 72 V
+11 -10 V
+342 -71 V
+.9994 g gsave 5026 5813 N -83 167 V 989 58 V 3 -4 V 0.60 PolyFill
+stroke
+LT0
+5026 5813 M
+909 221 V
+-3 4 V
+-989 -58 V
+83 -167 V
+.0554 g gsave 6781 2583 N -322 -113 V 2 90 V 323 113 V 0.60 PolyFill
+stroke
+LT0
+6781 2583 M
+3 90 V
+6461 2560 L
+-2 -90 V
+322 113 V
+.0105 g gsave 6436 2358 N -353 -52 V 2 9 V 360 52 V 0.60 PolyFill
+stroke
+LT0
+6436 2358 M
+9 9 V
+-360 -52 V
+-2 -9 V
+353 52 V
+.0105 g gsave 6083 2306 N -364 11 V -5 9 V 371 -11 V 0.60 PolyFill
+stroke
+LT0
+6083 2306 M
+2 9 V
+-371 11 V
+5 -9 V
+364 -11 V
+.017 g gsave 5714 2326 N -348 72 V -8 20 V 353 -73 V 0.60 PolyFill
+stroke
+LT0
+5714 2326 M
+-3 19 V
+-353 73 V
+8 -20 V
+348 -72 V
+.5 g gsave 4836 4200 N -100 202 V 1 1303 V 100 -201 V 0.60 PolyFill
+stroke
+LT0
+4836 4200 M
+1 1304 V
+-100 201 V
+-1 -1303 V
+100 -202 V
+.0847 g gsave 5047 2722 N -210 175 V -1 1303 V 210 -174 V 0.60 PolyFill
+stroke
+LT0
+5047 2722 M
+-1 1304 V
+-210 174 V
+1 -1303 V
+210 -175 V
+.9975 g gsave 4960 5791 N -88 179 V 71 10 V 83 -167 V 0.60 PolyFill
+stroke
+LT0
+4960 5791 M
+66 22 V
+-83 167 V
+-71 -10 V
+88 -179 V
+.017 g gsave 6445 2367 N -360 -52 V 2 19 V 364 53 V 0.60 PolyFill
+stroke
+LT0
+6445 2367 M
+6 20 V
+-364 -53 V
+-2 -19 V
+360 52 V
+.017 g gsave 6085 2315 N -371 11 V -3 19 V 376 -11 V 0.60 PolyFill
+stroke
+LT0
+6085 2315 M
+2 19 V
+-376 11 V
+3 -19 V
+371 -11 V
+.0259 g gsave 5711 2345 N -353 73 V -6 33 V 356 -74 V 0.60 PolyFill
+stroke
+LT0
+5711 2345 M
+-3 32 V
+-356 74 V
+6 -33 V
+353 -73 V
+.9153 g gsave 4837 5504 N -100 201 V 5 92 V 99 -201 V 0.60 PolyFill
+stroke
+LT0
+4837 5504 M
+4 92 V
+-99 201 V
+-5 -92 V
+100 -201 V
+.9943 g gsave 4921 5772 N -92 186 V 43 12 V 88 -179 V 0.60 PolyFill
+stroke
+LT0
+4921 5772 M
+39 19 V
+-88 179 V
+-43 -12 V
+92 -186 V
+.9446 g gsave 4841 5596 N -99 201 V 8 55 V 99 -199 V 0.60 PolyFill
+stroke
+LT0
+4841 5596 M
+8 57 V
+-99 199 V
+-8 -55 V
+99 -201 V
+.9895 g gsave 4894 5750 N -95 191 V 30 17 V 92 -186 V 0.60 PolyFill
+stroke
+LT0
+4894 5750 M
+27 22 V
+-92 186 V
+-30 -17 V
+95 -191 V
+.962 g gsave 4849 5653 N -99 199 V 12 39 V 97 -198 V 0.60 PolyFill
+stroke
+LT0
+4849 5653 M
+10 40 V
+-97 198 V
+-12 -39 V
+99 -199 V
+.9741 g gsave 4859 5693 N -97 198 V 16 28 V 96 -194 V 0.60 PolyFill
+stroke
+LT0
+4859 5693 M
+15 32 V
+-96 194 V
+-16 -28 V
+97 -198 V
+.983 g gsave 4874 5725 N -96 194 V 21 22 V 95 -191 V 0.60 PolyFill
+stroke
+LT0
+4874 5725 M
+20 25 V
+-95 191 V
+-21 -22 V
+96 -194 V
+.0259 g gsave 6451 2387 N -364 -53 V 1 32 V 368 53 V 0.60 PolyFill
+stroke
+LT0
+6451 2387 M
+5 32 V
+-368 -53 V
+-1 -32 V
+364 53 V
+.0259 g gsave 6087 2334 N -376 11 V -3 32 V 380 -11 V 0.60 PolyFill
+stroke
+LT0
+6087 2334 M
+1 32 V
+-380 11 V
+3 -32 V
+376 -11 V
+.038 g gsave 5708 2377 N -356 74 V -4 51 V 359 -75 V 0.60 PolyFill
+stroke
+LT0
+5708 2377 M
+-1 50 V
+-359 75 V
+4 -51 V
+356 -74 V
+.038 g gsave 6456 2419 N -368 -53 V 1 50 V 370 54 V 0.60 PolyFill
+stroke
+LT0
+6456 2419 M
+3 51 V
+-370 -54 V
+-1 -50 V
+368 53 V
+.038 g gsave 6088 2366 N -380 11 V -1 50 V 382 -11 V 0.60 PolyFill
+stroke
+LT0
+6088 2366 M
+1 50 V
+-382 11 V
+1 -50 V
+380 -11 V
+.0554 g gsave 5707 2427 N -359 75 V -2 89 V 360 -74 V 0.60 PolyFill
+stroke
+LT0
+5707 2427 M
+-1 90 V
+-360 74 V
+2 -89 V
+359 -75 V
+.9994 g gsave 6962 5923 N -115 -162 V -861 271 V 3 5 V 0.60 PolyFill
+stroke
+LT0
+6962 5923 M
+-973 114 V
+-3 -5 V
+861 -271 V
+115 162 V
+.0554 g gsave 6459 2470 N -370 -54 V 0 90 V 372 54 V 0.60 PolyFill
+stroke
+LT0
+6459 2470 M
+2 90 V
+-372 -54 V
+0 -90 V
+370 54 V
+.0554 g gsave 6089 2416 N -382 11 V -1 90 V 383 -11 V 0.60 PolyFill
+stroke
+LT0
+6089 2416 M
+0 90 V
+-383 11 V
+1 -90 V
+382 -11 V
+.0847 g gsave 7027 2835 N -243 -162 V 1 1303 V 243 162 V 0.60 PolyFill
+stroke
+LT0
+7027 2835 M
+1 1303 V
+6785 3976 L
+-1 -1303 V
+243 162 V
+.9975 g gsave 7032 5909 N -122 -173 V -63 25 V 115 162 V 0.60 PolyFill
+stroke
+LT0
+7032 5909 M
+-70 14 V
+6847 5761 L
+63 -25 V
+122 173 V
+.5 g gsave 7166 4333 N -138 -195 V -1 1303 V 138 195 V 0.60 PolyFill
+stroke
+LT0
+7166 4333 M
+-1 1303 V
+7027 5441 L
+1 -1303 V
+138 195 V
+.9943 g gsave 7074 5894 N -127 -180 V -37 22 V 122 173 V 0.60 PolyFill
+stroke
+LT0
+7074 5894 M
+-42 15 V
+6910 5736 L
+37 -22 V
+127 180 V
+.9153 g gsave 7165 5636 N -138 -195 V -5 94 V 138 193 V 0.60 PolyFill
+stroke
+LT0
+7165 5636 M
+-5 92 V
+7022 5535 L
+5 -94 V
+138 195 V
+.9895 g gsave 7104 5876 N -131 -185 V -26 23 V 127 180 V 0.60 PolyFill
+stroke
+LT0
+7104 5876 M
+-30 18 V
+6947 5714 L
+26 -23 V
+131 185 V
+.9446 g gsave 7160 5728 N -138 -193 V -6 56 V 136 193 V 0.60 PolyFill
+stroke
+LT0
+7160 5728 M
+-8 56 V
+7016 5591 L
+6 -56 V
+138 193 V
+.983 g gsave 7125 5853 N -134 -188 V -18 26 V 131 185 V 0.60 PolyFill
+stroke
+LT0
+7125 5853 M
+-21 23 V
+6973 5691 L
+18 -26 V
+134 188 V
+.962 g gsave 7152 5784 N -136 -193 V -11 42 V 136 190 V 0.60 PolyFill
+stroke
+LT0
+7152 5784 M
+-11 39 V
+7005 5633 L
+11 -42 V
+136 193 V
+.9741 g gsave 7141 5823 N -136 -190 V -14 32 V 134 188 V 0.60 PolyFill
+stroke
+LT0
+7141 5823 M
+-16 30 V
+6991 5665 L
+14 -32 V
+136 190 V
+.0847 g gsave 5346 2591 N -299 131 V -1 1304 V 299 -132 V 0.60 PolyFill
+stroke
+LT0
+5346 2591 M
+-1 1303 V
+-299 132 V
+1 -1304 V
+299 -131 V
+.9994 g gsave 5201 5668 N -175 145 V 909 221 V 5 -5 V 0.60 PolyFill
+stroke
+LT0
+5201 5668 M
+739 361 V
+-5 5 V
+5026 5813 L
+175 -145 V
+.9975 g gsave 5147 5636 N -187 155 V 66 22 V 175 -145 V 0.60 PolyFill
+stroke
+LT0
+5147 5636 M
+54 32 V
+-175 145 V
+-66 -22 V
+187 -155 V
+.0847 g gsave 6784 2673 N -323 -113 V 1 1303 V 323 113 V 0.60 PolyFill
+stroke
+LT0
+6784 2673 M
+1 1303 V
+6462 3863 L
+-1 -1303 V
+323 113 V
+.9943 g gsave 5115 5610 N -194 162 V 39 19 V 187 -155 V 0.60 PolyFill
+stroke
+LT0
+5115 5610 M
+32 26 V
+-187 155 V
+-39 -19 V
+194 -162 V
+.5 g gsave 5046 4026 N -210 174 V 1 1304 V 210 -175 V 0.60 PolyFill
+stroke
+LT0
+5046 4026 M
+1 1303 V
+-210 175 V
+-1 -1304 V
+210 -174 V
+.9994 g gsave 6847 5761 N -201 -134 V -666 401 V 6 4 V 0.60 PolyFill
+stroke
+LT0
+6847 5761 M
+-861 271 V
+-6 -4 V
+666 -401 V
+201 134 V
+.9895 g gsave 5093 5584 N -199 166 V 27 22 V 194 -162 V 0.60 PolyFill
+stroke
+LT0
+5093 5584 M
+22 26 V
+-194 162 V
+-27 -22 V
+199 -166 V
+.9153 g gsave 5047 5329 N -210 175 V 4 92 V 209 -174 V 0.60 PolyFill
+stroke
+LT0
+5047 5329 M
+3 93 V
+-209 174 V
+-4 -92 V
+210 -175 V
+.983 g gsave 5077 5556 N -203 169 V 20 25 V 199 -166 V 0.60 PolyFill
+stroke
+LT0
+5077 5556 M
+16 28 V
+-199 166 V
+-20 -25 V
+203 -169 V
+.9446 g gsave 5050 5422 N -209 174 V 8 57 V 207 -173 V 0.60 PolyFill
+stroke
+LT0
+5050 5422 M
+6 58 V
+-207 173 V
+-8 -57 V
+209 -174 V
+.962 g gsave 5056 5480 N -207 173 V 10 40 V 206 -171 V 0.60 PolyFill
+stroke
+LT0
+5056 5480 M
+9 42 V
+-206 171 V
+-10 -40 V
+207 -173 V
+.9741 g gsave 5065 5522 N -206 171 V 15 32 V 203 -169 V 0.60 PolyFill
+stroke
+LT0
+5065 5522 M
+12 34 V
+-203 169 V
+-15 -32 V
+206 -171 V
+.9975 g gsave 6910 5736 N -216 -144 V -48 35 V 201 134 V 0.60 PolyFill
+stroke
+LT0
+6910 5736 M
+-63 25 V
+6646 5627 L
+48 -35 V
+216 144 V
+.0847 g gsave 5706 2517 N -360 74 V -1 1303 V 360 -74 V 0.60 PolyFill
+stroke
+LT0
+5706 2517 M
+-1 1303 V
+-360 74 V
+1 -1303 V
+360 -74 V
+.0847 g gsave 6461 2560 N -372 -54 V 0 1303 V 373 54 V 0.60 PolyFill
+stroke
+LT0
+6461 2560 M
+1 1303 V
+-373 -54 V
+0 -1303 V
+372 54 V
+.0847 g gsave 6089 2506 N -383 11 V -1 1303 V 384 -11 V 0.60 PolyFill
+stroke
+LT0
+6089 2506 M
+0 1303 V
+-384 11 V
+1 -1303 V
+383 -11 V
+.9943 g gsave 6947 5714 N -224 -150 V -29 28 V 216 144 V 0.60 PolyFill
+stroke
+LT0
+6947 5714 M
+-37 22 V
+6694 5592 L
+29 -28 V
+224 150 V
+.5 g gsave 7028 4138 N -243 -162 V -1 1304 V 243 161 V 0.60 PolyFill
+stroke
+LT0
+7028 4138 M
+-1 1303 V
+6784 5280 L
+1 -1304 V
+243 162 V
+.9895 g gsave 6973 5691 N -231 -154 V -19 27 V 224 150 V 0.60 PolyFill
+stroke
+LT0
+6973 5691 M
+-26 23 V
+6723 5564 L
+19 -27 V
+231 154 V
+.9153 g gsave 7027 5441 N -243 -161 V -3 93 V 241 162 V 0.60 PolyFill
+stroke
+LT0
+7027 5441 M
+-5 94 V
+6781 5373 L
+3 -93 V
+243 161 V
+.983 g gsave 6991 5665 N -234 -157 V -15 29 V 231 154 V 0.60 PolyFill
+stroke
+LT0
+6991 5665 M
+-18 26 V
+6742 5537 L
+15 -29 V
+234 157 V
+.9446 g gsave 7022 5535 N -241 -162 V -5 58 V 240 160 V 0.60 PolyFill
+stroke
+LT0
+7022 5535 M
+-6 56 V
+6776 5431 L
+5 -58 V
+241 162 V
+.962 g gsave 7016 5591 N -240 -160 V -8 43 V 237 159 V 0.60 PolyFill
+stroke
+LT0
+7016 5591 M
+-11 42 V
+6768 5474 L
+8 -43 V
+240 160 V
+.9741 g gsave 7005 5633 N -237 -159 V -11 34 V 234 157 V 0.60 PolyFill
+stroke
+LT0
+7005 5633 M
+-14 32 V
+6757 5508 L
+11 -34 V
+237 159 V
+.9994 g gsave 5450 5559 N -249 109 V 739 361 V 7 -3 V 0.60 PolyFill
+stroke
+LT0
+5450 5559 M
+497 467 V
+-7 3 V
+5201 5668 L
+249 -109 V
+.9994 g gsave 6646 5627 N -269 -95 V -405 493 V 8 3 V 0.60 PolyFill
+stroke
+LT0
+6646 5627 M
+-666 401 V
+-8 -3 V
+405 -493 V
+269 95 V
+.9975 g gsave 5414 5519 N -267 117 V 54 32 V 249 -109 V 0.60 PolyFill
+stroke
+LT0
+5414 5519 M
+36 40 V
+-249 109 V
+-54 -32 V
+267 -117 V
+.9943 g gsave 5392 5489 N -277 121 V 32 26 V 267 -117 V 0.60 PolyFill
+stroke
+LT0
+5392 5489 M
+22 30 V
+-267 117 V
+-32 -26 V
+277 -121 V
+.9975 g gsave 6694 5592 N -288 -101 V -29 41 V 269 95 V 0.60 PolyFill
+stroke
+LT0
+6694 5592 M
+-48 35 V
+-269 -95 V
+29 -41 V
+288 101 V
+.5 g gsave 5345 3894 N -299 132 V 1 1303 V 299 -131 V 0.60 PolyFill
+stroke
+LT0
+5345 3894 M
+1 1304 V
+-299 131 V
+-1 -1303 V
+299 -132 V
+.9994 g gsave 5749 5497 N -299 62 V 497 467 V 8 -2 V 0.60 PolyFill
+stroke
+LT0
+5749 5497 M
+206 527 V
+-8 2 V
+5450 5559 L
+299 -62 V
+.9895 g gsave 5377 5460 N -284 124 V 22 26 V 277 -121 V 0.60 PolyFill
+stroke
+LT0
+5377 5460 M
+15 29 V
+-277 121 V
+-22 -26 V
+284 -124 V
+.9994 g gsave 6377 5532 N -309 -45 V -104 537 V 8 1 V 0.60 PolyFill
+stroke
+LT0
+6377 5532 M
+-405 493 V
+-8 -1 V
+104 -537 V
+309 45 V
+.9994 g gsave 6068 5487 N -319 10 V 206 527 V 9 0 V 0.60 PolyFill
+stroke
+LT0
+6068 5487 M
+-104 537 V
+-9 0 V
+5749 5497 L
+319 -10 V
+.983 g gsave 5366 5429 N -289 127 V 16 28 V 284 -124 V 0.60 PolyFill
+stroke
+LT0
+5366 5429 M
+11 31 V
+-284 124 V
+-16 -28 V
+289 -127 V
+.9153 g gsave 5346 5198 N -299 131 V 3 93 V 298 -130 V 0.60 PolyFill
+stroke
+LT0
+5346 5198 M
+2 94 V
+-298 130 V
+-3 -93 V
+299 -131 V
+.9741 g gsave 5358 5394 N -293 128 V 12 34 V 289 -127 V 0.60 PolyFill
+stroke
+LT0
+5358 5394 M
+8 35 V
+-289 127 V
+-12 -34 V
+293 -128 V
+.9446 g gsave 5348 5292 N -298 130 V 6 58 V 296 -130 V 0.60 PolyFill
+stroke
+LT0
+5348 5292 M
+4 58 V
+-296 130 V
+-6 -58 V
+298 -130 V
+.962 g gsave 5352 5350 N -296 130 V 9 42 V 293 -128 V 0.60 PolyFill
+stroke
+LT0
+5352 5350 M
+6 44 V
+-293 128 V
+-9 -42 V
+296 -130 V
+.9943 g gsave 6723 5564 N -299 -105 V -18 32 V 288 101 V 0.60 PolyFill
+stroke
+LT0
+6723 5564 M
+-29 28 V
+6406 5491 L
+18 -32 V
+299 105 V
+.5 g gsave 6785 3976 N -323 -113 V -1 1303 V 323 114 V 0.60 PolyFill
+stroke
+LT0
+6785 3976 M
+-1 1304 V
+6461 5166 L
+1 -1303 V
+323 113 V
+.9895 g gsave 6742 5537 N -306 -107 V -12 29 V 299 105 V 0.60 PolyFill
+stroke
+LT0
+6742 5537 M
+-19 27 V
+6424 5459 L
+12 -29 V
+306 107 V
+.9975 g gsave 5734 5452 N -320 67 V 36 40 V 299 -62 V 0.60 PolyFill
+stroke
+LT0
+5734 5452 M
+15 45 V
+-299 62 V
+-36 -40 V
+320 -67 V
+.983 g gsave 6757 5508 N -312 -110 V -9 32 V 306 107 V 0.60 PolyFill
+stroke
+LT0
+6757 5508 M
+-15 29 V
+6436 5430 L
+9 -32 V
+312 110 V
+.9153 g gsave 6784 5280 N -323 -114 V -2 94 V 322 113 V 0.60 PolyFill
+stroke
+LT0
+6784 5280 M
+-3 93 V
+6459 5260 L
+2 -94 V
+323 114 V
+.9741 g gsave 6768 5474 N -317 -111 V -6 35 V 312 110 V 0.60 PolyFill
+stroke
+LT0
+6768 5474 M
+-11 34 V
+6445 5398 L
+6 -35 V
+317 111 V
+.9446 g gsave 6781 5373 N -322 -113 V -3 59 V 320 112 V 0.60 PolyFill
+stroke
+LT0
+6781 5373 M
+-5 58 V
+6456 5319 L
+3 -59 V
+322 113 V
+.962 g gsave 6776 5431 N -320 -112 V -5 44 V 317 111 V 0.60 PolyFill
+stroke
+LT0
+6776 5431 M
+-8 43 V
+6451 5363 L
+5 -44 V
+320 112 V
+.9975 g gsave 6406 5491 N -331 -48 V -7 44 V 309 45 V 0.60 PolyFill
+stroke
+LT0
+6406 5491 M
+-29 41 V
+-309 -45 V
+7 -44 V
+331 48 V
+.9975 g gsave 6075 5443 N -341 9 V 15 45 V 319 -10 V 0.60 PolyFill
+stroke
+LT0
+6075 5443 M
+-7 44 V
+-319 10 V
+-15 -45 V
+341 -9 V
+.9943 g gsave 5725 5420 N -333 69 V 22 30 V 320 -67 V 0.60 PolyFill
+stroke
+LT0
+5725 5420 M
+9 32 V
+-320 67 V
+-22 -30 V
+333 -69 V
+.9943 g gsave 6424 5459 N -344 -49 V -5 33 V 331 48 V 0.60 PolyFill
+stroke
+LT0
+6424 5459 M
+-18 32 V
+-331 -48 V
+5 -33 V
+344 49 V
+.9943 g gsave 6080 5410 N -355 10 V 9 32 V 341 -9 V 0.60 PolyFill
+stroke
+LT0
+6080 5410 M
+-5 33 V
+-341 9 V
+-9 -32 V
+355 -10 V
+.9895 g gsave 5719 5389 N -342 71 V 15 29 V 333 -69 V 0.60 PolyFill
+stroke
+LT0
+5719 5389 M
+6 31 V
+-333 69 V
+-15 -29 V
+342 -71 V
+.5 g gsave 5705 3820 N -360 74 V 1 1304 V 360 -75 V 0.60 PolyFill
+stroke
+LT0
+5705 3820 M
+1 1303 V
+-360 75 V
+-1 -1304 V
+360 -74 V
+.983 g gsave 5714 5357 N -348 72 V 11 31 V 342 -71 V 0.60 PolyFill
+stroke
+LT0
+5714 5357 M
+5 32 V
+-342 71 V
+-11 -31 V
+348 -72 V
+.9895 g gsave 6436 5430 N -353 -51 V -3 31 V 344 49 V 0.60 PolyFill
+stroke
+LT0
+6436 5430 M
+-12 29 V
+-344 -49 V
+3 -31 V
+353 51 V
+.9895 g gsave 6083 5379 N -364 10 V 6 31 V 355 -10 V 0.60 PolyFill
+stroke
+LT0
+6083 5379 M
+-3 31 V
+-355 10 V
+-6 -31 V
+364 -10 V
+.9153 g gsave 5706 5123 N -360 75 V 2 94 V 359 -75 V 0.60 PolyFill
+stroke
+LT0
+5706 5123 M
+1 94 V
+-359 75 V
+-2 -94 V
+360 -75 V
+.5 g gsave 6462 3863 N -373 -54 V 0 1303 V 372 54 V 0.60 PolyFill
+stroke
+LT0
+6462 3863 M
+-1 1303 V
+-372 -54 V
+0 -1303 V
+373 54 V
+.5 g gsave 6089 3809 N -384 11 V 1 1303 V 383 -11 V 0.60 PolyFill
+stroke
+LT0
+6089 3809 M
+0 1303 V
+-383 11 V
+-1 -1303 V
+384 -11 V
+.9741 g gsave 5711 5321 N -353 73 V 8 35 V 348 -72 V 0.60 PolyFill
+stroke
+LT0
+5711 5321 M
+3 36 V
+-348 72 V
+-8 -35 V
+353 -73 V
+.9446 g gsave 5707 5217 N -359 75 V 4 58 V 356 -74 V 0.60 PolyFill
+stroke
+LT0
+5707 5217 M
+1 59 V
+-356 74 V
+-4 -58 V
+359 -75 V
+.962 g gsave 5708 5276 N -356 74 V 6 44 V 353 -73 V 0.60 PolyFill
+stroke
+LT0
+5708 5276 M
+3 45 V
+-353 73 V
+-6 -44 V
+356 -74 V
+.983 g gsave 6445 5398 N -360 -52 V -2 33 V 353 51 V 0.60 PolyFill
+stroke
+LT0
+6445 5398 M
+-9 32 V
+-353 -51 V
+2 -33 V
+360 52 V
+.983 g gsave 6085 5346 N -371 11 V 5 32 V 364 -10 V 0.60 PolyFill
+stroke
+LT0
+6085 5346 M
+-2 33 V
+-364 10 V
+-5 -32 V
+371 -11 V
+.9153 g gsave 6461 5166 N -372 -54 V 0 95 V 370 53 V 0.60 PolyFill
+stroke
+LT0
+6461 5166 M
+-2 94 V
+-370 -53 V
+0 -95 V
+372 54 V
+.9153 g gsave 6089 5112 N -383 11 V 1 94 V 382 -10 V 0.60 PolyFill
+stroke
+LT0
+6089 5112 M
+0 95 V
+-382 10 V
+-1 -94 V
+383 -11 V
+.9741 g gsave 6451 5363 N -364 -53 V -2 36 V 360 52 V 0.60 PolyFill
+stroke
+LT0
+6451 5363 M
+-6 35 V
+-360 -52 V
+2 -36 V
+364 53 V
+.9741 g gsave 6087 5310 N -376 11 V 3 36 V 371 -11 V 0.60 PolyFill
+stroke
+LT0
+6087 5310 M
+-2 36 V
+-371 11 V
+-3 -36 V
+376 -11 V
+.9446 g gsave 6459 5260 N -370 -53 V -1 59 V 368 53 V 0.60 PolyFill
+stroke
+LT0
+6459 5260 M
+-3 59 V
+-368 -53 V
+1 -59 V
+370 53 V
+.962 g gsave 6456 5319 N -368 -53 V -1 44 V 364 53 V 0.60 PolyFill
+stroke
+LT0
+6456 5319 M
+-5 44 V
+-364 -53 V
+1 -44 V
+368 53 V
+.9446 g gsave 6089 5207 N -382 10 V 1 59 V 380 -10 V 0.60 PolyFill
+stroke
+LT0
+6089 5207 M
+-1 59 V
+-380 10 V
+-1 -59 V
+382 -10 V
+.962 g gsave 6088 5266 N -380 10 V 3 45 V 376 -11 V 0.60 PolyFill
+stroke
+LT0
+6088 5266 M
+-1 44 V
+-376 11 V
+-3 -45 V
+380 -10 V
+stroke
+0.500 UL
+LTb
+7885 2658 M
+6476 1338 L
+4037 2100 M
+6476 1338 L
+1.000 UP
+stroke
+grestore % colour palette end
+stroke
+grestore
+end
+showpage
+%%Trailer
+%%DocumentFonts: Helvetica
