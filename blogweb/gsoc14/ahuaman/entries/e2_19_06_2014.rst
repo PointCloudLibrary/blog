@@ -1,30 +1,64 @@
-Theoretical Foundations
-=======================
+Uniform Sampling for Superquadrics
+===================================
 
 .. blogpost::
-   :title: Theoretical Foundations
+   :title: 1. Uniform sampling for superquadrics
    :author: ahuaman
-   :date: 19-06-2014
+   :date: 20-06-2014
+
+   In this post I will talk about superquadric uniform sampling. You might be wondering why you should care
+   about sampling. Well, there are 2 reasons:
+
+   * *Synthetic data:* To test our superquadric fitting algorithm (next section) we will start using as
+     a baseline canonical superquadrics with some added noise. Once a fitting algorithm works with these
+     complete pointclouds, we will be able to proceed with more complex shapes (that are not necessarily
+     superellipsoids but close enough to attempt to fith them).
+   * *Debugging purposes:* Visualization of our results. 
+   * *Beautiful math:* The math of this part is simple, yet elegant. If you want to know the details, peek
+     the code (linked below) or read the paper mentioned later in this entry.
 
       
-   Superellipsoids can be expressed with the following equation:
+   From last time, you might remember that the Superellipsoids can be expressed with the explicit equations:
 
-   .. math::
-
+    .. math::
+      :nowrap:
       
-      \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
-
-      
-   where the 5 parameters :math:`(a,b,c,\epsilon_{1}, \epsilon_{2})` determine the 3D shape. A superquadric,
-   is in fact the result of the spherical product of two superellipses, which can be expressed by the
-   following 2D equation: 
-
-   
-
-   Superellipsoids:
-
-   .. math::
-
-      {\left(\dfrac{x}{a}\right) }^{\frac{2}{\epsilon}} + {\left(\dfrac{y}{b}\right)}^{\frac{2}{\epsilon}} = 1
+      \begin{eqnarray*}
+      x = a{\cos(\theta)}^{\epsilon_{1}}{\cos(\gamma)}^{\epsilon_{2}} \\
+      y = b{\cos(\theta)}^{\epsilon_{1}}{\sin(\gamma)}^{\epsilon_{2}} \\
+      z = c{\sin(\theta)}^{\epsilon_{1}}
+      \end{eqnarray*}
 
 
+    Now, let's say that we want to generate pointclouds of different superellipsoids. Also by now let's assume
+    we only care about canonical superellipsoids (no translation and no rotation). A first idea would probably be 
+    to just sample the values of :math:`\theta` and :math:`\gamma` to generate the 3D samples. Let's see what
+    happens if we use this simple approach:
+
+
+   .. image:: images/e2/motivation2_naive.png
+	      :height: 240px
+	      :align: center
+
+
+   You might notice that the results for the sphere and the oval shape are reasonably well distributed; however
+   the results for the cylinder and the box are far from even. In general, the naive approach of uniformly sampling
+   :math:`\theta` and :math:`\gamma` would work well for high values of :math:`\epsilon_{1}` and :math:`\epsilon_{2}`
+   (where high means closer to 1 than to 0). For lower values (such as for the box and cylinder cases where
+   :math:`\epsilon_{1}=0.1`) the performance of naively sampling the angles would degrade. 
+
+   The following figure shows a more reasonable sampling:
+
+   .. image:: images/e2/motivation2_uniform.png
+	      :height: 240px
+	      :align: center
+
+
+   The samples above were obtained by performing a simple technique proposed by Pilu and Fisher [PIluFisher85].
+   These authors noticed that in order to obtain an uniform sampling, the 3D distance between samples had to
+   be constant; however, uniform sampling distance does not correlate with uniform angle steps.
+
+   An implementation of the algorithm proposed by Pilu and Fisher can be found in `my PCL fork <https://github.com/ana-GT/pcl/blob/sq-fitting/apps/sq_fitting/src/SQ_utils.cpp>`_ while the source example `sampleSQ.cpp <https://github.com/ana-GT/pcl/blob/sq-fitting/apps/sq_fitting/tests/sampleSQ.cpp>`_ generates a pointcloud for a superellipsoid defined by user input parameters.
+		      
+
+   .. [PiluFisher95] Pilu, Maurizio, and Robert B. Fisher. "Equal-distance sampling of superellipse models." DAI RESEARCH PAPER (1995).
