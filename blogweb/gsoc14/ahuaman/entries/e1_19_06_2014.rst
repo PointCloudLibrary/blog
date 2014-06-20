@@ -3,6 +3,29 @@
    :author: ahuaman
    :date: 19-06-2014
 
-   Superquadrics allow you to represent a wide array of different shapes with a small number of parameters (5)
+   Superquadrics are a family of geometric shapes that can represent
+   a wide array of diverse primitives using a small number of parameters.
+   As an example, look at the figure below: The first row depicts 
+   5 common household objects. The second row shows the superquadrics
+   that more closely resemble them.
 
+   .. image:: images/e1/motivation1.png
+	      :height: 90px
 
+   Superquadrics were initially introduced in the computer graphics community
+   by Alan Barr, but they were later adopted by the robotics community as 
+   an effective modelling tool to approximate objects shape. In general, superquadrics
+   include superellipsoid and supertoroids, but for most practical uses, we
+   care for only superellipsoids. This can be expressed with the following formula:
+   
+   
+   .. math::
+      
+      \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
+
+      
+      As it can be seen, superellipsoids in their canonical form can be expressed
+      by 5 parameters :math:`(a,b,c,\epsilon_{1}, \epsilon_{2})`. If a general
+      transformation is considered, then the total number of parameters required
+      to define a superellipsoid is 11 (the 6 additional being the rotation and
+      translation degrees of freedom :math:`(x,y,z,\rho,\psi,\theta)`)
