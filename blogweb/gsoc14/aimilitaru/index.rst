@@ -1,20 +1,20 @@
-My_name
-==========
+Andrei Militaru
+=================
 
-:email: xyz@xyz.com	
-:project: What I will be doing this summer
-:mentor: 
+:email: militaru.andrei92@gmail.com	
+:project: Face Shift
+:mentor: Alexandru Eugen Ichim
 
 About me
 --------
-Hello World 
+Hello World! I have just finished my bachelor studies in Computer Science at Jacobs University Bremen.
 
 Recent status updates
 ---------------------
 
 .. blogbody::
-  :author: my_username
-  :nr_posts: 5
+  :author: aimilitaru
+  :nr_posts: 1
 
 
 
@@ -24,3 +24,4 @@ Recent status updates
   :hidden:
 
   status
+
