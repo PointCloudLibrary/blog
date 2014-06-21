@@ -1,0 +1,54 @@
+.. blogpost::
+   :title: 0. Whetting your appetite: Why superquadrics?
+   :author: ahuaman
+   :date: 19-06-2014
+
+   Superquadrics are a family of geometric shapes that can represent
+   a wide array of diverse primitives using a small number of parameters.
+   As an example, look at the figure below: The first row depicts 
+   5 common household objects. The second row shows the superquadrics
+   that more closely resemble them.
+
+   .. image:: images/e1/motivation1.png
+	      :height: 240px
+	      :align: center
+
+   Superquadrics were initially introduced in the computer graphics community
+   by Alan Barr [Barr81]_, but they were later adopted by the robotics community as 
+   an effective modelling tool to approximate objects shape. In general, superquadrics
+   include superellipsoid and supertoroids, but for most practical uses, we
+   care for only superellipsoids. These can be expressed with the following formula:
+      
+   .. math:: \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
+      :label: se_eq
+      
+   As it can be seen, superellipsoids in their canonical form can be expressed
+   by 5 parameters:
+
+   * :math:`a,b,c`: Scaling factors along principal axes
+   * :math:`\epsilon_{1}` : Shape factor of the superellipsoid cross section in a plane orthogonal to XY containing the axis Z.
+   * :math:`\epsilon_{2}` : Shape factor of the superellipsoid cross section in a plane parallel to XY.
+
+
+   If a general transformation is considered, then the total number of parameters required
+   to define a superellipsoid is 11 (the 6 additional being the rotation and
+   translation degrees of freedom :math:`(x,y,z,\rho,\psi,\theta)`)
+   
+   Expression :eq:`se_eq` shows the implicit equation of the superellipsoids. Its parametric
+   solution can be expressed as:
+   
+
+   .. math::
+      :nowrap:
+      
+      \begin{eqnarray*}
+      x = a{\cos(\theta)}^{\epsilon_{1}}{\cos(\gamma)}^{\epsilon_{2}} \\
+      y = b{\cos(\theta)}^{\epsilon_{1}}{\sin(\gamma)}^{\epsilon_{2}} \\
+      z = c{\sin(\theta)}^{\epsilon_{1}}
+      \end{eqnarray*}
+     
+
+   with :math:`\theta \in [-\phi/2, \phi/2]` and :math:`\gamma \in [-\phi,\phi]`. In our next post we will learn how to generate pointclouds for superellipsoids (which is not as simple as just sampling :math:`\theta` and :math:`\gamma`! Stay tuned :).
+
+
+   .. [Barr81] Barr, Alan H. "Superquadrics and angle-preserving transformations." IEEE Computer graphics and Applications 1.1 (1981): 11-23.
