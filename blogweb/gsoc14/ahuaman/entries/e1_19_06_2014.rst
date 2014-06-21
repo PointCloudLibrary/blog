@@ -14,10 +14,10 @@
 	      :align: center
 
    Superquadrics were initially introduced in the computer graphics community
-   by Alan Barr [Barr81], but they were later adopted by the robotics community as 
+   by Alan Barr [Barr81]_, but they were later adopted by the robotics community as 
    an effective modelling tool to approximate objects shape. In general, superquadrics
    include superellipsoid and supertoroids, but for most practical uses, we
-   care for only superellipsoids. This can be expressed with the following formula:
+   care for only superellipsoids. These can be expressed with the following formula:
       
    .. math:: \left( \left(\dfrac{x}{a}\right)^{\frac{2}{\epsilon_{2}}} + \left(\dfrac{y}{b}\right)^{\frac{2}{\epsilon_{2}}} \right) ^{\frac{\epsilon_{2}}{\epsilon_1} } + \left(\dfrac{z}{c}\right)^{\frac{2}{\epsilon_{1}}} = 1
       :label: se_eq
@@ -34,8 +34,8 @@
    to define a superellipsoid is 11 (the 6 additional being the rotation and
    translation degrees of freedom :math:`(x,y,z,\rho,\psi,\theta)`)
    
-   Expression :eq:`se_eq` shows the implicit equation of the superellipsoids. The parametric
-   solution of :eq:`se_eq` can be expressed as:
+   Expression :eq:`se_eq` shows the implicit equation of the superellipsoids. Its parametric
+   solution can be expressed as:
    
 
    .. math::

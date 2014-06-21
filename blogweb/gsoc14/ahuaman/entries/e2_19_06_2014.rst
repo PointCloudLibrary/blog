@@ -51,7 +51,7 @@
 	      :align: center
 
 
-   The samples above were obtained by performing a simple technique proposed by Pilu and Fisher [PIluFisher85].
+   The samples above were obtained by performing a simple technique proposed by Pilu and Fisher [PiluFisher95]_.
    These authors noticed that in order to obtain an uniform sampling, the 3D distance between samples had to
    be constant; however, uniform sampling distance does not correlate with uniform angle steps.
 
