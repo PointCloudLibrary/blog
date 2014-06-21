@@ -23,4 +23,4 @@ My status updates
   The input of the algorithm are two calibrated images, i.e. the camera geometry is known. The images are also rectified in order to limit the correspondence to a 1D search.
 
   **CORRESPONDENCE ESTIMATION**
-  Local approaches 
+
