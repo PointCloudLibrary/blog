@@ -7,7 +7,7 @@ My status updates
 
 
 .. blogpost::
-  :title: Face Shift ( First phase )
+  :title:  Statistical Face Model ( First phase )
   :author: aimilitaru
   :date: 22-06-2014
 
