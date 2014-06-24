@@ -42,13 +42,13 @@ My status updates
 	:align: center
 
   This whole process is complex and time consuming since it is repeated for every hypothesis d. 
-  A representation of the conventional approaches can be observed in the next figure [Min2011]_.
+  A representation of the conventional approaches can be observed in next figure [1]_.
 
   .. image:: figures/conventional_ca.png
 	      :height: 240px
 	      :align: center
 
-  Min et al. [1] introduced a new methodology to reduce the complexity, by finding a compact representation of the per-pixel likelihood, assuming that low values do not provide really informative support. In this case, only a pre-defined number of disparity candidates per pixel are selected to perform the cost aggregation step. The subset of disparity hypotheses correspond to the local maxima points in the profile of the likelihood function, previously pre-filtered to reduce the noise, as shown in the following example:
+  Min et al. [1]_ introduced a new methodology to reduce the complexity, by finding a compact representation of the per-pixel likelihood, assuming that low values do not provide really informative support. In this case, only a pre-defined number of disparity candidates per pixel are selected to perform the cost aggregation step. The subset of disparity hypotheses correspond to the local maxima points in the profile of the likelihood function, previously pre-filtered to reduce the noise, as shown in the following example:
 
   .. image:: figures/disp_cand_selection.png
 	      :height: 240px
@@ -60,6 +60,6 @@ The disparity hypotheses estimation and cost aggregation processes proposed by M
 	      :height: 240px
 	      :align: center
 
-  [1] Min, D., Lu, J., & Do, M. N. "A revisit to cost aggregation in stereo matching: How far can we reduce its computational redundancy?." In IEEE International Conference on Computer Vision (ICCV), 2011 (pp. 1567-1574).
+  .. [1] Min, D., Lu, J., & Do, M. N. "A revisit to cost aggregation in stereo matching: How far can we reduce its computational redundancy?." In IEEE International Conference on Computer Vision (ICCV), 2011 (pp. 1567-1574).
   
 
