@@ -27,19 +27,16 @@ My status updates
 
   .. math:: e \left(p,d \right) = min \left(|I_{l}(x,y)-I_{r}(x-d,y)|, \sigma \right)
   	:label: eq11
-	:align: center
 
   Then, the aggregated cost is computed by an adaptive sum of the per-pixel cost:
 
   .. math:: E(p,d) = \dfrac{\displaystyle \sum_{q \in N(p)}w(p,q)e(q,d)}{\displaystyle \sum_{q \in N(p)}w(p,q)}
   	:label: eq12
-	:align: center
 
   Finally, a Winner-Takes-All method is used to find the best of all the disparity hypothesis:
 
   .. math:: d(p) = argmin E(p,d), d \in {[ 0,..,D-1 ]}
   	:label: eq13
-	:align: center
 
   This whole process is complex and time consuming since it is repeated for every hypothesis d. 
   A representation of the conventional approaches can be observed in next figure [1]_.
