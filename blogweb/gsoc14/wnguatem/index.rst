@@ -1,13 +1,14 @@
-My_name
+William Nguatem 
 ==========
 
-:email: xyz@xyz.com	
-:project: What I will be doing this summer
-:mentor: 
+:email: william.nguatem@googlemail.com	
+:project: A Bayesian Approach for fitting Geometric Models in 3D Point Clouds
+:mentor: Zoltan-Csaba Marton
 
 About me
 --------
-Hello World 
+I am a graduate student at the Bundeswehr University Munich. I have been working with 
+with PCL within my research.
 
 Recent status updates
 ---------------------
