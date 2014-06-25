@@ -7,7 +7,7 @@ Alina Roitberg
 
 About me
 --------
-I am a computer science student with a lot of interest in computer vision and machine learning. Right now I am finishing my Masters at Technical University of Munich.
+I am a computer science student interested in computer vision and machine learning. Right now I am finishing my Masters at Technical University of Munich.
 
 Project description
 -------------------
@@ -18,8 +18,8 @@ Recent status updates
 ---------------------
 
 .. blogbody::
-  :author: my_username
-  :nr_posts: 1
+  :author: Alina Roitberg
+  :nr_posts: 3
 
 
 

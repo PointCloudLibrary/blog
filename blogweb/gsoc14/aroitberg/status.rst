@@ -12,6 +12,7 @@ My status updates
   :date: 25-06-2014
 
 
+  
   As the first weeks of GSOC are over I am going to summarize my progress so far. The goal of my project is to apply machine learning techniques on collected skeletal data for activity recognition. Most research in this area has been using Nite or Kinect SDK for skeleton tracking. As PCL already has a `pose detector <http://pointclouds.org/documentation/tutorials/gpu_people.php>`_ available, we want to try using it to collect skeletal information, which however, requires some modifications of the gpu/people module, which was the major focus of my work until now. 
 
   **First steps**
