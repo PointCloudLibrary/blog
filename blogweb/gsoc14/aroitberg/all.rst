@@ -1,4 +1,4 @@
-All blog posts for My_Name
+All blog posts for Alina Roitberg
 -----------------------------
 
 .. blogbody::
