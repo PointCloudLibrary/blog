@@ -1,20 +1,25 @@
-My_name
-==========
+Alina Roitberg
+==============
 
-:email: xyz@xyz.com	
-:project: What I will be doing this summer
-:mentor: 
+:email: a.roitberg@gmail.com	
+:project: Human action recognition from skeleton information
+:mentor: Matteo Munaro
 
 About me
 --------
-Hello World 
+I am a computer science student with a lot of interest in computer vision and machine learning. Right now I am finishing my Masters at Technical University of Munich.
+
+Project description
+-------------------
+The core of this project is to apply machine learning algorithms on skeletal data obtained from an RGB-D sensor to automatically detect current activity of the user and to develope a program that would recognize human activities.
+
 
 Recent status updates
 ---------------------
 
 .. blogbody::
   :author: my_username
-  :nr_posts: 5
+  :nr_posts: 1
 
 
 
