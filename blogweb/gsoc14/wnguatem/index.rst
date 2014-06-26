@@ -18,8 +18,8 @@ generic i.e. both parametric and non-parametric (e.g. curves, surfaces using spl
 Basics of Monte-Carlo Simulation
 --------------------------------
 
-Brainstorming with my mentor
-============================
+Brainstorming
+=============
 This section contains some of the "Bits and Bytes" from the discussions I've had with my mentor Zoltan
 
 Meeting 1-2
