@@ -24,23 +24,28 @@ I'll start this section with a question:
 
 - why should one still be using the RANSAC paradigm for model fitting in these days of modern multi-core computer systems ?
 
-Here, I argue that a on a multi-core system, simple Monte-Carlo simulation based alternative (Importance Sampling) combined with a Model Selection 
-can out perform ransac, at least in terms of speed. Below is a sketch of the algorithm:
+Here, I argue that on a multi-core system, simple Monte-Carlo simulation based alternative (Importance Sampling) combined with a Model Selection 
+out performs ransac in most cases. RANSAC may be better if the number of iterations is quite low and the data is quite clean, i.e. within a few iterations, RANSAC can attained the required probability of accepting a sampled model.
+In all other cases, I'll believe an IS could be better, at least in terms of speed. Below is a sketch of the algorithm:
 
 for(int i = 0; i < num_of_samples; i++)
 {
-                sample[i] = get_sample(); //sample from a proposal
-                weight[i] = likelihood_estimation( sample[i] ); //compute the weight of the sample
+                sample[i] = get_sample(); %sample from a proposal
+                weight[i] = likelihood_estimation( sample[i] ); %compute the weight of the sample
 }
 
-//weight normalization [optional]
+      for (x = 0; x < width; x++)
+        for (y = 0; y < height; y++)
+          cloud(x, y).rgb = cloud(x + 8, y).rgb;
+
+/weight normalization [optional]
 for(int i = 0; i < num_of_samples; i++)
                 likelihood[i] = weight[i]/max_weight;
 
-//model selection: get the MAP model
+///model selection: get the MAP model
 map_sample = get_sample_with_max_weight(weight[i])
 
-For the geometric model fitting problem, the major goal is to estimate the MAP sample, though one can still get say the MMSE sample estimator using the optional weight normalization stage in the code snippet above. 
+For the geometric model fitting problem, I'll take plane fitting as a running example since this is very straight forward. the major goal is to estimate the MAP sample, though one can still get say the MMSE sample estimator using the optional weight normalization stage in the code snippet above. 
 On our modern multi-core computer systems, we can run the loop in the above algorithm in parallel since all the samples are i.i.d and there is no coupling from one sample to the other within the loop.
 
 
