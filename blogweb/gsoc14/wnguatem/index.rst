@@ -18,14 +18,15 @@ generic i.e. both parametric and non-parametric (e.g. curves, surfaces using spl
 Brainstorming with my mentor
 ----------------------------
 These are some of "Bits and Bytes" from the discussions I've had with my mentor Zoltan
--Study the existing SampleConsensus and Tracking Module.
--What can be taken from these Modules ?
--The Pros and Cons of inheriting from these modules rather than re-inventing the wheel ? 
--Extending the posible model types for say Torrus/ellipsoids
--B-Spline curve fitting in 3D
--Knot/Control point placement problematic
--Lets try first an MCMC Sampling approach for already existing model types (Planes, Lines,Cylinders ...)
--B-Spline surface fitting
+
+- Study the existing SampleConsensus and Tracking Module.
+- What can be taken from these Modules ?
+- The Pros and Cons of inheriting from these modules rather than re-inventing the wheel ? 
+- Extending the posible model types for say Torrus/ellipsoids
+- B-Spline curve fitting in 3D
+- Knot/Control point placement problematic
+- Lets try first an MCMC Sampling approach for already existing model types (Planes, Lines,Cylinders ...)
+- B-Spline surface fitting
 
 
 Recent status updates
