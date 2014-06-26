@@ -28,17 +28,14 @@ Here, I argue that on a multi-core system, simple Monte-Carlo simulation based a
 out performs ransac in most cases. RANSAC may be better if the number of iterations is quite low and the data is quite clean, i.e. within a few iterations, RANSAC can attained the required probability of accepting a sampled model.
 In all other cases, I'll believe an IS could be better, at least in terms of speed. Below is a sketch of the algorithm:
 
+.. code-block:: c++
 for(int i = 0; i < num_of_samples; i++)
 {
-                sample[i] = get_sample(); %sample from a proposal
-                weight[i] = likelihood_estimation( sample[i] ); %compute the weight of the sample
+                sample[i] = get_sample(); //sample from a proposal distribution
+                weight[i] = likelihood_estimation( sample[i] ); //compute the weight of the proposal
 }
 
-      for (x = 0; x < width; x++)
-        for (y = 0; y < height; y++)
-          cloud(x, y).rgb = cloud(x + 8, y).rgb;
-
-/weight normalization [optional]
+//weight normalization [optional]
 for(int i = 0; i < num_of_samples; i++)
                 likelihood[i] = weight[i]/max_weight;
 
