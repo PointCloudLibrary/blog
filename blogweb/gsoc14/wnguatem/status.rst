@@ -20,6 +20,13 @@ My status updates
    RANSAC can attained the required probability of accepting a sampled model thus not running all the maximum number of iterations. In all other cases, I believe an Important Sampling (IS) 
    is better, at least in terms of speed. Below is a sketch of the IS algorithm:
    
+   .. code-block:: c++
+	for(int i = 0; i < num_of_samples; i++)
+	{
+                sample[i] = get_sample(); //sample from a proposal distribution
+                weight[i] = likelihood_estimation( sample[i] ); //compute the weight of the proposal
+	}	
+   
    
   
   
