@@ -15,9 +15,15 @@ PCL provides a greate frame work based on the ransac family of algorithms for fi
 In this work however, we aim at solving the model fitting tasks using a Bayesian approach. Amongst others, this approach has the advantage of being very flexible and
 generic i.e. both parametric and non-parametric (e.g. curves, surfaces using splines) models can be fitted.
 
+Basics of Monte-Carlo Simulation
+--------------------------------
+
 Brainstorming with my mentor
-----------------------------
-These are some of "Bits and Bytes" from the discussions I've had with my mentor Zoltan
+============================
+This section contains some of the "Bits and Bytes" from the discussions I've had with my mentor Zoltan
+
+Meeting 1-2
+-----------
 
 - Study the existing SampleConsensus and Tracking Module.
 - What can be taken from these Modules ?
@@ -28,6 +34,8 @@ These are some of "Bits and Bytes" from the discussions I've had with my mentor 
 - Lets try first an MCMC Sampling approach for already existing model types (Planes, Lines,Cylinders ...)
 - B-Spline surface fitting
 
+Meeting 3
+---------
 
 Recent status updates
 ---------------------
