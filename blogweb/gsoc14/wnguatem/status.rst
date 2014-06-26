@@ -3,7 +3,7 @@ My status updates
 
 .. blogbody::
   :nr_days: 60
-  :author: my_username
+  :author: wnguatem
 
 
 .. blogpost::
