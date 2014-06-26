@@ -15,9 +15,6 @@ PCL provides a greate frame work based on the ransac family of algorithms for fi
 In this work however, we aim at solving the model fitting tasks using a Bayesian approach. Amongst others, this approach has the advantage of being very flexible and
 generic i.e. both parametric and non-parametric (e.g. curves, surfaces using splines) models can be fitted.
 
-Basics of Monte-Carlo Simulation
---------------------------------
-
 
 Recent status updates
 ---------------------
