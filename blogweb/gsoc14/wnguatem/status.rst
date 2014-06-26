@@ -26,7 +26,13 @@ My status updates
                 sample[i] = get_sample(); //sample from a proposal distribution
                 weight[i] = likelihood_estimation( sample[i] ); //compute the weight of the proposal
 	}	
-   
+   .. code-block:: c++
+	//weight normalization [optional]
+	for(int i = 0; i < num_of_samples; i++)
+                likelihood[i] = weight[i]/max_weight;
+	.. code-block:: c++
+	//model selection: get the MAP model
+	map_sample = get_sample_with_max_weight(weight[i])
    
   
   
