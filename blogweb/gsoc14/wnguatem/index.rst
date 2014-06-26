@@ -18,6 +18,9 @@ generic i.e. both parametric and non-parametric (e.g. curves, surfaces using spl
 Basics of Monte-Carlo Simulation
 --------------------------------
 
+Importance Sampling Versus Ransac Paradigme
+-------------------------------------------
+
 Brainstorming
 =============
 This section contains some of the "Bits and Bytes" from the discussions I've had with my mentor Zoltan
