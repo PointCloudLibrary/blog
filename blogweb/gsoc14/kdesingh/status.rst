@@ -74,4 +74,120 @@ My status updates
 						- Surface compatibility 
         
 
-                
+               
+
+.. blogpost::
+  :title: RSD Feature computation and analysis
+  :author: kdesingh
+  :date: 26-06-2014
+
+  RSD Feature is a local feature histogram that describes the surface local to a query point. There is pcl implementation for this that is available in the features folder. 
+  With the help of my mentor I understood the algorithm by which this feature is obtained. To very if this is working perfectly we took a real object whose radius is known and 
+  generated the RSD computation on the entire point cloud of the object. This gives RSD Feature Histogram for all the points in the pointcloud. We can also get the min and max 
+  radius of the local surface patch around each point in the pointcloud. 
+  I generated various combination of parameters to know how the radius computed varies. Below is the object used which has a radius of 3.5cm which is 0.035m
+  
+                  .. image:: images/coffee_mug.png
+                        :width: 333px
+                        :height: 400px
+                        :align: center
+
+  Below are some of the params chosen and their corrresponding effect on the min and max radius in the local surface patch of each point.
+  For Normal Radius search = 0.03
+  Max_radius = 0.7 (maximum radius after which everything is plane)
+  RSD_radius search = 0.03
+  
+                  .. image:: images/s1.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+  For Normal Radius search = 0.03
+  
+  Max_radius = 0.1 (maximum radius after which everything is plane)
+  
+  RSD_radius search = 0.03
+  
+                  .. image:: images/s2.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+
+  For Normal Radius search = 0.02
+  
+  Max_radius = 0.1 (maximum radius after which everything is plane)
+  
+  RSD_radius search = 0.03 - This is found to be good way for generating histograms
+  
+  
+                  .. image:: images/s3.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+  I tried to do MLS smoothing on the point cloud data and then compute the RSD feature which makes the normal computation better and resulting in
+  consistency over all the points on the object surface.
+  
+  For Normal Radius search = 0.03
+  
+  Max_radius = 0.7 (maximum radius after which everything is plane)
+  
+  RSD_radius search = 0.03
+  
+                  .. image:: images/sm1.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+  For Normal Radius search = 0.03
+  
+  Max_radius = 0.1 (maximum radius after which everything is plane)
+  
+  RSD_radius search = 0.03
+  
+                  .. image:: images/sm2.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+
+  For Normal Radius search = 0.02
+  
+  Max_radius = 0.1 (maximum radius after which everything is plane)
+  
+  RSD_radius search = 0.03 - This is found to be good way for generating histograms
+  
+                  .. image:: images/sm3.png
+                        :width: 1080px
+                        :height: 400px
+                        :align: center
+                        
+                                                
+  Now I tested out how the actual feature looks like at a point on the sphere to check if it matches with the histogram in the paper.
+  The same is compared between raw point cloud from the kinect and MLS smoothened point cloud. Below is the result of the same.
+  
+                    .. image:: images/sphere_comparison_blog.png
+                        :width: 1080px
+                        :height: 600px
+                        :align: center
+                        
+  It was really hard to fix the previous image that it can show the histograms with values and good resolution. So below is the snapshot of the spherical and cylinderical surfaces.
+  
+  Cylinderical Surface:
+  
+                      .. image:: images/cylinder_rsd_mls_1.png
+                        :width: 400px
+                        :height: 300px
+                        :align: center
+                        
+  Spherical Surface:
+  
+                      .. image:: images/sphere_rsd_mls_2.png
+                        :width: 400px
+                        :height: 300px
+                        :align: center                        
+                        
+  
+  Next post will have the details of how GRSD results are and how they differentiate the characteristics of two surfaces. GRSD code from the author will be integrated into the PCL code base. We also plan to categorize the pipeline into modules that fit into the PCL code base as features, surface and segmentation sections. These information will be posted in the next post.
+  
