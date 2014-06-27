@@ -37,12 +37,12 @@ My status updates
 	As always, simple things first, I'll take plane fitting as a running example since this is very straight forward. 
 	The above algorithm is making so-called independent and identically distributed (i.i.d.) samples. These samples combined with their weights will 
 	give us an approximation of a distribution over planes. This idea of drawing i.i.d. samples to approximate a probability distribution (pdf) is the core of Monte-Carlo simulation methods. 
-	Meanwhile, having the pdf, we can easily make inference. For the geometric model fitting problem, the major goal is to estimate the maximum a posteriori (MAP) sample. This is just the sample with the heighest weight.
+	Meanwhile, having the pdf, we can easily make inference. For the geometric model fitting problem, the major goal is to estimate the maximum a posteriori (MAP) sample. This is just the sample with the highest weight.
 	Also of interest is the  minimum mean square error (MMSE) estimator using the optional weight normalization stage in the code snippet above. 
 
 	On our modern multi-core computer systems, we can run the loop in the above algorithm in parallel since all the samples are i.i.d. and there is no coupling from one sample to the other within the loop as found in RANSAC.
 	
-	At the moment, I've made a copy of the sample_consensus modul and renamed this to mcmc modul and implemented an mcmc_segmentation class for the segmentation module. This is very analogous to the sample_consensus module. 
+	At the moment, I've made a copy of the sample_consensus module and renamed this to mcmc module and implemented an mcmc_segmentation class for the segmentation module. This is very analogous to the sample_consensus module. 
 	In the future I'll probably create classes that extends	sample_consensus and implement only the mcmc specific stuff. The currently implemented IS algorithm is parallelized using thread pooling concept of boost.asio and boost.thread. 
 	Results from plane fitting on a dataset collected from image matching is shown in the green segmented plane compared to results from
 	from the sac_segmentation, the red segmented plane. In both cases, an MSAC based likelihood function was used. The table shows the runtime performance gain of the IS algorithm on my machine (DELL Precision 650) 
