@@ -189,6 +189,5 @@ My status updates
                         :align: center                        
                         
   
-  Next post will have the details of how GRSD results are and how they differentiate the characteristics of two surfaces. GRSD code from the author will be integrated into the 
-  PCL code base.                        
+  Next post will have the details of how GRSD results are and how they differentiate the characteristics of two surfaces. GRSD code from the author will be integrated into the PCL code base. We also plan to categorize the pipeline into modules that fit into the PCL code base as features, surface and segmentation sections. These information will be posted in the next post.
   
