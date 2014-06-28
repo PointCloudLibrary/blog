@@ -59,4 +59,4 @@ The disparity hypotheses estimation and cost aggregation processes proposed by M
 
   .. [Min1] Min, D., Lu, J., & Do, M. N. "A revisit to cost aggregation in stereo matching: How far can we reduce its computational redundancy?." In IEEE International Conference on Computer Vision (ICCV), 2011 (pp. 1567-1574).
   
-
+status_06_08
