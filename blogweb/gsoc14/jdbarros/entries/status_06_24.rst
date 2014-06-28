@@ -1,9 +1,10 @@
 .. blogpost::
-  :title: Reduction of computational redundancy in cost aggregation in stereo matching.
+  :title: 1. Reduction of computational redundancy in cost aggregation in stereo matching.
   :author: jilliam
   :date: 21-06-2014
 
   **INTRODUCTION**
+  
   A stereo image pair can be used to estimate the depth of a scene. To do so, it is necessary to perform pixel matching and find the correspondences in both images. Different methods for stereo correspondence have been proposed and they are classified in two classes:
 
   - Correlation-based algorithms: Produce a dense set of correspondences.
@@ -17,6 +18,7 @@
   The input of the algorithm are two calibrated images, i.e. the camera geometry is known. The images are also rectified in order to limit the correspondence to a 1D search.
 
   **CORRESPONDENCE ESTIMATION**
+  
   The general methodology for stereo vision local approaches can be summarized as follows. An energy cost is computed for every pixel p by using the reference and d-shifted right images:
 
   .. math:: e \left(p,d \right) = min \left(|I_{l}(x,y)-I_{r}(x-d,y)|, \sigma \right)
@@ -29,7 +31,7 @@
 
   Finally, a Winner-Takes-All method is used to find the best of all the disparity hypothesis:
 
-  .. math:: d(p) = argmin E(p,d), d \in {[ 0,..,D-1 ]}
+  .. math:: d(p) = argmin\{ E(p,d), d \in [ 0,..,D-1 ] \}
   	:label: eq13
 
   This whole process is complex and time consuming since it is repeated for every hypothesis d. 
@@ -45,7 +47,7 @@
 	      :height: 240px
 	      :align: center
 
-The disparity hypotheses estimation and cost aggregation processes proposed by Min et al. are depicted in the next figure, where Sc is the subset of disparity hypothesis with size Dc: 
+  The disparity hypotheses estimation and cost aggregation processes proposed by Min et al. are depicted in the next figure, where Sc is the subset of disparity hypothesis with size Dc: 
 
   .. image:: figures/compact_ca.png
 	      :height: 240px
