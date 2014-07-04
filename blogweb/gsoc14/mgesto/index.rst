@@ -1,20 +1,20 @@
-My_name
+Manuel Gesto
 ==========
 
-:email: xyz@xyz.com	
-:project: What I will be doing this summer
-:mentor: 
+:email: mgesto@usal.es	
+:project: Object Discovery in Kinfu Data
+:mentor: Federico Tombari
 
 About me
 --------
-Hello World 
+I am a Phd student that will be working on GSOC.
 
 Recent status updates
 ---------------------
 
 .. blogbody::
-  :author: my_username
-  :nr_posts: 5
+  :author: Manuel_Gesto
+  :nr_posts: 1
 
 
 
