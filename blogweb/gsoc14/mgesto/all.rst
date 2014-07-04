@@ -1,5 +1,5 @@
-All blog posts for My_Name
+All blog posts for Manuel Gesto
 -----------------------------
 
 .. blogbody::
-   :author: my_username
+   :author: Manuel Gesto
