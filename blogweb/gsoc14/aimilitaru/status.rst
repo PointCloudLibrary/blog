@@ -57,6 +57,90 @@ My status updates
 		T\. Vetter and V. Blanz, A Morphable Model For The Synthesis Of 3D Faces, Max-Planck-Institut, Tubingen, Germany
 
 
+.. blogpost::
+  :title:  Rigid and Non-Rigid Transformation ( Second phase )
+  :author: aimilitaru
+  :date: 17-07-2014
+
+        * **Introduction**
+
+		In the previous phase, it was presented how to obtain a statistical model from a set of face-meshes. The next step in our project is to "*match*" the mean face of the database, with the face obtain from a 3D Camera scan, like the one in the picture below:
+
+
+                .. image:: images/scan.jpg
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+		The matching is done by applying alternatively the following methods.
+
+
+
+        * **Rigid Transformation**
+
+		
+
+		This method is very similar to the Iterative Closest Point Cloud algorithm, because the goal is to estimate a rotation matrix and a translation vector that would move the average face to an optimal position, near the face of the kinect. Basically, it is required to minimize the error :math:`\epsilon =  \sum ||\vec {y} - (R \cdot \vec{x} + \vec{t})||^2` and this is done by calculating the Jacobian matrix of this system.
+
+		Of course this process is applied iteratively, and below are presented a few stages of positioning of the model over the scan:
+
+                .. image:: images/initial1.jpg
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+                .. image:: images/initial2.jpg
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+		The correspondences between the points is determined by comparing the orientation of the vertices from the model with the closest points from the scan. Here you can see an example with the correspondences. Note that at the edges of the scan, the corresponces tend to form pyramids, because a lot of points from the model have the same closest neighbour.
+
+
+                .. image:: images/correspondences.jpg
+                        :width: 650px
+                        :height: 400px
+                        :align: center
+
+
+
+
+        * **Non-Rigid Transformation**
+
+		
+
+		Once the model is roughly aligned, we need to modify the shape of the model to match the face from the scan. For this we make use of the eigenvectors computed in the previous phase and we calculate a Jacobian matrix for the system: :math:`\vec {y} = P \cdot \vec{d} + \vec{model}`, where :math:`P` is the matrix of eigenvectors, :math:`\vec{model}` is the current form of the model and :math:`\vec{d}` is the vector of basis coefficients that need to be determined. 
+
+		However, there is on more constraint to be applied and that is to minimize the sum :math:`\sum_i \frac{d_i}{\sigma_i}`, where :math:`\sigma_i` is the eigenvalue of the corresponding eigenvector. Therefore, to the Jacobian matrix of this transformation, we need to add a diagonal matrix with :math:`\frac{1}{\sigma_i}` on the diagonal.
+
+
+
+        * **Results**
+
+		
+
+		As mentioned above, these functions are applied alternatively for a few number of times, and the following results were obtained:
+
+                .. image:: images/result.jpg
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+		The above picture was obtained after one iteration and the following one after 10:
+
+                .. image:: images/result10.jpg
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+
+
+
+
+
 
 
 
