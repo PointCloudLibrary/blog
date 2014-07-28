@@ -190,4 +190,47 @@ My status updates
                         
   
   Next post will have the details of how GRSD results are and how they differentiate the characteristics of two surfaces. GRSD code from the author will be integrated into the PCL code base. We also plan to categorize the pipeline into modules that fit into the PCL code base as features, surface and segmentation sections. These information will be posted in the next post.
-  
+ 
+
+
+.. blogpost::
+  :title: GRSD Descriptor computation and analysis
+  :author: kdesingh
+  :date: 28-07-2014
+
+  Global Radius-based surface descriptor concatenates the RSD descriptor as discussed in the previous post to represent the complete object.
+  GRSD gives a good description of the 3D shape of the object. Below are the set of objects and its GRSD descriptors i.e. histograms. I have
+  used University of Washington's "Large scale RGBD dataset" for the experiments.
+                      
+  For an object whose surface is planar but has 2 different planes in the view
+                      .. image:: images/box_image.png
+                        :height: 240px
+                      .. image:: images/box.png
+                        :height: 200px
+
+
+  For an object whose surface is planar but has 1 planes in the view
+                      .. image:: images/plane_image.png
+                        :height: 240px
+                      .. image:: images/plane.png
+                        :height: 200px
+
+  For an object whose surface is spherical
+                      .. image:: images/sphere_image.png
+                        :height: 240px
+                      .. image:: images/sphere.png
+                        :height: 200px
+
+  For an object whose surface is cylinderical but doesn't have any planar surface in view
+                      .. image:: images/cylinder_image.png
+                        :height: 240px
+                      .. image:: images/cylinder.png
+                        :height: 200px
+
+  It can be seen that all the descriptors are different from eachother. Planes and box surfaces are similar as the surface characteristics
+  are similar in this case.                         
+  Both GRSD and RSD are pushed into the pcl-trunk for people to use. The test files for these two features are also included in the trunk
+  for the basic usage of the same.
+
+  Currently working on the NURBS for small surface patches. Since NURBS are already available in PCL we will be looking at how to tailor the
+  same for our needs. After this we plan to work on the features that compute the relationship between the surface patches. 
