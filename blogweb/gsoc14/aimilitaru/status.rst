@@ -64,10 +64,10 @@ My status updates
 
         * **Introduction**
 
-		In the previous phase, it was presented how to obtain a statistical model from a set of face-meshes. The next step in our project is to "*match*" the mean face of the database, with the face obtain from a 3D Camera scan, like the one in the picture below:
+		In the previous phase, it was presented how to obtain a statistical model from a set of face-meshes. The next step in our project is to "*match*" the mean face of the database, with the face of a random person, like the one in the picture below:
 
 
-                .. image:: images/scan.jpg
+                .. image:: images/target.png
                         :width: 650px
                         :height: 300px
                         :align: center
@@ -77,44 +77,62 @@ My status updates
 
 
 
-        * **Rigid Transformation**
+        * **Rigid Registration**
 
 		
 
-		This method is very similar to the Iterative Closest Point Cloud algorithm, because the goal is to estimate a rotation matrix and a translation vector that would move the average face to an optimal position, near the face of the kinect. Basically, it is required to minimize the error :math:`\epsilon =  \sum ||\vec {y} - (R \cdot \vec{x} + \vec{t})||^2` and this is done by calculating the Jacobian matrix of this system.
+		This method is very similar to the Iterative Closest Point Cloud algorithm, because the goal is to estimate a rotation matrix and a translation vector that would move the average face to an optimal position, near the face of the kinect. Basically, it is required to minimize the error :math:`\epsilon =  \sum ||\vec {y} - (R \cdot \vec{x} + \vec{t})||^2` and this is done by calculating the solution of this system in the least square sense. In order to calculate this solution, the system is first linearized using the Jacobian matrix.
 
 		Of course this process is applied iteratively, and below are presented a few stages of positioning of the model over the scan:
 
-                .. image:: images/initial1.jpg
+                .. image:: images/debug_1.png
                         :width: 650px
                         :height: 300px
                         :align: center
 
 
-                .. image:: images/initial2.jpg
+                .. image:: images/debug_2.png
                         :width: 650px
                         :height: 300px
                         :align: center
 
-		The correspondences between the points is determined by comparing the orientation of the vertices from the model with the closest points from the scan. Here you can see an example with the correspondences. Note that at the edges of the scan, the corresponces tend to form pyramids, because a lot of points from the model have the same closest neighbour.
 
-
-                .. image:: images/correspondences.jpg
+                .. image:: images/debug_4.png
                         :width: 650px
-                        :height: 400px
+                        :height: 300px
+                        :align: center
+
+
+                .. image:: images/debug_5.png
+                        :width: 650px
+                        :height: 300px
                         :align: center
 
 
 
 
-        * **Non-Rigid Transformation**
+
+        * **Non-Rigid Registration**
 
 		
 
-		Once the model is roughly aligned, we need to modify the shape of the model to match the face from the scan. For this we make use of the eigenvectors computed in the previous phase and we calculate a Jacobian matrix for the system: :math:`\vec {y} = P \cdot \vec{d} + \vec{model}`, where :math:`P` is the matrix of eigenvectors, :math:`\vec{model}` is the current form of the model and :math:`\vec{d}` is the vector of basis coefficients that need to be determined. 
+		Once the model is roughly aligned, we need to modify the shape of the model to match the face from the scan. For this we make use of the eigenvectors computed in the previous phase and we calculate the optimal solution of this system: :math:`\vec {y} = P \cdot \vec{d} + \vec{model}`, where :math:`P` is the matrix of eigenvectors, :math:`\vec{model}` is the current form of the model and :math:`\vec{d}` is the vector of basis coefficients that need to be determined. 
 
-		However, there is on more constraint to be applied and that is to minimize the sum :math:`\sum_i \frac{d_i}{\sigma_i}`, where :math:`\sigma_i` is the eigenvalue of the corresponding eigenvector. Therefore, to the Jacobian matrix of this transformation, we need to add a diagonal matrix with :math:`\frac{1}{\sigma_i}` on the diagonal.
+		However, there is on more constraint to be applied and that is to minimize the sum :math:`\sum_i \frac{d_i}{\sigma_i}`, where :math:`\sigma_i` is the eigenvalue of the corresponding eigenvector. Therefore, to the Jacobian matrix of this system, we need to add a diagonal matrix with :math:`\frac{1}{\sigma_i}` on the diagonal and multiplied by a certain weight. 
 
+		The purpose of this regualrization is to determine to what degree the face should be deformed. The eigenvectors are stored in the :math:`P` matrix in decreasing order according to their eigenvalues and their position in this sorting order determines whether they have a greater or a smaller influence on the shaping of the model. When the model is mostly overlapping with the face in the scan, more information can be drawn about the final figure, hence the weight specified above should be smaller . On the other hand, if the model is not yet aligned with the scan, the deforming should be smaller and thus the weight should be bigger. Below you can see how the model looks for several values of the weight:
+
+                .. image:: images/weight1.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+                .. image:: images/weight2.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+		Notice that the shaping process tends to return the same effect if the weight of the regularizing constraint exceeds a certain value.
 
 
         * **Results**
@@ -123,25 +141,22 @@ My status updates
 
 		As mentioned above, these functions are applied alternatively for a few number of times, and the following results were obtained:
 
-                .. image:: images/result.jpg
+                .. image:: images/result.png
                         :width: 650px
                         :height: 300px
                         :align: center
 
 		The above picture was obtained after one iteration and the following one after 10:
 
-                .. image:: images/result10.jpg
+                .. image:: images/result10.png
                         :width: 650px
                         :height: 300px
                         :align: center
 
+		Also, below you can observe the precision of this method, the black figure representing the final version of the model and the green one representing the point cloud of the face:
 
-
-
-
-
-
-
-
-
+                .. image:: images/result_overlap.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
 
