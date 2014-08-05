@@ -11,7 +11,7 @@ I am a graduate student at the Bundeswehr University Munich.
 
 Introduction
 -------------
-PCL provides a greate frame work based on the ransac family of algorithms for fitting basic geometric primitives e.g Planes, Cylinders, e.t.c.
+PCL provides a great frame work for fitting geometric primitives e.g Planes, Cylinders, e.t.c. Most of these algorithms are based on the RANSAC paradigm.
 In this work however, we aim at solving the model fitting tasks using a Bayesian approach. Amongst others, this approach has the advantage of being very flexible and
 generic i.e. both parametric and non-parametric (e.g. curves, surfaces using splines) models can be fitted.
 
@@ -33,12 +33,18 @@ Meeting 1-2
 
 Meeting 3
 ---------
+- Consider the case when data is sequentially comming in, i.e tracking.
+- How to initialize a tracker ?
+- How to make a random proposal to a direction vector ? Quarterions maybe helpful ?
+
+Meeting 4
+---------
 
 Recent status updates
 ---------------------
 
 .. blogbody::
-  :author: my_username
+  :author: William Nguatem
   :nr_posts: 5
 
 
