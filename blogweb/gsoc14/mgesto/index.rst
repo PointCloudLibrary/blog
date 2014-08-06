@@ -14,7 +14,7 @@ Recent status updates
 
 .. blogbody::
   :author: Manuel_Gesto
-  :nr_posts: 1
+  :nr_posts: 4
 
 
 
