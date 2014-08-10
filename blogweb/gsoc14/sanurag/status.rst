@@ -35,6 +35,7 @@ We have used Top-Down approach in our implementation because it is faster than B
 **Figure1: Morton Code Generation**
 
 2). **Sorting:** For sorting the Morton codes we have used bitonic sorting algorithm. Sorting is used to separate the different Morton codes based on their levels.
+
 3). **Octree Building:** For octree building we have used spatial clustering based method. After Morton coding of x, y, z coordinates each coordinate is represented by single number and each three bits represents one level of octree. After bitonic sorting, we first partition the whole range based on their most significant bits (MSB) starting from range 0 to 7. By this approach, we found the clusters of numbers which have the same MSB which logically represent the spatially neighbor coordinate. After this, we partition each cluster next to their MSB bits. We repeat this until we come to last level or we have least number of leaves left at the end. The highest level of tree which has all the clusters called root node and its partitioned are called nodes. The nodes at the last level are called child nodes and intermediate levels called parent nodes. In this approach, we start from root nodes and then move to leaf nodes that why it is called Top-Down Approach.                                  
 
 
@@ -42,5 +43,12 @@ We have used Top-Down approach in our implementation because it is faster than B
 	   :width: 1338px
 	   :height: 766px
 	   :align: center
-**Figure2: Octree Building Steps**
+**Figure2:Top-Down Approach with highest level with sorted root node and lower level clustered nodes.**
+
+* **Octree Searching:**
+We have implemented point based Approximate nearest search, Radius search and brute force search which search the points in the octree. Next target is to implement this searching on cloud of points in parallel.
+
+* **Filtering Module:** In filtering module lot of algorithms depends on octree based searching which can be optimized by using parallel octree based implementation. We have also optimized some algorithms like median filter; pass through filter, Nan Removal, Convolution, min-max calculation etc. which are not dependent on octree.   
+
+* **Tracking Module:**  We have optimized particle filtering based tracking inside tracking module. Particle filtering based mostly depends on filtering and searching so we have used optimized filtering and searching. For searching we added PCL search module inside tracking module and added octree method inside it. We have also optimized point based coherence methods like RGBtoHSV conversion and bounding box calculation inside PCL. 
 
