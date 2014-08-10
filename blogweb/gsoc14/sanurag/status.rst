@@ -54,9 +54,7 @@ We have used Top-Down approach in our implementation because it is faster than B
 
 * **Octree Searching:** We have implemented point based Approximate nearest search, Radius search and brute force search which search the points in the octree. Next target is to implement this searching on cloud of points in parallel.
 
-
 * **Filtering Module:** In filtering module lot of algorithms depends on octree based searching which can be optimized by using parallel octree based implementation. We have also optimized some algorithms like median filter; pass through filter, Nan Removal, Convolution, min-max calculation etc. which are not dependent on octree.   
-
 
 * **Tracking Module:**  We have optimized particle filtering based tracking inside tracking module. Particle filtering based mostly depends on filtering and searching so we have used optimized filtering and searching. For searching we added PCL search module inside tracking module and added octree method inside it. We have also optimized point based coherence methods like RGBtoHSV conversion and bounding box calculation inside PCL. 
 
