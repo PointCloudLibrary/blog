@@ -12,7 +12,8 @@ My status updates
   :date: 08-08-2014
 
       * **Introduction**
-        Point cloud library (PCL) is a collection of algorithms which can be used from simple computer vision applications (filtering, object recognition) to highly computationally expensive machine learning applications. PCL is used today in various fields like robotics, gaming, entertainment, computer vision, medical etc. PCL is cross-platform library, and can be used from Desktop to mobile platforms. To simplify development, PCL is separated into several modules like filtering, features, registration etc. These modules have algorithms which are computationally expensive and from them real time performance is required.
+
+Point cloud library (PCL) is a collection of algorithms which can be used from simple computer vision applications (filtering, object recognition) to highly computationally expensive machine learning applications. PCL is used today in various fields like robotics, gaming, entertainment, computer vision, medical etc. PCL is cross-platform library, and can be used from Desktop to mobile platforms. To simplify development, PCL is separated into several modules like filtering, features, registration etc. These modules have algorithms which are computationally expensive and from them real time performance is required.
 
 OpenCL Module for PCL is one among the others attempt which are trying to increase the user productivity by increasing real time performance of algorithms. The goal of this GSOC Project is to optimize PCL modules using OpenCL so that these optimized modules can be used on various heterogeneous platforms.
 
