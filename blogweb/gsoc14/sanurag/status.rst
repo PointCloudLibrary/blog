@@ -21,7 +21,7 @@ For implementing an OpenCL algorithm, we have to allocate the memory to device, 
 
 The most important two modules which are used mostly inside PCL library are filtering and searching. During this summer we have optimized some filtering algorithms and wrote the whole octree based searching method using OpenCL which is used in almost all PCL modules. We have also optimized the tracking library which uses particle filtering based tracker to track the object and heavily depends on searching and filtering modules.
 
-* **Searching Module (Octree Search) ** 
+* **Searching Module (Octree Search)** 
 
 There are two known methods for optimizing octree building and searching. One is Bottom to top approach and another is Top-Down approach. Both of these methods are dependent on Space Filling Curves (Morton Codes). Morton Codes simplify the problem by representing the 3D points in single format (Morton code). It first chooses the order in which the leaf nodes (each corresponding to one object) appear in the tree, and then generating the internal nodes in a way that respects this order. We generally want objects that located close to each other in 3D space to also reside nearby in the hierarchy, so a reasonable choice is to sort them along a space-filling curve.
 
@@ -52,10 +52,11 @@ We have used Top-Down approach in our implementation because it is faster than B
 	   :align: center
 **Figure2:Top-Down Approach with highest level with sorted root node and lower level clustered nodes.**
 
-* **Octree Searching:**
-We have implemented point based Approximate nearest search, Radius search and brute force search which search the points in the octree. Next target is to implement this searching on cloud of points in parallel.
+* **Octree Searching:** We have implemented point based Approximate nearest search, Radius search and brute force search which search the points in the octree. Next target is to implement this searching on cloud of points in parallel.
+
 
 * **Filtering Module:** In filtering module lot of algorithms depends on octree based searching which can be optimized by using parallel octree based implementation. We have also optimized some algorithms like median filter; pass through filter, Nan Removal, Convolution, min-max calculation etc. which are not dependent on octree.   
+
 
 * **Tracking Module:**  We have optimized particle filtering based tracking inside tracking module. Particle filtering based mostly depends on filtering and searching so we have used optimized filtering and searching. For searching we added PCL search module inside tracking module and added octree method inside it. We have also optimized point based coherence methods like RGBtoHSV conversion and bounding box calculation inside PCL. 
 
