@@ -33,7 +33,13 @@ We have used Top-Down approach in our implementation because it is faster than B
 	   :width: 908px
 	   :height: 628px
 	   :align: left
-**Figure1: Morton Code Generation**
+
+.. image:: images/QuadTree.png
+	   :width: 554px
+ 	   :height: 454px
+	   :align: right
+
+**Figure1: Morton Code Generation and Quadtree**
 
 2). **Sorting:** For sorting the Morton codes we have used bitonic sorting algorithm. Sorting is used to separate the different Morton codes based on their levels.
 
