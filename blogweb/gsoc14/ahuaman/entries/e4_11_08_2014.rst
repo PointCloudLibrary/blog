@@ -1,0 +1,68 @@
+.. blogpost::
+   :title: 3. Some real results! (a.k.a. Not hacks!)
+   :author: ahuaman
+   :date: 08-11-2014
+
+   In this post I will show you some results I got yesterday of our demo code 
+   working in a slightly cluttered scenario and fitting superquadrics to 
+   household objects.
+
+   Here is the environment we wish to recognize:
+
+   .. image:: images/e4/originalPointcloud.png
+	      :height: 240px
+	      :align: center
+
+   Here are the fitting results:
+
+   .. image:: images/e4/fitted_sq.png
+	      :height: 240px
+	      :align: center
+
+   Here a bit more of detail with the colored pointclouds:
+
+   .. image:: images/e4/fitted_sq_onTop.png
+	      :height: 240px
+	      :align: center
+
+   And here the fitted superquadrics alone for a better view:
+
+   .. image:: images/e4/fitted_sq_alone.png
+	      :height: 240px
+	      :align: center
+
+
+   The code used for the results shown in the rest of this post can be found `here <https://github.com/ana-GT/pcl/blob/sq-fitting/apps/sq_fitting/demo>`_ . 
+   
+   So, how does this code work? A general overview would go like this:
+
+   1. Connect your Kinect to your PC :0}
+   2. A snapshot of a pointcloud (captured by OpenNI grabber) is taken (demo.cpp)
+   3. The pointcloud captured is segmented (table + objects) in clusters (demo.cpp)
+   4. The clusters (one-view) are mirrored based on [Bohg2011]_ (tabletop_symmetry/mindGapper.cpp)
+   5. The mirrored clouds are then fitted to a SQ (SQ_fitter_test1.cpp)
+
+   **Observations:**
+
+   1. Using mirrored pointclouds helps substantially to the fitting process.
+   2. I have implemented the optimization process using two different libraries: 
+      `levmar <http://users.ics.forth.gr/~lourakis/levmar/>`_ and 
+      `ceres <http://code.google.com/p/ceres-solver/>`_. 
+      While ceres have to be installed from a external repo, levmar can just be added to the code (sq_fitting/levmar). It only depends on lapack and it is lightweight. I have to test how both compare in processing times. The results I am attaching were obtained using the levmar optimization process.
+   3. If you noticed, the milk carton was not fitted. I got an spurious result there given that the mirroring code did not work well with that object.
+   4. Fitting times (still in debug mode, not optimized and with warning printouts here and there) is < 2 seconds in my old laptop.
+   5. You might notice that for one of the objects (the blue water container) the fitting produces a SQ longer than needed (cross the table). How to limit it to be shorter?
+   6. For objects like the tuna can, in which the "bigger axis" (assumed to be Z) is horizontal, the fitting is not exactly as it should be (the revolution axis should be UP, but it is horizontal. How to deal with objects that are wider than taller?
+
+   **Things to figure out:**
+
+   1. Levmar or Ceres? So far I am more inclined towards levmar since it is smaller and - other than lapack, which should be installed on most Linux machines - it can be modified. I know Ceres is fairly popular but I am not sure if we need all that power.
+   2. Figure out the "wide" objects issue.
+   3. Improve my mirror code for cases like the milk carton with bad viewing angles.
+
+
+
+
+   .. [Bohg2011] Bohg, Jeannette, et al. "Mind the gap-robotic grasping under incomplete observation." Robotics and Automation (ICRA), 2011 IEEE International Conference on. IEEE, 2011.
+
+
