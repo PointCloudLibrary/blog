@@ -8,7 +8,7 @@ My status updates
 .. blogpost::
   :title: Object discovery in KINFU DATA (First post)
   :author: Manuel_Gesto
-  :date: 30-07-2014
+  :date: 20-07-2014
 
         * **Introduction**
               
@@ -19,11 +19,7 @@ My status updates
                
                This automatic object discovery will be useful for robotics or autonomous vehicles and 
                it will be able to find different class of objects. This new approach compares different 
-               parameters of an object to classify it into a class. We can explain the function of this 
-               approach by giving a simple example: if we want to find a glass into an unknown room, we cannot 
-               have a model of all the glasses in the world. But, we can have a number of parameters about the 
-               shape that define the common parts of the glasses.
-               
+               parameters of an object to classify it into a class and diffence the objects 
                The parameters that defined a object is based on the: "Objectness measures" part in the paper. This
                is the core of the app and the most important part. And probably a good part to begin to code because is
                quite easy to code.
@@ -42,7 +38,7 @@ My status updates
               to make this measures for each Point Cloud. The input in the code is a point cloud (or set of pointclouds) and the output a vector 
               with the values of the resultant measure. To simplify the code part and the use of this for other aplications, 
               this part is separated from the segmentation, also if anyone want to use other segmentation that the proposed in 
-              the paper is usefull.
+              the paper is usefull. 
               
               
          * **"Objectnes measures"**
@@ -78,8 +74,101 @@ My status updates
 .. blogpost::
   :title: Second implementation of Code  "Segmentation and creation of object candidates" (Third post)
   :author: Manuel_Gesto
-  :date: 30-07-2014
+  :date: 11-08-2014
   
          * **Introduction**
               
-              I am working on it, This is based on the Segmentation proposed by y Felzenszwalb and Huttenlocher.
+                The implementation of the Efficient Graph-Based Segmentation, base on:
+
+			Efficient Graph-Based Image Segmentation
+			Pedro F. Felzenszwalb and Daniel P. Huttenlocher
+			International Journal of Computer Vision, Volume 59, Number 2, September 2004
+
+			.. _Segmentation: http://cs.brown.edu/~pff/segment/	
+
+	 * **Work** 
+	     
+		Due to license problems, I had to re-implement the code of the segmentation, also I need to implement the same code to use 
+		in Mesh and Point Clouds. To use in images, we need to create a graph, based on a image. To improve the 
+		results, In the paper recommend to smooth the image before the segmentation. I use the gauss filter implemented 
+		in PCL, for this purpose. After the code was written, and with the access to original code, I made some test to
+		check if the segmentation was good.
+
+		The first test ,was about the segmentation without the gauss filter applied for each case and after, I made the same picture
+		with the gauss filter .
+
+	* **Results** 	
+		
+					Without Gauss Filter(Original Code)
+
+					***********************************
+
+			
+	                             .. image:: images/originalwithouts.png
+
+		As we can see in this image, there are a lot of segments, but if we compare this image with the next image, the adapted code
+		is the same segments in both of them. The colors are different, because the colorization is generated random.
+					
+					Without Gauss Filter(Adapted Code)
+
+					**********************************
+
+				     .. image:: images/adaptedwithouts.png
+
+  		
+		Then a test, with a sigma for the Gaussian filter of 0.5, and a threshold for the algorithm of 500 was made in the
+		same image for both cases.
+					
+					With Gauss Filter (Original Code)
+
+					*********************************
+
+				      .. image:: images/originalwiths.png
+
+					With Gauss Filter (Adapted Code)
+
+					********************************
+
+					.. image:: images/adaptedwiths.png
+
+		Here we can make that, there are some differences. After some research in the code. I found that, when we compute the weight
+		for the graph, there are some minimal differences, this gives us the idea, that the smooth of the image, is different in both cases.
+		Is small difference, some decimals, but this creates a different result. I didn´t make more research about it, because is
+		not part of the GSoC task.
+		
+		* **Point Cloud segmentation** 
+		
+		Once we have the graph segmentation working, the next step is made the algorithm to use with Point Clouds.
+
+		For that, the only thing that is needed to use, is create a new graph based on the difference of normal or curvature.
+
+		As we now, that the part of graph segmentation, we only need to check if the graph is generated correctly. For that 
+		I apply the segmentation to a mesh, and return the Point Cloud, this point cloud have some segments. Each segment have a unique color to 
+		see if it´s correct. 
+
+						RESULTS
+
+						********
+		The original mesh
+
+ 					.. image:: images/inicial_mesh.png
+
+		The mesh segmented 
+
+					.. image:: images/segmented_mesh.png
+
+		The results are correct, this mesh have a lot of different objects, and this objects are well segmented, can be
+		asociated for one possible object in the scene. Each of this objects, will be apply the diferent measures to test and 
+		discover if is a possible object or not.
+
+.. blogpost::
+  :title: Final Example  "Final example" (Fourth post)
+  :author: Manuel_Gesto
+  :date: 12-08-2014
+		
+		
+         * **Introduction**
+
+		Once we have the segmentation, and the functions to make the measures of the segmented candidates to objects, we need to 
+		create a example where we analyze all segments and we decide which ones are objects or not. Also the objects that have more 
+		similarities in the measures, we can classify into a category. I am working in this example, I will update the details.
