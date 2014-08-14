@@ -8,7 +8,7 @@ My status updates
 .. blogpost::
   :title: Object discovery in KINFU DATA (First post)
   :author: Manuel_Gesto
-  :date: 20-07-2014
+  :date: 07-20-2014
 
         * **Introduction**
               
@@ -30,7 +30,7 @@ My status updates
 .. blogpost::
   :title: First implementation of Code  "Objectness measures" (Second post)
   :author: Manuel_Gesto
-  :date: 30-07-2014
+  :date: 07-30-2014
   
          * **Introduction**
               
@@ -74,7 +74,7 @@ My status updates
 .. blogpost::
   :title: Second implementation of Code  "Segmentation and creation of object candidates" (Third post)
   :author: Manuel_Gesto
-  :date: 11-08-2014
+  :date: 08-11-2014
   
          * **Introduction**
               
@@ -101,8 +101,6 @@ My status updates
 		
 					Without Gauss Filter(Original Code)
 
-					***********************************
-
 			
 	                             .. image:: images/originalwithouts.png
 
@@ -110,8 +108,6 @@ My status updates
 		is the same segments in both of them. The colors are different, because the colorization is generated random.
 					
 					Without Gauss Filter(Adapted Code)
-
-					**********************************
 
 				     .. image:: images/adaptedwithouts.png
 
@@ -121,15 +117,15 @@ My status updates
 					
 					With Gauss Filter (Original Code)
 
-					*********************************
+					
 
 				      .. image:: images/originalwiths.png
 
+
 					With Gauss Filter (Adapted Code)
 
-					********************************
-
-					.. image:: images/adaptedwiths.png
+					
+				      .. image:: images/adaptedwiths.png
 
 		Here we can make that, there are some differences. After some research in the code. I found that, when we compute the weight
 		for the graph, there are some minimal differences, this gives us the idea, that the smooth of the image, is different in both cases.
@@ -148,12 +144,12 @@ My status updates
 
 						RESULTS
 
-						********
-		The original mesh
+						
+						The original mesh
 
  					.. image:: images/inicial_mesh.png
 
-		The mesh segmented 
+						The mesh segmented 
 
 					.. image:: images/segmented_mesh.png
 
@@ -164,7 +160,7 @@ My status updates
 .. blogpost::
   :title: Final Example  "Final example" (Fourth post)
   :author: Manuel_Gesto
-  :date: 12-08-2014
+  :date: 08-12-2014
 		
 		
          * **Introduction**
