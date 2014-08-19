@@ -234,3 +234,115 @@ My status updates
 
   Currently working on the NURBS for small surface patches. Since NURBS are already available in PCL we will be looking at how to tailor the
   same for our needs. After this we plan to work on the features that compute the relationship between the surface patches. 
+
+
+.. blogpost::
+  :title: Different Feature representation of surface patches and analysis
+  :author: kdesingh
+  :date: 18-08-2014
+  
+  This project aims at getting features for each surface patch and group them to gether based on a machine learning technique. I have been experimenting
+  on the features that could represent the surface patches belonging to an object and how they relate with the inter and intra object surface patches.
+  Below are some of them, with their description and plots.
+
+  For all the below analysis please look at the image below and the segments derived out of basic `region growing <http://pointclouds.org/documentation/tutorials/region_growing_segmentation.php>`_ which doesn't make use of RGB color and purely based on surface curvature. 
+
+                      .. image:: images/segmentation.png
+                        :height: 300px
+                        :align: center
+
+  **ColorHistogram:** 
+  Binning colors is pretty normal thing to get the appearance cues. But they can be done in two ways. One that captures the color channels independently
+  and the other that captures a dependent binning. In this section I am showing the independent binning of values on three different channels. Independent means at a pixel/point in scene we check RGB values different and increment the bin where these values belong to. Below is the plot that shows how the histograms look like for RGB and HSV color space. 
+
+                      .. image:: images/color_rgb.png
+                        :height: 350px
+                        :align: center
+                      .. image:: images/color_hsv.png
+                        :height: 350px
+                        :align: center
+
+  
+  **ColorHistogram 3D:**                        
+  Binning colors dependently means having a matrix with RGB in 3 dimensions and increment the value of the (r, g, b) bin only if that combination is 
+  satified. This gives a 3D histogram. Below images show the 3D histogram concatenated to a 1D histogram for RGB, HSV and YUV color space. This binning style is 
+  referred from [1].
+
+                      .. image:: images/colorh_3d_rgb.png
+                        :height: 350px
+                        :align: center
+                      .. image:: images/colorh_3d_hsv.png
+                        :height: 350px
+                        :align: center
+                      .. image:: images/colorh_3d_yuv.png
+                        :height: 350px
+                        :align: center                        
+   
+  **Verticality:**
+  Verticality actually represents how the surface patch is orientated with respect to the camera viewpoint. Histogram is developed by binning the 
+  difference of angles between the normals and the direction in which the camera is pointing to (i.e the positive z axis for any point cloud from 
+  Kinect). Below is the histogram plot for this feature. However this is not so useful to this segmentation project but more aimed towards the object 
+  discovery and saliency related problems to distinguish the a surface patch from its peers. This is implemented based on [2] which was adopted from [3].
+
+                      .. image:: images/verticality.png
+                        :height: 350px
+                        :align: center
+
+
+  **Dimentionality Compactness:**
+  This actually shows how compact a surface patch is. One could do a PCA of a surface patch and derive a local frame of reference. This when followed by 
+  creating a bounding box gives the 3 dimensions in which the patch ranges the max. This bounding box will have 3 dimensions and their ranges are computed. Once this ranges (xrange, yrange, zrange) are sorted into min_range, mid_range and max_range, two ratios are computed. 1) min_range / max_range and 2) mid_range / max_range. Below is plot of this histogram for the above mentioned segments. This is implemented based on [2] which was adopted from [3].
+
+                      .. image:: images/dimensionality_compactness.png
+                        :height: 325px
+                        :align: center
+
+
+  **Perspective scores:**
+  This is the ratio of the area projected in the image to the maximum area spread by the region in 3D. The pixel_range below means the bounding box range in the
+  particular direction of the image pixels. xrange, yrange and zrange are the dimentions of the 3D bounding box of the surface patch. Note that PCA shouldn't done here as we are comparing the 3D surface patch with its appearance on the image. This is implemented based on [2] which was adopted from [3]. Below are the elements of the 
+  histogram.
+	
+	1) pixel_x_range (in meters) / xrange
+
+	2) pixel_x_range (in meters) / yrange
+
+	3) pixel_x_range (in meters) / zrange
+
+	4) pixel_y_range (in meters) / xrange
+
+	5) pixel_y_range (in meters) / yrange
+
+	6) pixel_y_range (in meters) / zrange
+
+	7) diameter_of_bounding_box_pixels (in meters)/ diameter_of_cuboid_bounding_box_in_3d
+
+	8) area_of_bounding_box (in metersquare) / area_of_the_largest_two_dimentions_in_3d
+
+
+                      .. image:: images/perspective_hist.png
+                        :height: 350px
+                        :align: center
+
+  **Contour Compactness:**
+  
+  This is the ratio of the perimeter to the area of the region. This is the ratio of number of boundary points computed for a segment to the total 
+  number of points in the region. This is implemented based on [2] which was adopted from [3].
+
+                      .. image:: images/contour_compactness.png
+                        :height: 350px
+                        :align: center 
+
+  **Referrences:**
+  
+  [1] A.Richtsfeld, T. Mörwald, J. Prankl, M. Zillich and M. Vincze: Learning of Perceptual Grouping for Object Segmentation on RGB-D Data; Journal of Visual Communication and Image Representation (JVCI), Special Issue on Visual Understanding and Applications with RGB-D Cameras, July 2013.
+
+  [2] Karthik Desingh, K Madhava Krishna, Deepu Rajan, C V Jawahar, "Depth really Matters: Improving Visual Salient Region Detection with Depth", BMVC 2013.
+  
+  [3] Alvaro Collet Romea, Siddhartha Srinivasa, and Martial Hebert, "Structure Discovery in Multi-modal Data : a Region-based Approach", ICRA 2011.
+
+  These features will go into the features module of the pcl_trunk pretty soon. Currently working on the relational features which tells how two
+  surfaces are related to each other. Next blog post should be on that.                        
+
+  Almost close to the end stage of GSoC, but this project has long way to go! Hope to keep pushing stuff till the entire pipeline is up on PCL.
+
