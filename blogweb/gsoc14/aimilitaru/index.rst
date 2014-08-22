@@ -2,7 +2,7 @@ Andrei Militaru
 =================
 
 :email: militaru.andrei92@gmail.com	
-:project: Face Shift
+:project: Face Tracking
 :mentor: Alexandru Eugen Ichim
 
 About me

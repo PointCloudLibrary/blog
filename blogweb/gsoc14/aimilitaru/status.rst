@@ -160,3 +160,74 @@ My status updates
                         :height: 300px
                         :align: center
 
+
+
+.. blogpost::
+  :title:  Improved inputs and results ( Third phase )
+  :author: aimilitaru
+  :date: 22-08-2014
+
+        * **Introduction**
+
+		In this phase, the focus was to integrate the pcl::KinfuTracker class and the OpenCV libraries in order to provide better input clouds for the Rigid/Non-Rigid Registration methods and thus to obtain better results.
+
+        * **Approach**
+
+		By using the pcl::KinfuTracker class, it was possible to obtain an almost full scan of the heads of the subjects like the ones presented below:
+
+
+                .. image:: images/sub1_front.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+                .. image:: images/sub2_front.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+		Using the pcl::KinfuTracker had the disadvantage that unwanted objects were also scanned during the procedure, however by using the cv::CascadeClassifier, the program was able to pin-point the position of the head and move the statisitcal model to a favorable position so that the Rigid Registration method could fully align the model. ( The sphere represents the center of the face)
+
+
+                .. image:: images/sub1_opencv.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+        * **Results**
+
+		Obtaining better input point-clouds, allowed to better analyze the efficiency of these types of registrations. As stated in the previous post, the accuracy of the result depends on the regularizing weight of the Non-Rigid Registration, however there is one more parameter to take into account. The training set of face meshes was registered on a ten times smaller scale than the PCL point clouds are stored in. Intuitively, this means that when the program reads the database it should register the values as ten times smaller, however the subjects used for testing this program did not have heads of exactly the same size.
+
+		Below, you have an example of what happens when the scale is not set right:
+
+                .. image:: images/wrong_scale.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+		This result was obtained because, as it is presented in the folowing picture, the chin of the model was matched with the neck of the target, even though the rest of the face seems to be in position:
+
+
+                .. image:: images/chin.png
+                        :width: 450px
+                        :height: 300px
+                        :align: center
+
+		Once the scale was properly established the correct result was obtained:
+
+                .. image:: images/correct_scale.png
+                        :width: 650px
+                        :height: 300px
+                        :align: center
+
+
+        * **Feature work**
+
+		- A method should be implemented so that it would not be necessary to set the right scale, no matter what kind of person is being scanned (child/adult)
+		- The pcl::KinfuTracker class has not been officially released, thus further maintenance of the prgram is required
+		- The Registration methods presented so far have to be compared to other methods like the ones already implemented in PCL
+
+
