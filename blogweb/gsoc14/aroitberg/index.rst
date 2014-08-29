@@ -11,7 +11,7 @@ I am a computer science student interested in computer vision and machine learni
 
 Project description
 -------------------
-The core of this project is to apply machine learning algorithms on skeletal data obtained from an RGB-D sensor to automatically detect current activity of the user and to develope a program that would recognize human activities.
+The core of this project is to apply machine learning algorithms on skeletal data obtained from an RGB-D sensor to automatically detect activity of the user.
 
 
 Recent status updates
