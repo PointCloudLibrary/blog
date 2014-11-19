@@ -6,7 +6,7 @@
    The project "Stereo-based road area detection" has been started!
 
 .. blogpost::
-   :title: Progress on stereo-based road area detection.
+   :title: Progress on stereo-based road area detection
    :author: tibadov
    :date: 06-05-2013
 
@@ -91,7 +91,7 @@
       :align: center
 
 .. blogpost::
-   :title: First results.
+   :title: First results
    :author: tibadov
    :date: 10-28-2013
 
@@ -115,7 +115,7 @@
       :align: center
 
 .. blogpost::
-   :title: Results on the Castro dataset.
+   :title: Results on the Castro dataset
    :author: tibadov
    :date: 03-31-2014
 
@@ -138,3 +138,13 @@
 
    .. image:: img/castro_results_disp.png
       :align: center
+.. blogpost::
+   :title: HRCS Stereo-based Road Area Detection final report
+   :author: atrevor
+   :date: 11-13-2012
+
+   The Honda Research Institute code sprint was finished. All code was commited, the final report is attached below.
+
+   .. raw:: html 
+
+    <center><iframe src="http://docs.google.com/viewer?url=https%3A%2F%2Fgithub.com%2FPointCloudLibrary%2Fblog%2Fblob%2Fmaster%2Fblogweb%2Fhrcs%2Ftibadov%2Ffiles%2Ffinal_report.pdf%3Fraw%3Dtrue&embedded=true" width="600" height="800" style="border: none;"></iframe></center>
