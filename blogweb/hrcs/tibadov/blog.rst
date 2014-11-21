@@ -138,10 +138,11 @@
 
    .. image:: img/castro_results_disp.png
       :align: center
+
 .. blogpost::
    :title: HRCS Stereo-based Road Area Detection final report
-   :author: atrevor
-   :date: 11-13-2012
+   :author: tibadov
+   :date: 11-19-2014
 
    The Honda Research Institute code sprint was finished. All code was commited, the final report is attached below.
 
