@@ -40,6 +40,9 @@ the logos below to go to the respective sprint blog page.
 .. image:: _static/gsoc14.png
   :target: http://www.pointclouds.org/blog/gsoc14
   :class: foo
+.. image:: _static/simpletree.png
+  :target: http://www.pointclouds.org/blog/simpletree
+  :class: foo
 
 
 Completed Sprints
