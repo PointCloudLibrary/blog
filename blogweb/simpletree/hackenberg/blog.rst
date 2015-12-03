@@ -84,7 +84,7 @@
       :height: 200px
       :align: center
 
-   asd
+   Other possible parameters to extract are described in Hackenberg et al. 2015b.
 
         * **Crown representation**
 
@@ -102,7 +102,7 @@
       :height: 200px
       :align: center
 
-   asd
+   Only the convex hull's volume is for now written in Output files.
 
         * **ICP to align cloud of different years**
 
@@ -122,7 +122,7 @@
       :height: 140px
       :align: center
 
-   asd
+   The initial allignment (semi automatic) is described in Hackenberg et al. 2015b. 
 
         * **References**
 

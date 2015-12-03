@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# HRCS Website documentation build configuration file, created by
+# SimpleTree Website documentation build configuration file, created by
 # sphinx-quickstart on Wed May 18 10:28:01 2011.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'HRCS Website'
+project = u'SimpleTree Website'
 copyright = u'2012, PCL'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -165,7 +165,7 @@ html_show_copyright = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'HRCSWebsitedoc'
+htmlhelp_basename = 'SimpleTreeWebsitedoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -179,7 +179,7 @@ htmlhelp_basename = 'HRCSWebsitedoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'HRCSWebsite.tex', u'HRCS Website Documentation',
+  ('index', 'SimpleTreeWebsite.tex', u'SimpleTree Website Documentation',
    u'PCL', 'manual'),
 ]
 
@@ -212,7 +212,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'hrcswebsite', u'HRCS Website Documentation',
+    ('index', 'SimpleTreewebsite', u'SimpleTree Website Documentation',
      [u'PCL'], 1)
 ]
 html_sidebars = {

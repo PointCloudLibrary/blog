@@ -8,8 +8,7 @@ Jan Hackenberg
 About me
 --------
 
-I am currently a PhD candidate at the former Chair of Forest Growth (University of Freiburg). My research interests include
-geometrical tree modelling methods - in the field of computational forestry often reffered to as Quantitative Structure Modelling.
+I am currently a PhD candidate at the former Chair of Forest Growth (University of Freiburg). My research interests include geometrical tree modelling methods - in the field of computational forestry often reffered to as Quantitative Structure Modelling.
 
 Recent status updates
 ---------------------

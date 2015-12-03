@@ -1,4 +1,4 @@
-SimpleTree Code Sprint
+SimpleTree Project
 ---------------
 
 SimpleTree is a PCL based open source tool for the geometrical modelling of trees in the field of computational forestry.
