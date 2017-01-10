@@ -144,7 +144,7 @@
    :author: tibadov
    :date: 11-19-2014
 
-   The Honda Research Institute code sprint was finished. All code was commited, the final report is attached below.
+   The Honda Research Institute code sprint was finished. All code was commited, the `final report <https://github.com/PointCloudLibrary/blog/raw/master/blogweb/hrcs/tibadov/files/final_report.pdf>`_ is attached below.
 
    .. raw:: html 
 
