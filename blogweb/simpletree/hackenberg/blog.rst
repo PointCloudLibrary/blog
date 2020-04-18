@@ -1,5 +1,5 @@
 .. blogpost::
-   :title: SimpleTree - a PCL tool for geometrical tree modeling
+   :title: SimpleTree/SimpleForest - PCL tools for geometrical tree modeling
    :author: hackenberg 
    :date: 11-28-2015
 
@@ -12,9 +12,21 @@
 
    The geometrical building blocks of such models are commonly cylinders fitted into terrrestrial laser scan point clouds.
 
-   SimpleTree is an open source tool to build QSMs from TLS clouds `(SimpleTree homepage) 				<http://www.simpletree.uni-freiburg.de/index.html>`_. The released version is based on PCL 1.8.0.
+   SimpleTree is an open source tool to build QSMs from TLS clouds `(SimpleTree homepage) 				<https://simpleforest.org/>`_. The released version is based on PCL 1.8.0.
 
+        * **Update SimpleForest release**
 
+   Since 2019 the here-on presented algorithm is embedded in a forestry plot processing tool named SimpleForest `(SimpleForest homepage) 				<https://simpleforest.org/>`_, `(SimpleForest code base) 				<https://gitlab.com/SimpleForest/pluginSimpleForest>`_.
+
+   .. image:: img/plotAll.jpg
+      :width: 300px
+      :height: 200px
+      :align: center
+
+   .. image:: img/plotZoom.jpg
+      :width: 300px
+      :height: 200px
+      :align: center
 
    
         * **The cylinder fitting method**
